@@ -1,16 +1,5 @@
 [
   {
-    "timestamp": "2025-08-20T17:57:46.863Z",
-    "leader": "Large Cap Altcoins",
-    "strength": "Driving market performance",
-    "changes": {
-      "total": 1.4144871656878357,
-      "total2": 2.3875637887649637,
-      "total3": 1.757115473618622
-    },
-    "margin": 0.973076623077128
-  },
-  {
     "timestamp": "2025-08-20T18:02:47.634Z",
     "leader": "Large Cap Altcoins",
     "strength": "Driving market performance",
@@ -163,5 +152,16 @@
       "total3": 1.7967221144369732
     },
     "margin": 1.034691872900116
+  },
+  {
+    "timestamp": "2025-08-20T18:59:12.293Z",
+    "leader": "Large Cap Altcoins",
+    "strength": "Driving market performance",
+    "changes": {
+      "total": 1.473125113405728,
+      "total2": 2.5643881640018775,
+      "total3": 1.973324292233514
+    },
+    "margin": 1.0912630505961496
   }
 ]

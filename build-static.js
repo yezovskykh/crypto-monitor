@@ -87,67 +87,109 @@ async function buildStatic() {
         const bearishAlerts = [];
         const htfAlerts = [];
         
+        // Generate social analysis and AI predictions
+        let socialOverview = null;
+        let socialTrending = [];
+        
         // Only analyze coins if we have data
         if (coinsData && coinsData.length > 0) {
+            // Generate social analysis
+            try {
+                console.log('🔄 Generating social analysis...');
+                const socialAnalysis = await monitor.analyzeSocialSentiment(coinsData);
+                socialOverview = monitor.getSocialSentimentOverview();
+                socialTrending = monitor.getSocialTrending();
+                console.log('✅ Social analysis completed');
+            } catch (socialError) {
+                console.warn('⚠️  Social analysis failed:', socialError.message);
+            }
+            
             for (const coin of coinsData) {
-            const analysis = monitor.analyzeCoin(coin);
-            const bearishAnalysis = monitor.analyzeBearishCoin(coin);
-            const htfAnalysis = monitor.analyzeHTFInvestment(coin);
-            
-            if (analysis.score >= 6) {
-                const technicalAnalysis = monitor.calculateTechnicalAnalysis(coin);
+                const analysis = monitor.analyzeCoin(coin);
+                const bearishAnalysis = monitor.analyzeBearishCoin(coin);
+                const htfAnalysis = monitor.analyzeHTFInvestmentWithStability ? 
+                    monitor.analyzeHTFInvestmentWithStability(coin) : 
+                    monitor.analyzeHTFInvestment(coin);
                 
-                const alertData = {
-                    name: coin.name || 'Unknown',
-                    symbol: coin.symbol || 'unknown',
-                    price: coin.current_price || 0,
-                    rank: coin.market_cap_rank || 'N/A',
-                    change1h: coin.price_change_percentage_1h_in_currency || 0,
-                    change24h: coin.price_change_percentage_24h_in_currency || 0,
-                    change7d: coin.price_change_percentage_7d_in_currency || 0,
-                    score: analysis.score,
-                    signals: analysis.signals,
-                    technicalAnalysis: technicalAnalysis
-                };
-                bullishAlerts.push(alertData);
-            }
-            
-            if (bearishAnalysis.score >= 6) {
-                const technicalAnalysis = monitor.calculateTechnicalAnalysis(coin);
+                if (analysis.score >= 6) {
+                    const technicalAnalysis = monitor.calculateTechnicalAnalysis(coin);
+                    const aiPrediction = monitor.generateAIPrediction(coin, technicalAnalysis);
+                    const socialData = monitor.socialData?.latest?.[coin.id] || null;
+                    
+                    const alertData = {
+                        name: coin.name || 'Unknown',
+                        symbol: coin.symbol || 'unknown',
+                        price: coin.current_price || 0,
+                        rank: coin.market_cap_rank || 'N/A',
+                        change1h: coin.price_change_percentage_1h_in_currency || 0,
+                        change24h: coin.price_change_percentage_24h_in_currency || 0,
+                        change7d: coin.price_change_percentage_7d_in_currency || 0,
+                        volume: coin.total_volume || 0,
+                        marketCap: coin.market_cap || 0,
+                        score: analysis.score,
+                        signals: analysis.signals,
+                        type: 'bullish',
+                        technicalAnalysis: technicalAnalysis,
+                        aiPrediction: aiPrediction,
+                        socialData: socialData,
+                        lastUpdated: new Date().toISOString()
+                    };
+                    bullishAlerts.push(alertData);
+                }
                 
-                const alertData = {
-                    name: coin.name || 'Unknown',
-                    symbol: coin.symbol || 'unknown',
-                    price: coin.current_price || 0,
-                    rank: coin.market_cap_rank || 'N/A',
-                    change1h: coin.price_change_percentage_1h_in_currency || 0,
-                    change24h: coin.price_change_percentage_24h_in_currency || 0,
-                    change7d: coin.price_change_percentage_7d_in_currency || 0,
-                    score: bearishAnalysis.score,
-                    signals: bearishAnalysis.signals,
-                    technicalAnalysis: technicalAnalysis
-                };
-                bearishAlerts.push(alertData);
-            }
-            
-            if (htfAnalysis.score >= 5) {
-                const technicalAnalysis = monitor.calculateTechnicalAnalysis(coin);
+                if (bearishAnalysis.score >= 6) {
+                    const technicalAnalysis = monitor.calculateTechnicalAnalysis(coin);
+                    const aiPrediction = monitor.generateAIPrediction(coin, technicalAnalysis);
+                    const socialData = monitor.socialData?.latest?.[coin.id] || null;
+                    
+                    const alertData = {
+                        name: coin.name || 'Unknown',
+                        symbol: coin.symbol || 'unknown',
+                        price: coin.current_price || 0,
+                        rank: coin.market_cap_rank || 'N/A',
+                        change1h: coin.price_change_percentage_1h_in_currency || 0,
+                        change24h: coin.price_change_percentage_24h_in_currency || 0,
+                        change7d: coin.price_change_percentage_7d_in_currency || 0,
+                        volume: coin.total_volume || 0,
+                        marketCap: coin.market_cap || 0,
+                        score: bearishAnalysis.score,
+                        signals: bearishAnalysis.signals,
+                        type: 'bearish',
+                        technicalAnalysis: technicalAnalysis,
+                        aiPrediction: aiPrediction,
+                        socialData: socialData,
+                        lastUpdated: new Date().toISOString()
+                    };
+                    bearishAlerts.push(alertData);
+                }
                 
-                const alertData = {
-                    name: coin.name || 'Unknown',
-                    symbol: coin.symbol || 'unknown',
-                    price: coin.current_price || 0,
-                    rank: coin.market_cap_rank || 'N/A',
-                    change1h: coin.price_change_percentage_1h_in_currency || 0,
-                    change24h: coin.price_change_percentage_24h_in_currency || 0,
-                    change7d: coin.price_change_percentage_7d_in_currency || 0,
-                    change30d: coin.price_change_percentage_30d_in_currency || 0,
-                    score: htfAnalysis.score,
-                    signals: htfAnalysis.signals,
-                    technicalAnalysis: technicalAnalysis
-                };
-                htfAlerts.push(alertData);
-            }
+                if (htfAnalysis.score >= 5) {
+                    const technicalAnalysis = monitor.calculateTechnicalAnalysis(coin);
+                    const aiPrediction = monitor.generateAIPrediction(coin, technicalAnalysis);
+                    const socialData = monitor.socialData?.latest?.[coin.id] || null;
+                    
+                    const alertData = {
+                        name: coin.name || 'Unknown',
+                        symbol: coin.symbol || 'unknown',
+                        price: coin.current_price || 0,
+                        rank: coin.market_cap_rank || 'N/A',
+                        change1h: coin.price_change_percentage_1h_in_currency || 0,
+                        change24h: coin.price_change_percentage_24h_in_currency || 0,
+                        change7d: coin.price_change_percentage_7d_in_currency || 0,
+                        change30d: coin.price_change_percentage_30d_in_currency || 0,
+                        volume: coin.total_volume || 0,
+                        marketCap: coin.market_cap || 0,
+                        score: htfAnalysis.score,
+                        signals: htfAnalysis.signals,
+                        type: 'htf',
+                        technicalAnalysis: technicalAnalysis,
+                        aiPrediction: aiPrediction,
+                        socialData: socialData,
+                        stability: htfAnalysis.stability,
+                        lastUpdated: new Date().toISOString()
+                    };
+                    htfAlerts.push(alertData);
+                }
             }
         }
         
@@ -160,15 +202,28 @@ async function buildStatic() {
         const analysisData = {
             success: true,
             data: {
-                marketTrend,
                 bullishAlerts,
                 bearishAlerts,
                 htfAlerts,
                 btcAnalysis,
                 marketCapAnalysis,
                 cycleAnalysis,
-                timestamp: new Date().toISOString(),
-                totalOpportunities: bullishAlerts.length + bearishAlerts.length + htfAlerts.length
+                socialOverview,
+                socialTrending,
+                totalBullish: bullishAlerts.length,
+                totalBearish: bearishAlerts.length,
+                totalHTF: htfAlerts.length,
+                totalOpportunities: bullishAlerts.length + bearishAlerts.length + htfAlerts.length,
+                totalAnalyzed: coinsData ? coinsData.length : 0,
+                timestamp: new Date().toISOString()
+            },
+            marketTrend,
+            apiStatus: {
+                isRateLimited: false,
+                lastSuccessfulFetch: Date.now(),
+                rateLimitResetTime: null,
+                requestCount: 0,
+                cacheAvailable: true
             }
         };
         
