@@ -2000,6 +2000,16 @@
         let autoRefreshInterval;
         let isAutoRefreshOn = true;
 
+        // Global utility function for formatting large numbers
+        function formatLargeNumber(num) {
+            if (num === null || num === undefined || isNaN(num)) return 'N/A';
+            if (num >= 1e12) return (num / 1e12).toFixed(2) + 'T';
+            if (num >= 1e9) return (num / 1e9).toFixed(2) + 'B';
+            if (num >= 1e6) return (num / 1e6).toFixed(2) + 'M';
+            if (num >= 1e3) return (num / 1e3).toFixed(2) + 'K';
+            return num.toLocaleString();
+        }
+
         // Initialize dashboard
         document.addEventListener('DOMContentLoaded', function() {
             restoreTabState();
@@ -2237,29 +2247,7 @@
                             </div>
                             <div class="cycle-description">${cycleData.cyclePhase.description}</div>
                             <div class="cycle-action">Action: ${cycleData.cyclePhase.action}</div>
-                            ${cycleData.cyclePhase.stability ? `
-                                <div class="stability-metrics" style="margin-top: 15px; padding: 12px; background: linear-gradient(135deg, #f3e5f5 0%, #e1bee7 100%); border-radius: 8px; border: 1px solid #ce93d8;">
-                                    <div style="font-weight: bold; margin-bottom: 8px; color: #4a148c;">📊 Cycle Stability:</div>
-                                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 8px; font-size: 0.8em;">
-                                        <div style="text-align: center;">
-                                            <div style="color: #666; font-size: 0.75em;">Stability</div>
-                                            <div style="font-weight: bold; color: #4a148c;">${cycleData.cyclePhase.stability.stabilityRatio}%</div>
-                                        </div>
-                                        <div style="text-align: center;">
-                                            <div style="color: #666; font-size: 0.75em;">Switches</div>
-                                            <div style="font-weight: bold; color: #4a148c;">${cycleData.cyclePhase.stability.recentSwitches}</div>
-                                        </div>
-                                        <div style="text-align: center;">
-                                            <div style="color: #666; font-size: 0.75em;">Avg Risk</div>
-                                            <div style="font-weight: bold; color: #4a148c;">${cycleData.cyclePhase.stability.avgRisk}</div>
-                                        </div>
-                                        <div style="text-align: center;">
-                                            <div style="color: #666; font-size: 0.75em;">Avg Opp</div>
-                                            <div style="font-weight: bold; color: #4a148c;">${cycleData.cyclePhase.stability.avgOpportunity}</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            ` : ''}
+
                         </div>
                     ` : ''}
 
@@ -2444,25 +2432,7 @@
                                 <div class="market-leader">
                                     <div class="market-leader-title">Market Leader: ${marketCapData.analysis.marketLeader.leader}</div>
                                     <div class="market-leader-description">${marketCapData.analysis.marketLeader.strength}</div>
-                                    ${marketCapData.analysis.marketLeader.stability ? `
-                                        <div class="stability-metrics" style="margin-top: 10px; padding: 10px; background: linear-gradient(135deg, #e8f5e8 0%, #c8e6c9 100%); border-radius: 6px; border: 1px solid #a5d6a7;">
-                                            <div style="font-weight: bold; margin-bottom: 6px; color: #2e7d32; font-size: 0.9em;">📊 Leadership Stability:</div>
-                                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: 6px; font-size: 0.75em;">
-                                                <div style="text-align: center;">
-                                                    <div style="color: #666; font-size: 0.7em;">Stability</div>
-                                                    <div style="font-weight: bold; color: #2e7d32;">${marketCapData.analysis.marketLeader.stability.stabilityRatio}%</div>
-                                                </div>
-                                                <div style="text-align: center;">
-                                                    <div style="color: #666; font-size: 0.7em;">Switches</div>
-                                                    <div style="font-weight: bold; color: #2e7d32;">${marketCapData.analysis.marketLeader.stability.recentSwitches}</div>
-                                                </div>
-                                                <div style="text-align: center;">
-                                                    <div style="color: #666; font-size: 0.7em;">Margin</div>
-                                                    <div style="font-weight: bold; color: #2e7d32;">${marketCapData.analysis.marketLeader.stability.margin}%</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    ` : ''}
+
                                 </div>
                             ` : ''}
 
@@ -2951,14 +2921,7 @@
                 }
             };
 
-            const formatLargeNumber = (num) => {
-                if (num === null || num === undefined || isNaN(num)) return 'N/A';
-                if (num >= 1e12) return (num / 1e12).toFixed(2) + 'T';
-                if (num >= 1e9) return (num / 1e9).toFixed(2) + 'B';
-                if (num >= 1e6) return (num / 1e6).toFixed(2) + 'M';
-                if (num >= 1e3) return (num / 1e3).toFixed(2) + 'K';
-                return num.toLocaleString();
-            };
+
 
             return `
                 <div class="alert-card htf-card ${scoreClass}">
@@ -3061,29 +3024,7 @@
                         </div>
                     ` : ''}
 
-                    ${alert.stability ? `
-                        <div class="stability-metrics" style="margin-top: 15px; padding: 12px; background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%); border-radius: 8px; border: 1px solid #b3d9ff;">
-                            <div style="font-weight: bold; margin-bottom: 8px; color: #4a90e2;">📊 Stability Metrics:</div>
-                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); gap: 10px; font-size: 0.85em;">
-                                <div style="text-align: center;">
-                                    <div style="color: #666; font-size: 0.8em;">Avg Score</div>
-                                    <div style="font-weight: bold; color: #4a90e2;">${alert.stability.avgScore}</div>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div style="color: #666; font-size: 0.8em;">Consistency</div>
-                                    <div style="font-weight: bold; color: #4a90e2;">${alert.stability.consistency}%</div>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div style="color: #666; font-size: 0.8em;">Variance</div>
-                                    <div style="font-weight: bold; color: #4a90e2;">${alert.stability.variance}</div>
-                                </div>
-                                <div style="text-align: center;">
-                                    <div style="color: #666; font-size: 0.8em;">Data Points</div>
-                                    <div style="font-weight: bold; color: #4a90e2;">${alert.stability.dataPoints}</div>
-                                </div>
-                            </div>
-                        </div>
-                    ` : ''}
+
 
                     ${createTechnicalAnalysisPanel(alert.technicalAnalysis, alert.symbol, 'htf')}
                 </div>
