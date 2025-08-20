@@ -61,9 +61,10 @@ class CryptoDashboard {
             // Analyze Cycles (Top/Bottom Analysis)
             const cycleAnalysis = await this.cryptoMonitor.analyzeCycles(coinsData, btcAnalysis, marketCapAnalysis);
 
-            // Analyze individual coins for both bullish and bearish opportunities
+            // Analyze individual coins for bullish, bearish, and HTF opportunities
             const bullishAlerts = [];
             const bearishAlerts = [];
+            const htfAlerts = [];
             
             for (const coin of coinsData) {
                 // Analyze for bullish signals
@@ -115,11 +116,38 @@ class CryptoDashboard {
                     };
                     bearishAlerts.push(bearishData);
                 }
+
+                // Analyze for HTF investment opportunities
+                const htfAnalysis = this.cryptoMonitor.analyzeHTFInvestment(coin);
+                if (htfAnalysis.score >= 5) { // Lower threshold for HTF as it's more selective
+                    // Calculate technical analysis
+                    const technicalAnalysis = this.cryptoMonitor.calculateTechnicalAnalysis(coin);
+                    
+                    const htfData = {
+                        name: coin.name || 'Unknown',
+                        symbol: coin.symbol || 'unknown',
+                        price: coin.current_price || 0,
+                        rank: coin.market_cap_rank || 'N/A',
+                        change1h: coin.price_change_percentage_1h_in_currency || 0,
+                        change24h: coin.price_change_percentage_24h_in_currency || 0,
+                        change7d: coin.price_change_percentage_7d_in_currency || 0,
+                        change30d: coin.price_change_percentage_30d_in_currency || 0,
+                        volume: coin.total_volume || 0,
+                        marketCap: coin.market_cap || 0,
+                        score: htfAnalysis.score,
+                        signals: htfAnalysis.signals,
+                        type: 'htf',
+                        technicalAnalysis: technicalAnalysis,
+                        lastUpdated: new Date().toISOString()
+                    };
+                    htfAlerts.push(htfData);
+                }
             }
 
             // Sort by score (highest first)
             bullishAlerts.sort((a, b) => b.score - a.score);
             bearishAlerts.sort((a, b) => b.score - a.score);
+            htfAlerts.sort((a, b) => b.score - a.score);
 
             // Store the analysis results
             this.lastAnalysis = {
@@ -128,16 +156,18 @@ class CryptoDashboard {
                 cycleAnalysis,
                 bullishAlerts,
                 bearishAlerts,
+                htfAlerts,
                 totalBullish: bullishAlerts.length,
                 totalBearish: bearishAlerts.length,
-                totalOpportunities: bullishAlerts.length + bearishAlerts.length,
+                totalHTF: htfAlerts.length,
+                totalOpportunities: bullishAlerts.length + bearishAlerts.length + htfAlerts.length,
                 totalAnalyzed: coinsData.length,
                 timestamp: new Date().toISOString()
             };
             
             this.lastMarketTrend = marketTrend;
 
-            console.log(`✅ Analysis complete: ${bullishAlerts.length} bullish, ${bearishAlerts.length} bearish opportunities found`);
+            console.log(`✅ Analysis complete: ${bullishAlerts.length} bullish, ${bearishAlerts.length} bearish, ${htfAlerts.length} HTF opportunities found`);
 
         } catch (error) {
             console.error('❌ Error in dashboard analysis:', error.message);

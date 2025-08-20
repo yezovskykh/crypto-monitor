@@ -82,15 +82,17 @@ async function buildStatic() {
             };
         }
         
-        // Separate bullish and bearish opportunities
+        // Separate bullish, bearish, and HTF opportunities
         const bullishAlerts = [];
         const bearishAlerts = [];
+        const htfAlerts = [];
         
         // Only analyze coins if we have data
         if (coinsData && coinsData.length > 0) {
             for (const coin of coinsData) {
             const analysis = monitor.analyzeCoin(coin);
             const bearishAnalysis = monitor.analyzeBearishCoin(coin);
+            const htfAnalysis = monitor.analyzeHTFInvestment(coin);
             
             if (analysis.score >= 6) {
                 const technicalAnalysis = monitor.calculateTechnicalAnalysis(coin);
@@ -127,12 +129,32 @@ async function buildStatic() {
                 };
                 bearishAlerts.push(alertData);
             }
+            
+            if (htfAnalysis.score >= 5) {
+                const technicalAnalysis = monitor.calculateTechnicalAnalysis(coin);
+                
+                const alertData = {
+                    name: coin.name || 'Unknown',
+                    symbol: coin.symbol || 'unknown',
+                    price: coin.current_price || 0,
+                    rank: coin.market_cap_rank || 'N/A',
+                    change1h: coin.price_change_percentage_1h_in_currency || 0,
+                    change24h: coin.price_change_percentage_24h_in_currency || 0,
+                    change7d: coin.price_change_percentage_7d_in_currency || 0,
+                    change30d: coin.price_change_percentage_30d_in_currency || 0,
+                    score: htfAnalysis.score,
+                    signals: htfAnalysis.signals,
+                    technicalAnalysis: technicalAnalysis
+                };
+                htfAlerts.push(alertData);
+            }
             }
         }
         
         // Sort alerts by score
         bullishAlerts.sort((a, b) => b.score - a.score);
         bearishAlerts.sort((a, b) => b.score - a.score);
+        htfAlerts.sort((a, b) => b.score - a.score);
         
         // Create analysis data
         const analysisData = {
@@ -141,11 +163,12 @@ async function buildStatic() {
                 marketTrend,
                 bullishAlerts,
                 bearishAlerts,
+                htfAlerts,
                 btcAnalysis,
                 marketCapAnalysis,
                 cycleAnalysis,
                 timestamp: new Date().toISOString(),
-                totalOpportunities: bullishAlerts.length + bearishAlerts.length
+                totalOpportunities: bullishAlerts.length + bearishAlerts.length + htfAlerts.length
             }
         };
         
@@ -156,7 +179,7 @@ async function buildStatic() {
         );
         
         if (coinsData && coinsData.length > 0) {
-            console.log(`✅ Generated analysis data: ${bullishAlerts.length} bullish, ${bearishAlerts.length} bearish opportunities`);
+            console.log(`✅ Generated analysis data: ${bullishAlerts.length} bullish, ${bearishAlerts.length} bearish, ${htfAlerts.length} HTF opportunities`);
         } else {
             console.log('⚠️  Generated fallback data (API was unavailable during build)');
         }

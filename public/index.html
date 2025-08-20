@@ -157,6 +157,246 @@
             border-left: 5px solid #dc3545;
         }
 
+        .htf-section {
+            border-left: 5px solid #6f42c1;
+            background: linear-gradient(135deg, #f8f9ff 0%, #e9ecff 100%);
+        }
+
+        .htf-card {
+            border-left: 4px solid #6f42c1;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9ff 100%);
+        }
+
+        .htf-score {
+            background: linear-gradient(135deg, #6f42c1 0%, #8b5cf6 100%);
+            color: white;
+        }
+
+        /* HTF Card Components */
+        .alert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .coin-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .coin-name {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 2px;
+        }
+
+        .coin-symbol {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+            margin-bottom: 2px;
+        }
+
+        .coin-rank {
+            font-size: 0.8em;
+            color: #999;
+        }
+
+        .score-badge {
+            background: #007bff;
+            color: white;
+            padding: 8px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            font-weight: bold;
+        }
+
+        .price-info {
+            margin-bottom: 15px;
+        }
+
+        .current-price {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .price-changes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .price-change-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .timeframe {
+            font-size: 0.8em;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .market-info {
+            margin-bottom: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .market-info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .market-info-item .label {
+            font-size: 0.8em;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .market-info-item .value {
+            font-size: 0.9em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .signals {
+            margin-top: 15px;
+        }
+
+        .signals-title {
+            font-size: 1em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 8px;
+        }
+
+        .signals-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .signals-list li {
+            margin-bottom: 5px;
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+
+        /* Change indicators for HTF cards */
+        .change {
+            font-weight: bold;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.85em;
+        }
+
+        .change.positive {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .change.negative {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .change.neutral {
+            background: #e2e3e5;
+            color: #383d41;
+        }
+
+        /* Tabbed Interface */
+        .analysis-tabs {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .tab-buttons {
+            display: flex;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-bottom: 2px solid #dee2e6;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 20px 30px;
+            background: none;
+            border: none;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            color: #666;
+        }
+
+        .tab-button:hover {
+            background: rgba(255, 255, 255, 0.5);
+            color: #333;
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .tab-content {
+            display: none;
+            padding: 30px;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .tab-header {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .tab-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .tab-description {
+            font-size: 1em;
+            color: #666;
+            line-height: 1.5;
+        }
+
         .btc-section {
             background: linear-gradient(135deg, #fff8e1 0%, #ffecb3 100%);
             border: 3px solid #ff9800;
@@ -1350,8 +1590,41 @@
         <div id="cycle-section"></div>
         <div id="market-cap-section"></div>
         <div id="btc-section"></div>
-        <div id="bullish-section"></div>
-        <div id="bearish-section"></div>
+        
+        <!-- Tabbed Analysis Interface -->
+        <div class="analysis-tabs">
+            <div class="tab-buttons">
+                <button class="tab-button active" onclick="switchTab('htf')">
+                    📊 HTF Analysis
+                </button>
+                <button class="tab-button" onclick="switchTab('ltf')">
+                    ⚡ LTF Analysis
+                </button>
+            </div>
+            
+            <div id="htf-tab" class="tab-content active">
+                <div class="tab-header">
+                    <div class="tab-title">📊 Higher Time Frame (HTF) Investment Analysis</div>
+                    <div class="tab-description">
+                        Long-term investment opportunities based on weekly and monthly trends. 
+                        Focused on quality assets with sustainable growth patterns and strong fundamentals.
+                    </div>
+                </div>
+                <div id="htf-section"></div>
+            </div>
+            
+            <div id="ltf-tab" class="tab-content">
+                <div class="tab-header">
+                    <div class="tab-title">⚡ Lower Time Frame (LTF) Trading Analysis</div>
+                    <div class="tab-description">
+                        Short-term trading opportunities based on hourly and daily price movements. 
+                        Includes both bullish momentum plays and bearish shorting opportunities.
+                    </div>
+                </div>
+                <div id="bullish-section"></div>
+                <div id="bearish-section"></div>
+            </div>
+        </div>
         <div id="loading" class="loading">Loading crypto data...</div>
         <div id="error" class="error" style="display: none;"></div>
     </div>
@@ -1362,6 +1635,7 @@
 
         // Initialize dashboard
         document.addEventListener('DOMContentLoaded', function() {
+            restoreTabState();
             loadData();
             startAutoRefresh();
         });
@@ -1379,6 +1653,7 @@
                     displayCycleAnalysis(result.data.cycleAnalysis);
                     displayMarketCapAnalysis(result.data.marketCapAnalysis);
                     displayBTCAnalysis(result.data.btcAnalysis);
+                    displayHTFAlerts(result.data.htfAlerts, result.data.totalAnalyzed);
                     displayBullishAlerts(result.data.bullishAlerts, result.data.totalAnalyzed);
                     displayBearishAlerts(result.data.bearishAlerts, result.data.totalAnalyzed);
                     document.getElementById('loading').style.display = 'none';
@@ -1943,7 +2218,7 @@
             
             return `
                 <button class="technical-toggle" onclick="toggleTechnical('${symbol}')">
-                    📊 Technical Analysis (${technical.priceDataPoints} data points)
+                    📊 Technical Analysis (${technical.priceDataPoints} ${technical.dataSource === 'sparkline' ? 'sparkline' : 'history'} points)
                 </button>
                 <div id="${panelId}" class="technical-panel">
                     <div class="technical-grid">
@@ -2106,11 +2381,139 @@
             `;
         }
 
+        // Tab switching functionality
+        function switchTab(tabName) {
+            // Remove active class from all tab buttons
+            const tabButtons = document.querySelectorAll('.tab-button');
+            tabButtons.forEach(button => button.classList.remove('active'));
+            
+            // Remove active class from all tab contents
+            const tabContents = document.querySelectorAll('.tab-content');
+            tabContents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Show corresponding tab content
+            const targetTab = document.getElementById(`${tabName}-tab`);
+            if (targetTab) {
+                targetTab.classList.add('active');
+            }
+            
+            // Store current tab in localStorage for persistence
+            localStorage.setItem('activeAnalysisTab', tabName);
+        }
+        
+        // Restore tab state on page load
+        function restoreTabState() {
+            const savedTab = localStorage.getItem('activeAnalysisTab') || 'htf';
+            
+            // Remove active classes
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+            
+            // Activate saved tab
+            const tabButton = document.querySelector(`.tab-button[onclick="switchTab('${savedTab}')"]`);
+            const tabContent = document.getElementById(`${savedTab}-tab`);
+            
+            if (tabButton && tabContent) {
+                tabButton.classList.add('active');
+                tabContent.classList.add('active');
+            }
+        }
+
         function toggleTechnical(symbol) {
             const panel = document.getElementById(`technical-${symbol}`);
             if (panel) {
                 panel.classList.toggle('expanded');
             }
+        }
+
+        function createHTFAlertCard(alert) {
+            const scoreClass = alert.score >= 8 ? 'high-score' : 'medium-score';
+            
+            const formatChange = (change) => {
+                const changeClass = change > 0 ? 'positive' : change < 0 ? 'negative' : 'neutral';
+                const sign = change > 0 ? '+' : '';
+                return `<span class="change ${changeClass}">${sign}${change.toFixed(2)}%</span>`;
+            };
+
+            const formatPrice = (price) => {
+                if (price >= 1) {
+                    return new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 6
+                    }).format(price);
+                } else {
+                    return new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                        minimumFractionDigits: 6,
+                        maximumFractionDigits: 10
+                    }).format(price);
+                }
+            };
+
+            const formatLargeNumber = (num) => {
+                if (num >= 1e12) return (num / 1e12).toFixed(2) + 'T';
+                if (num >= 1e9) return (num / 1e9).toFixed(2) + 'B';
+                if (num >= 1e6) return (num / 1e6).toFixed(2) + 'M';
+                if (num >= 1e3) return (num / 1e3).toFixed(2) + 'K';
+                return num.toLocaleString();
+            };
+
+            return `
+                <div class="alert-card htf-card ${scoreClass}">
+                    <div class="alert-header">
+                        <div class="coin-info">
+                            <div class="coin-name">${alert.name}</div>
+                            <div class="coin-symbol">${alert.symbol.toUpperCase()}</div>
+                            <div class="coin-rank">Rank #${alert.rank}</div>
+                        </div>
+                        <div class="score-badge htf-score">HTF Score: ${alert.score}</div>
+                    </div>
+                    
+                    <div class="price-info">
+                        <div class="current-price">${formatPrice(alert.price)}</div>
+                        <div class="price-changes">
+                            <div class="price-change-item">
+                                <span class="timeframe">1h:</span> ${formatChange(alert.change1h)}
+                            </div>
+                            <div class="price-change-item">
+                                <span class="timeframe">24h:</span> ${formatChange(alert.change24h)}
+                            </div>
+                            <div class="price-change-item">
+                                <span class="timeframe">7d:</span> ${formatChange(alert.change7d)}
+                            </div>
+                            <div class="price-change-item">
+                                <span class="timeframe">30d:</span> ${formatChange(alert.change30d || 0)}
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="market-info">
+                        <div class="market-info-item">
+                            <span class="label">Market Cap:</span>
+                            <span class="value">$${formatLargeNumber(alert.marketCap)}</span>
+                        </div>
+                        <div class="market-info-item">
+                            <span class="label">Volume 24h:</span>
+                            <span class="value">$${formatLargeNumber(alert.volume)}</span>
+                        </div>
+                    </div>
+
+                    <div class="signals">
+                        <div class="signals-title">📈 HTF Investment Signals:</div>
+                        <ul class="signals-list">
+                            ${alert.signals.map(signal => `<li>${signal}</li>`).join('')}
+                        </ul>
+                    </div>
+
+                    ${createTechnicalAnalysisPanel(alert.technicalAnalysis, alert.symbol)}
+                </div>
+            `;
         }
 
         function createAlertCard(alert, type) {
@@ -2155,6 +2558,29 @@
             `;
         }
 
+        function displayHTFAlerts(alerts, totalAnalyzed) {
+            if (!alerts) alerts = [];
+
+            const alertsHtml = alerts.map(alert => createHTFAlertCard(alert)).join('');
+            
+            document.getElementById('htf-section').innerHTML = `
+                <div class="alerts-section htf-section">
+                    <div class="section-title">
+                        💎 Investment Opportunities (${alerts.length} found)
+                    </div>
+                    ${alerts.length > 0 ? `
+                        <div class="alerts-grid">
+                            ${alertsHtml}
+                        </div>
+                    ` : `
+                        <p style="text-align: center; color: #666; font-style: italic; margin: 20px 0;">
+                            No HTF investment opportunities found at this time
+                        </p>
+                    `}
+                </div>
+            `;
+        }
+
         function displayBullishAlerts(alerts, totalAnalyzed) {
             if (!alerts) alerts = [];
 
@@ -2163,7 +2589,7 @@
             document.getElementById('bullish-section').innerHTML = `
                 <div class="alerts-section bullish-section">
                     <div class="section-title">
-                        🚀 Bullish Opportunities - Long Positions (${alerts.length} found)
+                        🚀 Bullish Momentum - Long Positions (${alerts.length} found)
                     </div>
                     ${alerts.length > 0 ? `
                         <div class="alerts-grid">
@@ -2182,7 +2608,7 @@
             document.getElementById('bearish-section').innerHTML = `
                 <div class="alerts-section bearish-section">
                     <div class="section-title">
-                        🔻 Bearish Opportunities - Short Positions (${alerts.length} found)
+                        🔻 Bearish Momentum - Short Positions (${alerts.length} found)
                     </div>
                     ${alerts.length > 0 ? `
                         <div class="alerts-grid">

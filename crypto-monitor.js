@@ -187,8 +187,17 @@ class CryptoMonitor {
     // Comprehensive Technical Analysis
     calculateTechnicalAnalysis(coinData) {
         const coinId = coinData.id;
-        const prices = this.priceHistory[coinId] || [];
+        let prices = this.priceHistory[coinId] || [];
         const currentPrice = coinData.current_price || 0;
+        
+        // If we don't have enough price history, try to use sparkline data as fallback
+        if (prices.length < 20 && coinData.sparkline_in_7d && coinData.sparkline_in_7d.price) {
+            const sparklinePrices = coinData.sparkline_in_7d.price.filter(price => price !== null && price !== undefined);
+            if (sparklinePrices.length >= 20) {
+                prices = sparklinePrices;
+                console.log(`Using sparkline data for ${coinId} technical analysis (${prices.length} points)`);
+            }
+        }
         
         if (prices.length < 20) {
             return {
@@ -249,8 +258,13 @@ class CryptoMonitor {
             signals.push(`🚧 Near ${supportResistance.strength} resistance level`);
         }
         
+        // Determine data source for display purposes
+        const originalPrices = this.priceHistory[coinId] || [];
+        const usingSparkline = originalPrices.length < 20 && coinData.sparkline_in_7d && coinData.sparkline_in_7d.price;
+        
         return {
             available: true,
+            dataSource: usingSparkline ? 'sparkline' : 'history',
             rsi: rsi ? parseFloat(rsi.toFixed(2)) : null,
             movingAverages: {
                 sma20: sma20 ? parseFloat(sma20.toFixed(6)) : null,
@@ -546,8 +560,18 @@ class CryptoMonitor {
 
         // RSI analysis - focus on oversold for recovery plays
         const coinId = coinData.id;
-        if (this.priceHistory[coinId] && this.priceHistory[coinId].length > 14) {
-            const rsi = this.calculateRSI(this.priceHistory[coinId]);
+        let rsiPrices = this.priceHistory[coinId] || [];
+        
+        // Use sparkline data as fallback if we don't have enough price history
+        if (rsiPrices.length <= 14 && coinData.sparkline_in_7d && coinData.sparkline_in_7d.price) {
+            const sparklinePrices = coinData.sparkline_in_7d.price.filter(price => price !== null && price !== undefined);
+            if (sparklinePrices.length > 14) {
+                rsiPrices = sparklinePrices;
+            }
+        }
+        
+        if (rsiPrices.length > 14) {
+            const rsi = this.calculateRSI(rsiPrices);
             if (rsi !== null) {
                 if (rsi < 35) {
                     signals.push(`📉 Oversold - potential reversal (RSI: ${rsi.toFixed(2)})`);
@@ -572,6 +596,123 @@ class CryptoMonitor {
         
         if (marketCap < 10000000 || volume24h < 100000) {
             score = Math.max(0, score - 3);
+        }
+
+        return { score, signals };
+    }
+
+    // Analyze Higher Time Frame (HTF) investment opportunities
+    analyzeHTFInvestment(coinData) {
+        const signals = [];
+        let score = 0;
+
+        const priceChange7d = coinData.price_change_percentage_7d_in_currency || 0;
+        const priceChange30d = coinData.price_change_percentage_30d_in_currency || 0;
+        const priceChange1h = coinData.price_change_percentage_1h_in_currency || 0;
+        const priceChange24h = coinData.price_change_percentage_24h_in_currency || 0;
+        const currentPrice = coinData.current_price || 0;
+        const volume = coinData.total_volume || 0;
+        const marketCap = coinData.market_cap || 1;
+        const marketCapRank = coinData.market_cap_rank || 999;
+
+        // Higher timeframe trend analysis (weekly/monthly)
+        if (priceChange30d > 20 && priceChange7d > 5) {
+            signals.push('📈 Strong monthly uptrend with weekly momentum');
+            score += 4;
+        } else if (priceChange30d > 10 && priceChange7d > 0) {
+            signals.push('📊 Positive monthly trend with weekly consolidation');
+            score += 3;
+        }
+
+        // Long-term momentum building
+        if (priceChange7d > 15 && priceChange30d > 25) {
+            signals.push('🚀 Accelerating long-term momentum');
+            score += 3;
+        }
+
+        // Recovery from significant dip (buying the dip opportunity)
+        if (priceChange30d < -20 && priceChange7d > 10) {
+            signals.push('🔄 Strong recovery from monthly decline - potential reversal');
+            score += 4;
+        }
+
+        // Sustained growth pattern
+        if (priceChange7d > 5 && priceChange30d > 15 && Math.abs(priceChange24h) < 5) {
+            signals.push('⚖️ Sustained growth with controlled volatility');
+            score += 3;
+        }
+
+        // Market cap and liquidity considerations for HTF investing
+        if (marketCap > 1000000000) { // > $1B market cap
+            signals.push('💎 Large cap stability for long-term holding');
+            score += 2;
+        } else if (marketCap > 100000000) { // > $100M market cap
+            signals.push('🔹 Mid cap with growth potential');
+            score += 1;
+        }
+
+        // Volume consistency for HTF
+        const volumeRatio = volume / marketCap;
+        if (volumeRatio > 0.02 && volumeRatio < 0.15) {
+            signals.push('📊 Healthy volume for institutional interest');
+            score += 2;
+        }
+
+        // Technical analysis for HTF
+        const coinId = coinData.id;
+        let rsiPrices = this.priceHistory[coinId] || [];
+        
+        // Use sparkline data as fallback if we don't have enough price history
+        if (rsiPrices.length <= 14 && coinData.sparkline_in_7d && coinData.sparkline_in_7d.price) {
+            const sparklinePrices = coinData.sparkline_in_7d.price.filter(price => price !== null && price !== undefined);
+            if (sparklinePrices.length > 14) {
+                rsiPrices = sparklinePrices;
+            }
+        }
+        
+        if (rsiPrices.length > 14) {
+            const rsi = this.calculateRSI(rsiPrices);
+            if (rsi !== null) {
+                if (rsi > 40 && rsi < 70) {
+                    signals.push(`📈 Healthy RSI for HTF entry (${rsi.toFixed(2)})`);
+                    score += 2;
+                } else if (rsi < 40) {
+                    signals.push(`💪 Oversold RSI - potential HTF accumulation zone (${rsi.toFixed(2)})`);
+                    score += 3;
+                }
+            }
+        }
+
+        // Rank consideration - avoid very low ranked coins for HTF
+        if (marketCapRank > 200) {
+            signals.push('⚠️ Lower ranked coin - higher risk for HTF');
+            score -= 2;
+        } else if (marketCapRank <= 50) {
+            signals.push('🏆 Top 50 coin - suitable for HTF investment');
+            score += 2;
+        } else if (marketCapRank <= 100) {
+            signals.push('✅ Top 100 coin - good HTF candidate');
+            score += 1;
+        }
+
+        // Avoid coins that are already heavily pumped in short term
+        if (priceChange24h > 20) {
+            signals.push('⚠️ Heavy short-term pump - wait for pullback');
+            score -= 3;
+        } else if (priceChange1h > 10) {
+            signals.push('⚠️ Recent hourly spike - may not be ideal HTF entry');
+            score -= 1;
+        }
+
+        // Minimum quality filters for HTF investing
+        if (marketCap < 50000000 || volume < 1000000) {
+            score = Math.max(0, score - 5); // Heavy penalty for low liquidity
+        }
+
+        // Bonus for established trends
+        if (priceChange30d > 0 && priceChange7d > 0 && score >= 5) {
+            signals.push('🎯 Multi-timeframe bullish alignment');
+            score += 2;
         }
 
         return { score, signals };
@@ -615,8 +756,18 @@ class CryptoMonitor {
 
         // Overbought conditions (potential for reversal down)
         const coinId = coinData.id;
-        if (this.priceHistory[coinId] && this.priceHistory[coinId].length > 14) {
-            const rsi = this.calculateRSI(this.priceHistory[coinId]);
+        let rsiPrices = this.priceHistory[coinId] || [];
+        
+        // Use sparkline data as fallback if we don't have enough price history
+        if (rsiPrices.length <= 14 && coinData.sparkline_in_7d && coinData.sparkline_in_7d.price) {
+            const sparklinePrices = coinData.sparkline_in_7d.price.filter(price => price !== null && price !== undefined);
+            if (sparklinePrices.length > 14) {
+                rsiPrices = sparklinePrices;
+            }
+        }
+        
+        if (rsiPrices.length > 14) {
+            const rsi = this.calculateRSI(rsiPrices);
             if (rsi !== null && rsi > 70) {
                 signals.push(`📈 Overbought condition (RSI: ${rsi.toFixed(2)}) - potential reversal`);
                 score += 3;
