@@ -2210,22 +2210,23 @@
             `;
         }
 
-        function createTechnicalAnalysisPanel(technical, symbol) {
+        function createTechnicalAnalysisPanel(technical, symbol, tabType = 'default') {
             // Sanitize symbol for use as HTML ID
             const sanitizedSymbol = symbol.replace(/[^a-zA-Z0-9-_]/g, '');
+            const uniqueId = `${sanitizedSymbol}-${tabType}`;
             
             if (!technical || !technical.available) {
                 return `
-                    <button class="technical-toggle" onclick="toggleTechnical('${sanitizedSymbol}')">
+                    <button class="technical-toggle" onclick="toggleTechnical('${uniqueId}')">
                         📊 Technical Analysis (Not Available)
                     </button>
                 `;
             }
 
-            const panelId = `technical-${sanitizedSymbol}`;
+            const panelId = `technical-${uniqueId}`;
             
             return `
-                <button class="technical-toggle" onclick="toggleTechnical('${sanitizedSymbol}')">
+                <button class="technical-toggle" onclick="toggleTechnical('${uniqueId}')">
                     📊 Technical Analysis (${technical.priceDataPoints} ${technical.dataSource === 'sparkline' ? 'sparkline' : 'history'} points)
                 </button>
                 <div id="${panelId}" class="technical-panel">
@@ -2430,16 +2431,12 @@
             }
         }
 
-        function toggleTechnical(symbol) {
-            const panelId = `technical-${symbol}`;
-            console.log('Looking for panel with ID:', panelId);
+        function toggleTechnical(uniqueId) {
+            const panelId = `technical-${uniqueId}`;
             const panel = document.getElementById(panelId);
             
             if (panel) {
-                console.log('Panel found, current classes:', panel.className);
                 panel.classList.toggle('expanded');
-                console.log('Panel classes after toggle:', panel.className);
-                console.log('Panel computed display style:', window.getComputedStyle(panel).display);
                 
                 // Update button text to show expand/collapse state
                 const button = panel.previousElementSibling;
@@ -2454,13 +2451,6 @@
                 }
             } else {
                 console.warn('Technical panel not found:', panelId);
-                // Try to find the panel with a more flexible search
-                const allPanels = document.querySelectorAll('.technical-panel');
-                console.log('Available technical panels:', Array.from(allPanels).map(p => ({ id: p.id, classes: p.className })));
-                
-                // Check if there are duplicate IDs
-                const duplicateCheck = document.querySelectorAll(`[id="${panelId}"]`);
-                console.log('Elements with same ID:', duplicateCheck.length);
             }
         }
 
@@ -2548,7 +2538,7 @@
                         </ul>
                     </div>
 
-                    ${createTechnicalAnalysisPanel(alert.technicalAnalysis, alert.symbol)}
+                    ${createTechnicalAnalysisPanel(alert.technicalAnalysis, alert.symbol, 'htf')}
                 </div>
             `;
         }
@@ -2591,7 +2581,7 @@
                         </ul>
                     </div>
                     
-                    ${createTechnicalAnalysisPanel(alert.technicalAnalysis, alert.symbol)}
+                    ${createTechnicalAnalysisPanel(alert.technicalAnalysis, alert.symbol, 'ltf')}
                 </div>
             `;
         }
