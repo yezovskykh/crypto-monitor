@@ -117,8 +117,8 @@ class CryptoDashboard {
                     bearishAlerts.push(bearishData);
                 }
 
-                // Analyze for HTF investment opportunities
-                const htfAnalysis = this.cryptoMonitor.analyzeHTFInvestment(coin);
+                // Analyze for HTF investment opportunities with stability
+                const htfAnalysis = this.cryptoMonitor.analyzeHTFInvestmentWithStability(coin);
                 if (htfAnalysis.score >= 5) { // Lower threshold for HTF as it's more selective
                     // Calculate technical analysis
                     const technicalAnalysis = this.cryptoMonitor.calculateTechnicalAnalysis(coin);
@@ -138,6 +138,7 @@ class CryptoDashboard {
                         signals: htfAnalysis.signals,
                         type: 'htf',
                         technicalAnalysis: technicalAnalysis,
+                        stability: htfAnalysis.stability, // Include stability metrics
                         lastUpdated: new Date().toISOString()
                     };
                     htfAlerts.push(htfData);
@@ -167,6 +168,11 @@ class CryptoDashboard {
             
             this.lastMarketTrend = marketTrend;
 
+            // Save all histories for persistence
+            await this.cryptoMonitor.saveHTFHistory();
+            await this.cryptoMonitor.saveCycleHistory();
+            await this.cryptoMonitor.saveMarketLeaderHistory();
+            
             console.log(`✅ Analysis complete: ${bullishAlerts.length} bullish, ${bearishAlerts.length} bearish, ${htfAlerts.length} HTF opportunities found`);
 
         } catch (error) {

@@ -7,9 +7,18 @@ class CryptoMonitor {
         this.lastPrices = {};
         this.priceHistory = {};
         this.dataFile = 'crypto_history.json';
+        this.htfHistoryFile = 'htf_history.json';
+        this.cycleHistoryFile = 'cycle_history.json';
+        this.marketLeaderHistoryFile = 'market_leader_history.json';
+        this.htfHistory = {}; // Store HTF scores over time for stability
+        this.cycleHistory = []; // Store cycle analysis history for stability
+        this.marketLeaderHistory = []; // Store market leader history for stability
         
-        // Load existing price history
+        // Load existing histories
         this.loadPriceHistory();
+        this.loadHTFHistory();
+        this.loadCycleHistory();
+        this.loadMarketLeaderHistory();
     }
 
     async loadPriceHistory() {
@@ -23,11 +32,68 @@ class CryptoMonitor {
         }
     }
 
+    async loadHTFHistory() {
+        try {
+            const data = await fs.readFile(this.htfHistoryFile, 'utf8');
+            this.htfHistory = JSON.parse(data);
+            console.log('HTF history loaded successfully');
+        } catch (error) {
+            console.log('No existing HTF history found, starting fresh');
+            this.htfHistory = {};
+        }
+    }
+
     async savePriceHistory() {
         try {
             await fs.writeFile(this.dataFile, JSON.stringify(this.priceHistory, null, 2));
         } catch (error) {
             console.error('Error saving price history:', error);
+        }
+    }
+
+    async loadCycleHistory() {
+        try {
+            const data = await fs.readFile(this.cycleHistoryFile, 'utf8');
+            this.cycleHistory = JSON.parse(data);
+            console.log('Cycle history loaded successfully');
+        } catch (error) {
+            console.log('No existing cycle history found, starting fresh');
+            this.cycleHistory = [];
+        }
+    }
+
+    async loadMarketLeaderHistory() {
+        try {
+            const data = await fs.readFile(this.marketLeaderHistoryFile, 'utf8');
+            this.marketLeaderHistory = JSON.parse(data);
+            console.log('Market leader history loaded successfully');
+        } catch (error) {
+            console.log('No existing market leader history found, starting fresh');
+            this.marketLeaderHistory = [];
+        }
+    }
+
+    async saveHTFHistory() {
+        try {
+            await fs.writeFile(this.htfHistoryFile, JSON.stringify(this.htfHistory, null, 2));
+        } catch (error) {
+            console.error('Error saving HTF history:', error);
+        }
+    }
+
+    async saveCycleHistory() {
+        try {
+            await fs.writeFile(this.cycleHistoryFile, JSON.stringify(this.cycleHistory, null, 2));
+        } catch (error) {
+            console.error('Error saving cycle history:', error);
+        }
+    }
+
+    async saveMarketLeaderHistory() {
+        try {
+            await fs.writeFile(this.marketLeaderHistoryFile, JSON.stringify(this.marketLeaderHistory, null, 2));
+        } catch (error) {
+            console.error('Error saving market leader history:', error);
         }
     }
 
@@ -615,47 +681,63 @@ class CryptoMonitor {
         const marketCap = coinData.market_cap || 1;
         const marketCapRank = coinData.market_cap_rank || 999;
 
-        // Higher timeframe trend analysis (weekly/monthly)
+        // HTF FOCUS: Prioritize longer timeframes (30d, 7d) over short-term noise
+        // Reduce weight of 1h and 24h changes for more stability
+
+        // Higher timeframe trend analysis (weekly/monthly) - MAIN SCORING
         if (priceChange30d > 20 && priceChange7d > 5) {
             signals.push('📈 Strong monthly uptrend with weekly momentum');
-            score += 4;
+            score += 5; // Increased weight for strong HTF trends
         } else if (priceChange30d > 10 && priceChange7d > 0) {
             signals.push('📊 Positive monthly trend with weekly consolidation');
-            score += 3;
+            score += 4; // Increased weight
+        } else if (priceChange30d > 5 && priceChange7d > -5) {
+            signals.push('📊 Moderate monthly growth with stable weekly trend');
+            score += 2; // New condition for moderate stability
         }
 
         // Long-term momentum building
         if (priceChange7d > 15 && priceChange30d > 25) {
             signals.push('🚀 Accelerating long-term momentum');
-            score += 3;
+            score += 4; // Increased weight
         }
 
         // Recovery from significant dip (buying the dip opportunity)
         if (priceChange30d < -20 && priceChange7d > 10) {
             signals.push('🔄 Strong recovery from monthly decline - potential reversal');
-            score += 4;
+            score += 5; // Increased weight for recovery plays
+        } else if (priceChange30d < -10 && priceChange7d > 5) {
+            signals.push('🔄 Moderate recovery from monthly decline');
+            score += 3; // New condition for moderate recovery
         }
 
-        // Sustained growth pattern
-        if (priceChange7d > 5 && priceChange30d > 15 && Math.abs(priceChange24h) < 5) {
-            signals.push('⚖️ Sustained growth with controlled volatility');
+        // Sustained growth pattern with REDUCED short-term volatility impact
+        if (priceChange7d > 3 && priceChange30d > 10) {
+            // Removed 24h volatility check for HTF stability
+            signals.push('⚖️ Sustained growth pattern - HTF suitable');
             score += 3;
         }
 
         // Market cap and liquidity considerations for HTF investing
         if (marketCap > 1000000000) { // > $1B market cap
             signals.push('💎 Large cap stability for long-term holding');
-            score += 2;
+            score += 3; // Increased weight for stability
+        } else if (marketCap > 500000000) { // > $500M market cap
+            signals.push('🔹 Large mid cap with institutional interest');
+            score += 2; // New tier for better stability
         } else if (marketCap > 100000000) { // > $100M market cap
-            signals.push('🔹 Mid cap with growth potential');
+            signals.push('🔸 Mid cap with growth potential');
             score += 1;
         }
 
-        // Volume consistency for HTF
+        // Volume consistency for HTF - STRICTER for stability
         const volumeRatio = volume / marketCap;
-        if (volumeRatio > 0.02 && volumeRatio < 0.15) {
-            signals.push('📊 Healthy volume for institutional interest');
+        if (volumeRatio > 0.01 && volumeRatio < 0.20) { // Wider range but higher minimum
+            signals.push('📊 Consistent volume for HTF investment');
             score += 2;
+        } else if (volumeRatio > 0.005) {
+            signals.push('📊 Adequate volume for HTF consideration');
+            score += 1; // New condition for moderate volume
         }
 
         // Technical analysis for HTF
@@ -673,20 +755,26 @@ class CryptoMonitor {
         if (rsiPrices.length > 14) {
             const rsi = this.calculateRSI(rsiPrices);
             if (rsi !== null) {
-                if (rsi > 40 && rsi < 70) {
+                if (rsi > 35 && rsi < 75) { // Wider range for HTF
                     signals.push(`📈 Healthy RSI for HTF entry (${rsi.toFixed(2)})`);
                     score += 2;
-                } else if (rsi < 40) {
-                    signals.push(`💪 Oversold RSI - potential HTF accumulation zone (${rsi.toFixed(2)})`);
+                } else if (rsi < 35) {
+                    signals.push(`💪 Oversold RSI - HTF accumulation zone (${rsi.toFixed(2)})`);
                     score += 3;
                 }
             }
         }
 
-        // Rank consideration - avoid very low ranked coins for HTF
-        if (marketCapRank > 200) {
-            signals.push('⚠️ Lower ranked coin - higher risk for HTF');
+        // Rank consideration - STRICTER for HTF stability
+        if (marketCapRank > 300) {
+            signals.push('⚠️ Very low ranked coin - high risk for HTF');
+            score -= 4; // Increased penalty
+        } else if (marketCapRank > 150) {
+            signals.push('⚠️ Lower ranked coin - moderate risk for HTF');
             score -= 2;
+        } else if (marketCapRank <= 30) {
+            signals.push('🏆 Top 30 coin - excellent for HTF investment');
+            score += 3; // Increased reward
         } else if (marketCapRank <= 50) {
             signals.push('🏆 Top 50 coin - suitable for HTF investment');
             score += 2;
@@ -695,27 +783,106 @@ class CryptoMonitor {
             score += 1;
         }
 
-        // Avoid coins that are already heavily pumped in short term
-        if (priceChange24h > 20) {
-            signals.push('⚠️ Heavy short-term pump - wait for pullback');
-            score -= 3;
-        } else if (priceChange1h > 10) {
-            signals.push('⚠️ Recent hourly spike - may not be ideal HTF entry');
-            score -= 1;
+        // REDUCED impact of short-term pumps for HTF stability
+        if (priceChange24h > 30) {
+            signals.push('⚠️ Extreme short-term pump - wait for consolidation');
+            score -= 2; // Reduced penalty
+        } else if (priceChange1h > 15) {
+            signals.push('⚠️ Recent large spike - monitor for HTF entry');
+            score -= 1; // Reduced penalty
         }
 
-        // Minimum quality filters for HTF investing
-        if (marketCap < 50000000 || volume < 1000000) {
-            score = Math.max(0, score - 5); // Heavy penalty for low liquidity
+        // STRICTER quality filters for HTF investing
+        if (marketCap < 100000000 || volume < 5000000) { // Increased minimums
+            score = Math.max(0, score - 6); // Increased penalty for low liquidity
         }
 
-        // Bonus for established trends
-        if (priceChange30d > 0 && priceChange7d > 0 && score >= 5) {
-            signals.push('🎯 Multi-timeframe bullish alignment');
+        // Enhanced bonus for established trends
+        if (priceChange30d > 0 && priceChange7d > -5 && score >= 4) { // More lenient 7d requirement
+            signals.push('🎯 Multi-timeframe HTF alignment');
             score += 2;
         }
 
+        // NEW: Stability bonus for consistent performers
+        if (Math.abs(priceChange7d) < 20 && priceChange30d > 5) {
+            signals.push('⚖️ Stable weekly performance with monthly growth');
+            score += 1;
+        }
+
         return { score, signals };
+    }
+
+    // Enhanced HTF analysis with stability and persistence
+    analyzeHTFInvestmentWithStability(coinData) {
+        const coinId = coinData.id;
+        const currentAnalysis = this.analyzeHTFInvestment(coinData);
+        
+        // Initialize HTF history for this coin if not exists
+        if (!this.htfHistory[coinId]) {
+            this.htfHistory[coinId] = {
+                scores: [],
+                firstSeen: new Date().toISOString(),
+                lastUpdated: new Date().toISOString()
+            };
+        }
+        
+        const htfData = this.htfHistory[coinId];
+        
+        // Add current score to history
+        htfData.scores.push({
+            score: currentAnalysis.score,
+            timestamp: new Date().toISOString(),
+            signals: currentAnalysis.signals
+        });
+        
+        // Keep only last 10 scores for stability calculation
+        if (htfData.scores.length > 10) {
+            htfData.scores.shift();
+        }
+        
+        htfData.lastUpdated = new Date().toISOString();
+        
+        // Calculate stability metrics
+        const recentScores = htfData.scores.map(s => s.score);
+        const avgScore = recentScores.reduce((sum, score) => sum + score, 0) / recentScores.length;
+        const scoreVariance = recentScores.reduce((sum, score) => sum + Math.pow(score - avgScore, 2), 0) / recentScores.length;
+        const scoreStability = Math.max(0, 10 - scoreVariance); // Higher stability = lower variance
+        
+        // Calculate trend consistency (how many times it scored >= 5)
+        const qualifyingScores = recentScores.filter(score => score >= 5).length;
+        const consistencyRatio = qualifyingScores / recentScores.length;
+        
+        // Enhanced scoring with stability factors
+        let stabilizedScore = avgScore;
+        
+        // Stability bonus: reward consistent high performers
+        if (consistencyRatio >= 0.7 && avgScore >= 5) {
+            stabilizedScore += 1;
+            currentAnalysis.signals.push('🎯 Consistent HTF performer - stability bonus');
+        }
+        
+        // Persistence bonus: reward coins that maintain HTF status
+        if (htfData.scores.length >= 5 && consistencyRatio >= 0.6) {
+            stabilizedScore += 0.5;
+            currentAnalysis.signals.push('⚖️ Persistent HTF candidate - longevity bonus');
+        }
+        
+        // Hysteresis: Make it harder for coins to drop out once established
+        if (qualifyingScores >= 3 && currentAnalysis.score >= 4) {
+            stabilizedScore = Math.max(stabilizedScore, 5.0);
+            currentAnalysis.signals.push('🔒 HTF status maintained via hysteresis');
+        }
+        
+        return {
+            score: Math.round(stabilizedScore * 10) / 10, // Round to 1 decimal
+            signals: currentAnalysis.signals,
+            stability: {
+                avgScore: Math.round(avgScore * 10) / 10,
+                variance: Math.round(scoreVariance * 10) / 10,
+                consistency: Math.round(consistencyRatio * 100),
+                dataPoints: recentScores.length
+            }
+        };
     }
 
     // Analyze bearish signals for shorting opportunities
@@ -1349,11 +1516,92 @@ class CryptoMonitor {
             btcDominance: btcDominance,
             altcoinDominance: altcoinDominance,
             relationships: relationships,
-            marketLeader: this.identifyMarketLeader(totalChange24h, total2Change24h, total3Change24h)
+            marketLeader: this.identifyMarketLeaderWithStability(totalChange24h, total2Change24h, total3Change24h)
         };
     }
 
-    // Identify market leader
+    // Identify market leader with stability
+    identifyMarketLeaderWithStability(totalChange, total2Change, total3Change) {
+        const currentLeader = this.identifyMarketLeader(totalChange, total2Change, total3Change);
+        
+        // Add current analysis to history
+        const leaderEntry = {
+            timestamp: new Date().toISOString(),
+            leader: currentLeader.leader,
+            strength: currentLeader.strength,
+            changes: {
+                total: totalChange,
+                total2: total2Change,
+                total3: total3Change
+            },
+            margin: Math.abs(Math.max(totalChange, total2Change, total3Change) - 
+                           Math.min(totalChange, total2Change, total3Change))
+        };
+        
+        this.marketLeaderHistory.push(leaderEntry);
+        
+        // Keep only last 15 entries for stability analysis
+        if (this.marketLeaderHistory.length > 15) {
+            this.marketLeaderHistory.shift();
+        }
+        
+        // Calculate stability metrics
+        if (this.marketLeaderHistory.length >= 3) {
+            const recentLeaders = this.marketLeaderHistory.slice(-10).map(entry => entry.leader);
+            const leaderCounts = {};
+            
+            recentLeaders.forEach(leader => {
+                leaderCounts[leader] = (leaderCounts[leader] || 0) + 1;
+            });
+            
+            const dominantLeader = Object.keys(leaderCounts).reduce((a, b) => 
+                leaderCounts[a] > leaderCounts[b] ? a : b
+            );
+            
+            const dominantCount = leaderCounts[dominantLeader];
+            const stabilityRatio = dominantCount / recentLeaders.length;
+            
+            // Apply hysteresis: if there's a clear dominant leader (>60% of recent history),
+            // stick with it unless the margin is very clear (>3%)
+            if (stabilityRatio > 0.6 && leaderEntry.margin < 3) {
+                return {
+                    leader: dominantLeader,
+                    strength: `${currentLeader.strength} (stabilized)`,
+                    stability: {
+                        dominantLeader: dominantLeader,
+                        stabilityRatio: Math.round(stabilityRatio * 100),
+                        recentSwitches: this.countLeaderSwitches(),
+                        margin: Math.round(leaderEntry.margin * 100) / 100
+                    }
+                };
+            }
+        }
+        
+        return {
+            ...currentLeader,
+            stability: {
+                dominantLeader: currentLeader.leader,
+                stabilityRatio: 100,
+                recentSwitches: this.countLeaderSwitches(),
+                margin: Math.round(leaderEntry.margin * 100) / 100
+            }
+        };
+    }
+
+    // Helper function to count recent leader switches
+    countLeaderSwitches() {
+        if (this.marketLeaderHistory.length < 2) return 0;
+        
+        let switches = 0;
+        for (let i = 1; i < Math.min(this.marketLeaderHistory.length, 10); i++) {
+            if (this.marketLeaderHistory[i].leader !== this.marketLeaderHistory[i-1].leader) {
+                switches++;
+            }
+        }
+        return switches;
+    }
+
+    // Original market leader identification (kept for internal use)
     identifyMarketLeader(totalChange, total2Change, total3Change) {
         if (totalChange > total2Change && totalChange > total3Change) {
             return { leader: 'Bitcoin', strength: 'Leading market direction' };
@@ -1390,8 +1638,8 @@ class CryptoMonitor {
                 cycleAnalysis.altcoinCycle
             );
 
-            // Determine current cycle phase
-            cycleAnalysis.cyclePhase = this.determineCyclePhase(cycleAnalysis.overallCycle);
+            // Determine current cycle phase with stability
+            cycleAnalysis.cyclePhase = this.determineCyclePhaseWithStability(cycleAnalysis.overallCycle);
 
             // Generate cycle signals
             cycleAnalysis.cycleSignals = this.generateCycleSignals(
@@ -1615,7 +1863,110 @@ class CryptoMonitor {
         };
     }
 
-    // Determine cycle phase
+    // Determine cycle phase with stability
+    determineCyclePhaseWithStability(overallCycle) {
+        if (!overallCycle) return null;
+
+        const currentPhase = this.determineCyclePhase(overallCycle);
+        const risk = parseFloat(overallCycle.overallRiskScore);
+        const opportunity = parseFloat(overallCycle.overallOpportunityScore);
+        
+        // Add current cycle analysis to history
+        const cycleEntry = {
+            timestamp: new Date().toISOString(),
+            phase: currentPhase.phase,
+            description: currentPhase.description,
+            action: currentPhase.action,
+            risk: risk,
+            opportunity: opportunity,
+            cycleBias: overallCycle.cycleBias,
+            cycleStrength: parseFloat(overallCycle.cycleStrength)
+        };
+        
+        this.cycleHistory.push(cycleEntry);
+        
+        // Keep only last 12 entries (about 1 hour of 5-minute intervals)
+        if (this.cycleHistory.length > 12) {
+            this.cycleHistory.shift();
+        }
+        
+        // Calculate phase stability
+        if (this.cycleHistory.length >= 3) {
+            const recentPhases = this.cycleHistory.slice(-8).map(entry => entry.phase); // Last 8 entries
+            const phaseCounts = {};
+            
+            recentPhases.forEach(phase => {
+                phaseCounts[phase] = (phaseCounts[phase] || 0) + 1;
+            });
+            
+            const dominantPhase = Object.keys(phaseCounts).reduce((a, b) => 
+                phaseCounts[a] > phaseCounts[b] ? a : b
+            );
+            
+            const dominantCount = phaseCounts[dominantPhase];
+            const phaseStability = dominantCount / recentPhases.length;
+            
+            // Calculate average risk/opportunity for stability
+            const recentEntries = this.cycleHistory.slice(-5);
+            const avgRisk = recentEntries.reduce((sum, entry) => sum + entry.risk, 0) / recentEntries.length;
+            const avgOpportunity = recentEntries.reduce((sum, entry) => sum + entry.opportunity, 0) / recentEntries.length;
+            
+            // Apply hysteresis for cycle phases
+            // If we have a dominant phase (>60% of recent history) and current scores are close to boundaries,
+            // stick with the dominant phase
+            if (phaseStability > 0.6) {
+                const riskDiff = Math.abs(risk - avgRisk);
+                const opportunityDiff = Math.abs(opportunity - avgOpportunity);
+                
+                // If current reading is not dramatically different from recent average, keep dominant phase
+                if (riskDiff < 2 && opportunityDiff < 2) {
+                    const dominantEntry = this.cycleHistory.find(entry => entry.phase === dominantPhase);
+                    return {
+                        phase: dominantPhase,
+                        description: `${dominantEntry.description} (stabilized)`,
+                        action: dominantEntry.action,
+                        stability: {
+                            dominantPhase: dominantPhase,
+                            stabilityRatio: Math.round(phaseStability * 100),
+                            recentSwitches: this.countCycleSwitches(),
+                            avgRisk: Math.round(avgRisk * 10) / 10,
+                            avgOpportunity: Math.round(avgOpportunity * 10) / 10,
+                            riskVolatility: Math.round(riskDiff * 10) / 10,
+                            opportunityVolatility: Math.round(opportunityDiff * 10) / 10
+                        }
+                    };
+                }
+            }
+        }
+        
+        return {
+            ...currentPhase,
+            stability: {
+                dominantPhase: currentPhase.phase,
+                stabilityRatio: 100,
+                recentSwitches: this.countCycleSwitches(),
+                avgRisk: risk,
+                avgOpportunity: opportunity,
+                riskVolatility: 0,
+                opportunityVolatility: 0
+            }
+        };
+    }
+
+    // Helper function to count recent cycle phase switches
+    countCycleSwitches() {
+        if (this.cycleHistory.length < 2) return 0;
+        
+        let switches = 0;
+        for (let i = 1; i < Math.min(this.cycleHistory.length, 8); i++) {
+            if (this.cycleHistory[i].phase !== this.cycleHistory[i-1].phase) {
+                switches++;
+            }
+        }
+        return switches;
+    }
+
+    // Original cycle phase determination (kept for internal use)
     determineCyclePhase(overallCycle) {
         if (!overallCycle) return null;
 
