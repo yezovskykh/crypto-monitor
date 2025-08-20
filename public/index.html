@@ -1594,6 +1594,15 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
         }
 
+        /* AI Predictions within tab */
+        .tab-content .dashboard-section {
+            background: transparent;
+            border-radius: 0;
+            padding: 0;
+            margin-bottom: 0;
+            box-shadow: none;
+        }
+
         .section-header h2 {
             margin: 0 0 10px 0;
             font-size: 1.4em;
@@ -1821,24 +1830,13 @@
         <div id="market-cap-section"></div>
         <div id="btc-section"></div>
         
-        <!-- AI Price Predictions Section -->
-        <div id="ai-predictions-section" class="dashboard-section">
-            <div class="section-header">
-                <h2 style="color: #2e7d32; display: flex; align-items: center; gap: 10px;">
-                    🤖 AI Price Predictions
-                    <span id="predictions-count" style="background: #4caf50; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8em;">0 tokens</span>
-                </h2>
-                <p style="color: #666; margin-top: 8px; font-size: 0.95em;">
-                    AI-powered price forecasts using ensemble machine learning models including technical analysis, momentum, and pattern recognition
-                </p>
-            </div>
-            <div id="ai-predictions-content"></div>
-        </div>
-        
         <!-- Tabbed Analysis Interface -->
         <div class="analysis-tabs">
             <div class="tab-buttons">
-                <button class="tab-button active" onclick="switchTab('htf')">
+                <button class="tab-button active" onclick="switchTab('ai-predictions')">
+                    🤖 AI Predictions
+                </button>
+                <button class="tab-button" onclick="switchTab('htf')">
                     📊 HTF Analysis
                 </button>
                 <button class="tab-button" onclick="switchTab('ltf')">
@@ -1846,7 +1844,26 @@
                 </button>
             </div>
             
-            <div id="htf-tab" class="tab-content active">
+            <div id="ai-predictions-tab" class="tab-content active">
+                <div class="tab-header">
+                    <div class="tab-title">🤖 AI Price Predictions</div>
+                    <div class="tab-description">
+                        AI-powered price forecasts using ensemble machine learning models including technical analysis, momentum, and pattern recognition.
+                        Predictions are generated for 1-hour, 24-hour, and 7-day timeframes with confidence scoring.
+                    </div>
+                </div>
+                <div id="ai-predictions-section" class="dashboard-section">
+                    <div class="section-header" style="margin-bottom: 20px;">
+                        <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
+                            <span id="predictions-count" style="background: #4caf50; color: white; padding: 6px 14px; border-radius: 20px; font-size: 0.9em; font-weight: bold;">0 tokens</span>
+                            <span style="color: #666; font-size: 0.95em;">with AI predictions available</span>
+                        </div>
+                    </div>
+                    <div id="ai-predictions-content"></div>
+                </div>
+            </div>
+            
+            <div id="htf-tab" class="tab-content">
                 <div class="tab-header">
                     <div class="tab-title">📊 Higher Time Frame (HTF) Investment Analysis</div>
                     <div class="tab-description">
@@ -2783,7 +2800,7 @@
         
         // Restore tab state on page load
         function restoreTabState() {
-            const savedTab = localStorage.getItem('activeAnalysisTab') || 'htf';
+            const savedTab = localStorage.getItem('activeAnalysisTab') || 'ai-predictions';
             
             // Remove active classes
             document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
