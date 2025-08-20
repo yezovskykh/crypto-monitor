@@ -2432,10 +2432,14 @@
 
         function toggleTechnical(symbol) {
             const panelId = `technical-${symbol}`;
+            console.log('Looking for panel with ID:', panelId);
             const panel = document.getElementById(panelId);
             
             if (panel) {
+                console.log('Panel found, current classes:', panel.className);
                 panel.classList.toggle('expanded');
+                console.log('Panel classes after toggle:', panel.className);
+                console.log('Panel computed display style:', window.getComputedStyle(panel).display);
                 
                 // Update button text to show expand/collapse state
                 const button = panel.previousElementSibling;
@@ -2452,7 +2456,11 @@
                 console.warn('Technical panel not found:', panelId);
                 // Try to find the panel with a more flexible search
                 const allPanels = document.querySelectorAll('.technical-panel');
-                console.log('Available technical panels:', Array.from(allPanels).map(p => p.id));
+                console.log('Available technical panels:', Array.from(allPanels).map(p => ({ id: p.id, classes: p.className })));
+                
+                // Check if there are duplicate IDs
+                const duplicateCheck = document.querySelectorAll(`[id="${panelId}"]`);
+                console.log('Elements with same ID:', duplicateCheck.length);
             }
         }
 
