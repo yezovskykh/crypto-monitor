@@ -2020,16 +2020,6 @@
                 <div class="market-trend ${trendClass}">
                     <div class="trend-title">${trend.emoji} Overall Market: ${trend.trend}</div>
                     <div class="trend-description">${trend.description}</div>
-                    <div class="trend-stats">
-                        <div class="stat-item">
-                            <div class="stat-label">24h Avg Change</div>
-                            <div class="stat-value">${trend.details.avgChange24h}%</div>
-                        </div>
-                        <div class="stat-item">
-                            <div class="stat-label">7d Avg Change</div>
-                            <div class="stat-value">${trend.details.avgChange7d}%</div>
-                        </div>
-                    </div>
                 </div>
             `;
             document.getElementById('market-trend-section').innerHTML = html;
