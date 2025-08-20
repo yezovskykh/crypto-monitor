@@ -2210,18 +2210,21 @@
         }
 
         function createTechnicalAnalysisPanel(technical, symbol) {
+            // Sanitize symbol for use as HTML ID
+            const sanitizedSymbol = symbol.replace(/[^a-zA-Z0-9-_]/g, '');
+            
             if (!technical || !technical.available) {
                 return `
-                    <button class="technical-toggle" onclick="toggleTechnical('${symbol}')">
+                    <button class="technical-toggle" onclick="toggleTechnical('${sanitizedSymbol}')">
                         📊 Technical Analysis (Not Available)
                     </button>
                 `;
             }
 
-            const panelId = `technical-${symbol}`;
+            const panelId = `technical-${sanitizedSymbol}`;
             
             return `
-                <button class="technical-toggle" onclick="toggleTechnical('${symbol}')">
+                <button class="technical-toggle" onclick="toggleTechnical('${sanitizedSymbol}')">
                     📊 Technical Analysis (${technical.priceDataPoints} ${technical.dataSource === 'sparkline' ? 'sparkline' : 'history'} points)
                 </button>
                 <div id="${panelId}" class="technical-panel">
@@ -2427,9 +2430,28 @@
         }
 
         function toggleTechnical(symbol) {
-            const panel = document.getElementById(`technical-${symbol}`);
+            const panelId = `technical-${symbol}`;
+            const panel = document.getElementById(panelId);
+            
             if (panel) {
                 panel.classList.toggle('expanded');
+                
+                // Update button text to show expand/collapse state
+                const button = panel.previousElementSibling;
+                if (button && button.classList.contains('technical-toggle')) {
+                    const isExpanded = panel.classList.contains('expanded');
+                    const originalText = button.textContent;
+                    if (isExpanded && !originalText.includes('(Click to collapse)')) {
+                        button.textContent = originalText.replace('(', '(Click to collapse) (');
+                    } else if (!isExpanded && originalText.includes('(Click to collapse)')) {
+                        button.textContent = originalText.replace('(Click to collapse) ', '');
+                    }
+                }
+            } else {
+                console.warn('Technical panel not found:', panelId);
+                // Try to find the panel with a more flexible search
+                const allPanels = document.querySelectorAll('.technical-panel');
+                console.log('Available technical panels:', Array.from(allPanels).map(p => p.id));
             }
         }
 
