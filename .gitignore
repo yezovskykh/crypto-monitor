@@ -161,7 +161,7 @@ api-keys.json
 
 # Build artifacts
 build/
-dist/
+# dist/ (commented out - needed for GitHub Pages deployment)
 out/
 
 # Test artifacts

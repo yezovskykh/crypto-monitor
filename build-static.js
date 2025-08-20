@@ -1,0 +1,158 @@
+const fs = require('fs').promises;
+const path = require('path');
+const CryptoMonitor = require('./crypto-monitor.js');
+
+async function buildStatic() {
+    console.log('🔧 Building static version for GitHub Pages...');
+    
+    // Create dist directory
+    const distDir = path.join(__dirname, 'dist');
+    await fs.mkdir(distDir, { recursive: true });
+    
+    // Initialize crypto monitor
+    const monitor = new CryptoMonitor();
+    
+    console.log('📊 Fetching crypto data for static build...');
+    
+    try {
+        // Get top cryptocurrencies
+        const coinsData = await monitor.getTopCryptos(200);
+        
+        // Analyze market trend
+        const marketTrend = monitor.analyzeMarketTrend(coinsData);
+        
+        // Analyze BTC
+        const btcData = coinsData.find(coin => coin.symbol.toLowerCase() === 'btc');
+        const btcAnalysis = btcData ? await monitor.analyzeBTC(btcData) : null;
+        
+        // Analyze market cap indices
+        const marketCapAnalysis = await monitor.analyzeMarketCapIndices();
+        
+        // Analyze cycles
+        const cycleAnalysis = await monitor.analyzeCycles(coinsData, btcAnalysis, marketCapAnalysis);
+        
+        // Separate bullish and bearish opportunities
+        const bullishAlerts = [];
+        const bearishAlerts = [];
+        
+        for (const coin of coinsData) {
+            const analysis = monitor.analyzeCoin(coin);
+            const bearishAnalysis = monitor.analyzeBearishCoin(coin);
+            
+            if (analysis.score >= 6) {
+                const technicalAnalysis = monitor.calculateTechnicalAnalysis(coin);
+                
+                const alertData = {
+                    name: coin.name || 'Unknown',
+                    symbol: coin.symbol || 'unknown',
+                    price: coin.current_price || 0,
+                    rank: coin.market_cap_rank || 'N/A',
+                    change1h: coin.price_change_percentage_1h_in_currency || 0,
+                    change24h: coin.price_change_percentage_24h_in_currency || 0,
+                    change7d: coin.price_change_percentage_7d_in_currency || 0,
+                    score: analysis.score,
+                    signals: analysis.signals,
+                    technicalAnalysis: technicalAnalysis
+                };
+                bullishAlerts.push(alertData);
+            }
+            
+            if (bearishAnalysis.score >= 6) {
+                const technicalAnalysis = monitor.calculateTechnicalAnalysis(coin);
+                
+                const alertData = {
+                    name: coin.name || 'Unknown',
+                    symbol: coin.symbol || 'unknown',
+                    price: coin.current_price || 0,
+                    rank: coin.market_cap_rank || 'N/A',
+                    change1h: coin.price_change_percentage_1h_in_currency || 0,
+                    change24h: coin.price_change_percentage_24h_in_currency || 0,
+                    change7d: coin.price_change_percentage_7d_in_currency || 0,
+                    score: bearishAnalysis.score,
+                    signals: bearishAnalysis.signals,
+                    technicalAnalysis: technicalAnalysis
+                };
+                bearishAlerts.push(alertData);
+            }
+        }
+        
+        // Sort alerts by score
+        bullishAlerts.sort((a, b) => b.score - a.score);
+        bearishAlerts.sort((a, b) => b.score - a.score);
+        
+        // Create analysis data
+        const analysisData = {
+            success: true,
+            data: {
+                marketTrend,
+                bullishAlerts,
+                bearishAlerts,
+                btcAnalysis,
+                marketCapAnalysis,
+                cycleAnalysis,
+                timestamp: new Date().toISOString(),
+                totalOpportunities: bullishAlerts.length + bearishAlerts.length
+            }
+        };
+        
+        // Save analysis data as JSON
+        await fs.writeFile(
+            path.join(distDir, 'analysis.json'),
+            JSON.stringify(analysisData, null, 2)
+        );
+        
+        console.log(`✅ Generated analysis data: ${bullishAlerts.length} bullish, ${bearishAlerts.length} bearish opportunities`);
+        
+        // Read and modify the HTML file for static deployment
+        const htmlContent = await fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8');
+        
+        // Modify the HTML to work with static data
+        const modifiedHtml = htmlContent.replace(
+            /fetch\('\/api\/analysis'\)/g,
+            "fetch('./analysis.json')"
+        ).replace(
+            /fetch\('\/api\/health'\)/g,
+            "Promise.resolve({ok: true, json: () => Promise.resolve({success: true, status: 'static'})})"
+        ).replace(
+            /fetch\('\/api\/market-trend'\)/g,
+            "fetch('./analysis.json').then(r => r.json()).then(data => ({ok: true, json: () => Promise.resolve({success: true, data: data.data.marketTrend})}))"
+        );
+        
+        // Save the modified HTML
+        await fs.writeFile(path.join(distDir, 'index.html'), modifiedHtml);
+        
+        console.log('📄 Generated static HTML file');
+        
+        // Create a simple API endpoint simulation
+        const apiData = {
+            '/api/analysis': analysisData,
+            '/api/health': { success: true, status: 'static', timestamp: new Date().toISOString() },
+            '/api/market-trend': { success: true, data: marketTrend }
+        };
+        
+        await fs.writeFile(
+            path.join(distDir, 'api.json'),
+            JSON.stringify(apiData, null, 2)
+        );
+        
+        console.log('🚀 Static build completed successfully!');
+        console.log(`📁 Files created in ./dist/`);
+        console.log(`   • index.html (${Math.round((await fs.stat(path.join(distDir, 'index.html'))).size / 1024)}KB)`);
+        console.log(`   • analysis.json (${Math.round((await fs.stat(path.join(distDir, 'analysis.json'))).size / 1024)}KB)`);
+        console.log(`   • api.json (${Math.round((await fs.stat(path.join(distDir, 'api.json'))).size / 1024)}KB)`);
+        
+    } catch (error) {
+        console.error('❌ Error building static site:', error.message);
+        process.exit(1);
+    }
+}
+
+// Only run if this file is executed directly
+if (require.main === module) {
+    buildStatic().catch(error => {
+        console.error('❌ Fatal error:', error.message);
+        process.exit(1);
+    });
+}
+
+module.exports = buildStatic;
