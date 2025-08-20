@@ -1668,34 +1668,37 @@
         .ai-prediction-timeframes {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 12px;
+            gap: 8px;
             margin: 15px 0;
         }
 
         .ai-prediction-timeframe {
             text-align: center;
-            padding: 12px;
+            padding: 8px 4px;
             background: rgba(255, 255, 255, 0.8);
-            border-radius: 8px;
+            border-radius: 6px;
             border: 1px solid rgba(76, 175, 80, 0.3);
+            min-width: 0; /* Allow shrinking */
         }
 
         .ai-prediction-timeframe-label {
-            font-size: 0.8em;
+            font-size: 0.75em;
             color: #666;
-            margin-bottom: 6px;
+            margin-bottom: 4px;
             font-weight: 500;
         }
 
         .ai-prediction-price {
             font-weight: bold;
-            font-size: 0.95em;
+            font-size: 0.8em;
             color: #333;
-            margin-bottom: 4px;
+            margin-bottom: 3px;
+            word-break: break-all;
+            line-height: 1.2;
         }
 
         .ai-prediction-change {
-            font-size: 0.8em;
+            font-size: 0.75em;
             font-weight: 600;
         }
 
@@ -1716,6 +1719,69 @@
             .container {
                 padding: 10px;
             }
+            
+            .ai-predictions-grid {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+            
+            .ai-prediction-card {
+                padding: 15px;
+            }
+            
+            .ai-prediction-timeframes {
+                gap: 6px;
+            }
+            
+            .ai-prediction-timeframe {
+                padding: 6px 2px;
+            }
+            
+            .ai-prediction-price {
+                font-size: 0.75em;
+            }
+            
+            .ai-prediction-timeframe-label {
+                font-size: 0.7em;
+            }
+            
+            .ai-prediction-change {
+                font-size: 0.7em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .ai-prediction-timeframes {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+            
+            .ai-prediction-timeframe {
+                padding: 10px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-align: left;
+            }
+            
+            .ai-prediction-timeframe-label {
+                margin-bottom: 0;
+                margin-right: 10px;
+                min-width: 60px;
+            }
+            
+            .ai-prediction-price {
+                margin-bottom: 0;
+                margin-right: 10px;
+                flex: 1;
+                text-align: center;
+            }
+            
+            .ai-prediction-change {
+                text-align: right;
+                min-width: 60px;
+            }
+        }
             
             .header h1 {
                 font-size: 2em;
@@ -3146,11 +3212,27 @@
             document.getElementById('predictions-count').textContent = `${allPredictions.length} tokens`;
 
             const formatPrice = (price) => {
-                if (price >= 1) {
+                if (price >= 1000) {
+                    return new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                        minimumFractionDigits: 0,
+                        maximumFractionDigits: 2,
+                        notation: 'compact',
+                        compactDisplay: 'short'
+                    }).format(price);
+                } else if (price >= 1) {
                     return new Intl.NumberFormat('en-US', {
                         style: 'currency',
                         currency: 'USD',
                         minimumFractionDigits: 2,
+                        maximumFractionDigits: 4
+                    }).format(price);
+                } else if (price >= 0.01) {
+                    return new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                        minimumFractionDigits: 4,
                         maximumFractionDigits: 6
                     }).format(price);
                 } else {
@@ -3158,7 +3240,7 @@
                         style: 'currency',
                         currency: 'USD',
                         minimumFractionDigits: 6,
-                        maximumFractionDigits: 10
+                        maximumFractionDigits: 8
                     }).format(price);
                 }
             };

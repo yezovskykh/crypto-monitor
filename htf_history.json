@@ -116,7 +116,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.033Z",
+        "timestamp": "2025-08-20T17:52:47.493Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -128,7 +128,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.248Z",
-    "lastUpdated": "2025-08-20T17:49:12.033Z"
+    "lastUpdated": "2025-08-20T17:52:47.493Z"
   },
   "ethereum": {
     "scores": [
@@ -254,7 +254,7 @@
       },
       {
         "score": 11,
-        "timestamp": "2025-08-20T17:49:12.034Z",
+        "timestamp": "2025-08-20T17:52:47.494Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -268,7 +268,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.248Z",
-    "lastUpdated": "2025-08-20T17:49:12.034Z"
+    "lastUpdated": "2025-08-20T17:52:47.494Z"
   },
   "ripple": {
     "scores": [
@@ -386,7 +386,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.034Z",
+        "timestamp": "2025-08-20T17:52:47.494Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -399,7 +399,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.248Z",
-    "lastUpdated": "2025-08-20T17:49:12.034Z"
+    "lastUpdated": "2025-08-20T17:52:47.494Z"
   },
   "tether": {
     "scores": [
@@ -513,7 +513,7 @@
       },
       {
         "score": 7,
-        "timestamp": "2025-08-20T17:49:12.034Z",
+        "timestamp": "2025-08-20T17:52:47.494Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -525,7 +525,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.248Z",
-    "lastUpdated": "2025-08-20T17:49:12.034Z"
+    "lastUpdated": "2025-08-20T17:52:47.494Z"
   },
   "binancecoin": {
     "scores": [
@@ -665,7 +665,7 @@
       },
       {
         "score": 15,
-        "timestamp": "2025-08-20T17:49:12.034Z",
+        "timestamp": "2025-08-20T17:52:47.494Z",
         "signals": [
           "📊 Moderate monthly growth with stable weekly trend",
           "💎 Large cap stability for long-term holding",
@@ -681,7 +681,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.248Z",
-    "lastUpdated": "2025-08-20T17:49:12.034Z"
+    "lastUpdated": "2025-08-20T17:52:47.494Z"
   },
   "solana": {
     "scores": [
@@ -800,7 +800,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.034Z",
+        "timestamp": "2025-08-20T17:52:47.494Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -812,7 +812,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.248Z",
-    "lastUpdated": "2025-08-20T17:49:12.034Z"
+    "lastUpdated": "2025-08-20T17:52:47.494Z"
   },
   "usd-coin": {
     "scores": [
@@ -935,14 +935,13 @@
         ]
       },
       {
-        "score": 11,
-        "timestamp": "2025-08-20T17:49:12.035Z",
+        "score": 9,
+        "timestamp": "2025-08-20T17:52:47.494Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
           "📈 Healthy RSI for HTF entry (65.81)",
           "🏆 Top 30 coin - excellent for HTF investment",
-          "🎯 Multi-timeframe HTF alignment",
           "🎯 Consistent HTF performer - stability bonus",
           "⚖️ Persistent HTF candidate - longevity bonus",
           "🔒 HTF status maintained via hysteresis"
@@ -950,7 +949,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.249Z",
-    "lastUpdated": "2025-08-20T17:49:12.035Z"
+    "lastUpdated": "2025-08-20T17:52:47.494Z"
   },
   "staked-ether": {
     "scores": [
@@ -1067,7 +1066,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.035Z",
+        "timestamp": "2025-08-20T17:52:47.494Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (52.78)",
@@ -1080,7 +1079,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.249Z",
-    "lastUpdated": "2025-08-20T17:49:12.035Z"
+    "lastUpdated": "2025-08-20T17:52:47.494Z"
   },
   "tron": {
     "scores": [
@@ -1220,7 +1219,7 @@
       },
       {
         "score": 15,
-        "timestamp": "2025-08-20T17:49:12.036Z",
+        "timestamp": "2025-08-20T17:52:47.494Z",
         "signals": [
           "📊 Moderate monthly growth with stable weekly trend",
           "💎 Large cap stability for long-term holding",
@@ -1236,7 +1235,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.249Z",
-    "lastUpdated": "2025-08-20T17:49:12.036Z"
+    "lastUpdated": "2025-08-20T17:52:47.494Z"
   },
   "dogecoin": {
     "scores": [
@@ -1355,7 +1354,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.036Z",
+        "timestamp": "2025-08-20T17:52:47.495Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -1368,7 +1367,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.249Z",
-    "lastUpdated": "2025-08-20T17:49:12.036Z"
+    "lastUpdated": "2025-08-20T17:52:47.495Z"
   },
   "cardano": {
     "scores": [
@@ -1486,7 +1485,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.036Z",
+        "timestamp": "2025-08-20T17:52:47.495Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -1498,7 +1497,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.249Z",
-    "lastUpdated": "2025-08-20T17:49:12.036Z"
+    "lastUpdated": "2025-08-20T17:52:47.495Z"
   },
   "chainlink": {
     "scores": [
@@ -1644,7 +1643,7 @@
       },
       {
         "score": 21,
-        "timestamp": "2025-08-20T17:49:12.037Z",
+        "timestamp": "2025-08-20T17:52:47.495Z",
         "signals": [
           "📈 Strong monthly uptrend with weekly momentum",
           "⚖️ Sustained growth pattern - HTF suitable",
@@ -1661,7 +1660,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.249Z",
-    "lastUpdated": "2025-08-20T17:49:12.037Z"
+    "lastUpdated": "2025-08-20T17:52:47.495Z"
   },
   "wrapped-steth": {
     "scores": [
@@ -1778,7 +1777,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.037Z",
+        "timestamp": "2025-08-20T17:52:47.495Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (49.51)",
@@ -1791,7 +1790,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.249Z",
-    "lastUpdated": "2025-08-20T17:49:12.037Z"
+    "lastUpdated": "2025-08-20T17:52:47.495Z"
   },
   "wrapped-bitcoin": {
     "scores": [
@@ -1910,7 +1909,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.037Z",
+        "timestamp": "2025-08-20T17:52:47.495Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -1923,7 +1922,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.249Z",
-    "lastUpdated": "2025-08-20T17:49:12.037Z"
+    "lastUpdated": "2025-08-20T17:52:47.495Z"
   },
   "hyperliquid": {
     "scores": [
@@ -2042,7 +2041,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.037Z",
+        "timestamp": "2025-08-20T17:52:47.495Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -2055,7 +2054,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.249Z",
-    "lastUpdated": "2025-08-20T17:49:12.037Z"
+    "lastUpdated": "2025-08-20T17:52:47.495Z"
   },
   "wrapped-beacon-eth": {
     "scores": [
@@ -2172,7 +2171,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.037Z",
+        "timestamp": "2025-08-20T17:52:47.495Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (47.88)",
@@ -2185,7 +2184,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.250Z",
-    "lastUpdated": "2025-08-20T17:49:12.037Z"
+    "lastUpdated": "2025-08-20T17:52:47.495Z"
   },
   "stellar": {
     "scores": [
@@ -2304,7 +2303,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.037Z",
+        "timestamp": "2025-08-20T17:52:47.495Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -2317,7 +2316,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.250Z",
-    "lastUpdated": "2025-08-20T17:49:12.037Z"
+    "lastUpdated": "2025-08-20T17:52:47.495Z"
   },
   "sui": {
     "scores": [
@@ -2435,7 +2434,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.037Z",
+        "timestamp": "2025-08-20T17:52:47.495Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -2448,7 +2447,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.250Z",
-    "lastUpdated": "2025-08-20T17:49:12.037Z"
+    "lastUpdated": "2025-08-20T17:52:47.495Z"
   },
   "wrapped-eeth": {
     "scores": [
@@ -2565,7 +2564,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.037Z",
+        "timestamp": "2025-08-20T17:52:47.495Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (54.40)",
@@ -2578,7 +2577,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.250Z",
-    "lastUpdated": "2025-08-20T17:49:12.037Z"
+    "lastUpdated": "2025-08-20T17:52:47.495Z"
   },
   "ethena-usde": {
     "scores": [
@@ -2690,7 +2689,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.037Z",
+        "timestamp": "2025-08-20T17:52:47.495Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -2703,7 +2702,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.250Z",
-    "lastUpdated": "2025-08-20T17:49:12.037Z"
+    "lastUpdated": "2025-08-20T17:52:47.495Z"
   },
   "bitcoin-cash": {
     "scores": [
@@ -2829,7 +2828,7 @@
       },
       {
         "score": 11,
-        "timestamp": "2025-08-20T17:49:12.037Z",
+        "timestamp": "2025-08-20T17:52:47.495Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -2843,7 +2842,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.250Z",
-    "lastUpdated": "2025-08-20T17:49:12.037Z"
+    "lastUpdated": "2025-08-20T17:52:47.495Z"
   },
   "hedera-hashgraph": {
     "scores": [
@@ -2962,7 +2961,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.037Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -2975,7 +2974,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.250Z",
-    "lastUpdated": "2025-08-20T17:49:12.037Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "avalanche-2": {
     "scores": [
@@ -3094,7 +3093,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.037Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -3107,7 +3106,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.250Z",
-    "lastUpdated": "2025-08-20T17:49:12.037Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "weth": {
     "scores": [
@@ -3233,7 +3232,7 @@
       },
       {
         "score": 11,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -3247,7 +3246,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.250Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "litecoin": {
     "scores": [
@@ -3366,7 +3365,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -3379,7 +3378,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.250Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "leo-token": {
     "scores": [
@@ -3496,7 +3495,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "📊 Moderate monthly growth with stable weekly trend",
           "💎 Large cap stability for long-term holding",
@@ -3508,7 +3507,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.250Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "the-open-network": {
     "scores": [
@@ -3627,7 +3626,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -3640,7 +3639,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.250Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "usds": {
     "scores": [
@@ -3746,7 +3745,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "🏆 Top 30 coin - excellent for HTF investment",
@@ -3757,7 +3756,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "shiba-inu": {
     "scores": [
@@ -3876,7 +3875,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -3889,7 +3888,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "binance-bridged-usdt-bnb-smart-chain": {
     "scores": [
@@ -4009,7 +4008,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -4022,7 +4021,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "uniswap": {
     "scores": [
@@ -4141,7 +4140,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -4154,7 +4153,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "whitebit": {
     "scores": [
@@ -4273,7 +4272,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -4286,7 +4285,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "polkadot": {
     "scores": [
@@ -4405,7 +4404,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -4418,7 +4417,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "coinbase-wrapped-btc": {
     "scores": [
@@ -4537,7 +4536,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -4550,7 +4549,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "ethena-staked-usde": {
     "scores": [
@@ -4667,7 +4666,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -4680,7 +4679,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "bitget-token": {
     "scores": [
@@ -4799,7 +4798,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.038Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -4812,7 +4811,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.038Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "crypto-com-chain": {
     "scores": [
@@ -4937,7 +4936,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -4951,7 +4950,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "monero": {
     "scores": [
@@ -5061,7 +5060,7 @@
       },
       {
         "score": 7,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -5073,7 +5072,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "mantle": {
     "scores": [
@@ -5218,7 +5217,7 @@
       },
       {
         "score": 23,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.496Z",
         "signals": [
           "📈 Strong monthly uptrend with weekly momentum",
           "🚀 Accelerating long-term momentum",
@@ -5235,7 +5234,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.496Z"
   },
   "aave": {
     "scores": [
@@ -5354,7 +5353,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -5367,7 +5366,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "pepe": {
     "scores": [
@@ -5486,7 +5485,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -5499,7 +5498,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.251Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "ethena": {
     "scores": [
@@ -5625,7 +5624,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -5639,7 +5638,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "dai": {
     "scores": [
@@ -5763,7 +5762,7 @@
       },
       {
         "score": 12,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -5777,7 +5776,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "okb": {
     "scores": [
@@ -5933,7 +5932,7 @@
       },
       {
         "score": 20,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "📈 Strong monthly uptrend with weekly momentum",
           "🚀 Accelerating long-term momentum",
@@ -5951,7 +5950,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "bittensor": {
     "scores": [
@@ -6070,7 +6069,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -6083,7 +6082,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "ethereum-classic": {
     "scores": [
@@ -6202,7 +6201,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -6215,7 +6214,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "near": {
     "scores": [
@@ -6334,7 +6333,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -6347,7 +6346,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "aptos": {
     "scores": [
@@ -6465,7 +6464,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -6478,7 +6477,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "ondo-finance": {
     "scores": [
@@ -6597,7 +6596,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.039Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -6610,7 +6609,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.039Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "internet-computer": {
     "scores": [
@@ -6729,7 +6728,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -6742,7 +6741,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "jito-staked-sol": {
     "scores": [
@@ -6861,7 +6860,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -6874,7 +6873,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "pi-network": {
     "scores": [
@@ -6993,7 +6992,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -7006,7 +7005,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "arbitrum": {
     "scores": [
@@ -7125,7 +7124,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.497Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -7138,7 +7137,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.497Z"
   },
   "binance-peg-weth": {
     "scores": [
@@ -7264,7 +7263,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -7278,7 +7277,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "blackrock-usd-institutional-digital-liquidity-fund": {
     "scores": [
@@ -7356,7 +7355,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "✅ Top 100 coin - good HTF candidate"
@@ -7364,7 +7363,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "kaspa": {
     "scores": [
@@ -7483,7 +7482,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -7496,7 +7495,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "polygon-ecosystem-token": {
     "scores": [
@@ -7615,7 +7614,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -7628,7 +7627,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "usd1-wlfi": {
     "scores": [
@@ -7747,7 +7746,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -7760,7 +7759,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.252Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "algorand": {
     "scores": [
@@ -7879,7 +7878,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -7892,7 +7891,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.253Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "gatechain-token": {
     "scores": [
@@ -8002,7 +8001,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (65.22)",
@@ -8014,7 +8013,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.253Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "cosmos": {
     "scores": [
@@ -8133,7 +8132,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -8146,7 +8145,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.253Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "vechain": {
     "scores": [
@@ -8264,7 +8263,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -8276,7 +8275,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.253Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "rocket-pool-eth": {
     "scores": [
@@ -8393,7 +8392,7 @@
       },
       {
         "score": 7,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (49.44)",
@@ -8406,7 +8405,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.253Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "fasttoken": {
     "scores": [
@@ -8532,7 +8531,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -8546,7 +8545,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.253Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "binance-staked-sol": {
     "scores": [
@@ -8656,7 +8655,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (55.44)",
@@ -8668,7 +8667,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.253Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "pudgy-penguins": {
     "scores": [
@@ -8787,7 +8786,7 @@
       },
       {
         "score": 7,
-        "timestamp": "2025-08-20T17:49:12.040Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -8800,7 +8799,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.253Z",
-    "lastUpdated": "2025-08-20T17:49:12.040Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "susds": {
     "scores": [
@@ -8917,7 +8916,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.041Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -8930,7 +8929,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.253Z",
-    "lastUpdated": "2025-08-20T17:49:12.041Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "render-token": {
     "scores": [
@@ -9049,7 +9048,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.041Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -9062,7 +9061,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.253Z",
-    "lastUpdated": "2025-08-20T17:49:12.041Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "jupiter-perpetuals-liquidity-provider-token": {
     "scores": [
@@ -9188,7 +9187,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.041Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -9201,7 +9200,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.253Z",
-    "lastUpdated": "2025-08-20T17:49:12.041Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "sei-network": {
     "scores": [
@@ -9320,7 +9319,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.041Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -9333,7 +9332,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.041Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "kelp-dao-restaked-eth": {
     "scores": [
@@ -9427,7 +9426,7 @@
       },
       {
         "score": 1,
-        "timestamp": "2025-08-20T17:49:12.041Z",
+        "timestamp": "2025-08-20T17:52:47.498Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (51.43)",
@@ -9437,7 +9436,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.041Z"
+    "lastUpdated": "2025-08-20T17:52:47.498Z"
   },
   "worldcoin-wld": {
     "scores": [
@@ -9556,7 +9555,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.041Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -9569,7 +9568,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.041Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "official-trump": {
     "scores": [
@@ -9688,7 +9687,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.042Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -9701,7 +9700,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.042Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "story-2": {
     "scores": [
@@ -9841,7 +9840,7 @@
       },
       {
         "score": 13,
-        "timestamp": "2025-08-20T17:49:12.042Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "📊 Moderate monthly growth with stable weekly trend",
           "💎 Large cap stability for long-term holding",
@@ -9857,7 +9856,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.042Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "fetch-ai": {
     "scores": [
@@ -9976,7 +9975,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.042Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -9989,7 +9988,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.042Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "bonk": {
     "scores": [
@@ -10108,7 +10107,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -10121,7 +10120,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "bfusd": {
     "scores": [
@@ -10240,7 +10239,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -10253,7 +10252,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "flare-networks": {
     "scores": [
@@ -10393,7 +10392,7 @@
       },
       {
         "score": 14,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "📊 Positive monthly trend with weekly consolidation",
           "💎 Large cap stability for long-term holding",
@@ -10409,7 +10408,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "filecoin": {
     "scores": [
@@ -10527,7 +10526,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -10540,7 +10539,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "stakewise-v3-oseth": {
     "scores": [
@@ -10634,7 +10633,7 @@
       },
       {
         "score": 1,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (48.38)",
@@ -10644,7 +10643,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "kucoin-shares": {
     "scores": [
@@ -10731,7 +10730,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (60.00)",
@@ -10740,7 +10739,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "liquid-staked-ethereum": {
     "scores": [
@@ -10834,7 +10833,7 @@
       },
       {
         "score": 1,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (52.41)",
@@ -10844,7 +10843,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "lombard-staked-btc": {
     "scores": [
@@ -10963,7 +10962,7 @@
       },
       {
         "score": 7,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -10976,7 +10975,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "quant-network": {
     "scores": [
@@ -11092,7 +11091,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -11105,7 +11104,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "jupiter-exchange-solana": {
     "scores": [
@@ -11224,7 +11223,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -11237,7 +11236,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "usdt0": {
     "scores": [
@@ -11361,7 +11360,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -11375,7 +11374,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "sky": {
     "scores": [
@@ -11462,7 +11461,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (44.91)",
@@ -11471,7 +11470,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "xdce-crowd-sale": {
     "scores": [
@@ -11590,7 +11589,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -11603,7 +11602,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "usdtb": {
     "scores": [
@@ -11718,7 +11717,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "✅ Top 100 coin - good HTF candidate",
@@ -11730,7 +11729,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "polygon-bridged-usdt-polygon": {
     "scores": [
@@ -11844,7 +11843,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -11857,7 +11856,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "paypal-usd": {
     "scores": [
@@ -11983,7 +11982,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -11997,7 +11996,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "injective-protocol": {
     "scores": [
@@ -12116,7 +12115,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -12129,7 +12128,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "falcon-finance": {
     "scores": [
@@ -12246,7 +12245,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.499Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -12259,7 +12258,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.499Z"
   },
   "kinetic-staked-hype": {
     "scores": [
@@ -12378,7 +12377,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -12391,7 +12390,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "celestia": {
     "scores": [
@@ -12510,7 +12509,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -12523,7 +12522,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "hash-2": {
     "scores": [
@@ -12604,7 +12603,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "✅ Top 100 coin - good HTF candidate"
@@ -12612,7 +12611,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.254Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "mantle-staked-ether": {
     "scores": [
@@ -12729,7 +12728,7 @@
       },
       {
         "score": 7,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (59.13)",
@@ -12742,7 +12741,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "renzo-restaked-eth": {
     "scores": [
@@ -12868,7 +12867,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -12882,7 +12881,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "nexo": {
     "scores": [
@@ -12997,7 +12996,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.043Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -13009,7 +13008,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.043Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "spx6900": {
     "scores": [
@@ -13120,7 +13119,7 @@
       },
       {
         "score": 7,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -13132,7 +13131,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "optimism": {
     "scores": [
@@ -13250,7 +13249,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -13263,7 +13262,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "tether-gold": {
     "scores": [
@@ -13373,7 +13372,7 @@
       },
       {
         "score": 7,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -13385,7 +13384,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "curve-dao-token": {
     "scores": [
@@ -13495,7 +13494,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -13507,7 +13506,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "first-digital-usd": {
     "scores": [
@@ -13624,7 +13623,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -13637,7 +13636,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "blockstack": {
     "scores": [
@@ -13747,7 +13746,7 @@
       },
       {
         "score": 7,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -13759,7 +13758,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "aerodrome-finance": {
     "scores": [
@@ -13890,7 +13889,7 @@
       },
       {
         "score": 14,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "📊 Positive monthly trend with weekly consolidation",
           "💎 Large cap stability for long-term holding",
@@ -13905,7 +13904,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "lido-dao": {
     "scores": [
@@ -14022,7 +14021,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -14035,7 +14034,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "solv-btc": {
     "scores": [
@@ -14113,7 +14112,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📈 Healthy RSI for HTF entry (58.02)"
@@ -14121,7 +14120,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "wbnb": {
     "scores": [
@@ -14252,7 +14251,7 @@
       },
       {
         "score": 9,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.500Z",
         "signals": [
           "📊 Moderate monthly growth with stable weekly trend",
           "💎 Large cap stability for long-term holding",
@@ -14266,7 +14265,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.500Z"
   },
   "jupiter-staked-sol": {
     "scores": [
@@ -14376,7 +14375,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -14388,7 +14387,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "pump-fun": {
     "scores": [
@@ -14498,7 +14497,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -14510,7 +14509,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "immutable-x": {
     "scores": [
@@ -14620,7 +14619,7 @@
       },
       {
         "score": 7,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Consistent volume for HTF investment",
@@ -14632,7 +14631,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "binance-bridged-usdc-bnb-smart-chain": {
     "scores": [
@@ -14743,7 +14742,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
           "📊 Adequate volume for HTF consideration",
@@ -14755,7 +14754,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "sonic-3": {
     "scores": [
@@ -14864,11 +14863,11 @@
         ]
       },
       {
-        "score": 6,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "score": 7,
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "💎 Large cap stability for long-term holding",
-          "📊 Adequate volume for HTF consideration",
+          "📊 Consistent volume for HTF investment",
           "📈 Healthy RSI for HTF entry (50.51)",
           "🎯 Consistent HTF performer - stability bonus",
           "⚖️ Persistent HTF candidate - longevity bonus",
@@ -14877,7 +14876,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "floki": {
     "scores": [
@@ -14987,7 +14986,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -14999,7 +14998,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "saros-finance": {
     "scores": [
@@ -15128,7 +15127,7 @@
       },
       {
         "score": 10,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "📊 Moderate monthly growth with stable weekly trend",
           "🔹 Large mid cap with institutional interest",
@@ -15143,7 +15142,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "super-oeth": {
     "scores": [
@@ -15228,7 +15227,7 @@
       },
       {
         "score": 1,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📈 Healthy RSI for HTF entry (53.71)",
@@ -15237,7 +15236,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "the-graph": {
     "scores": [
@@ -15347,7 +15346,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -15359,7 +15358,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "arbitrum-bridged-wbtc-arbitrum-one": {
     "scores": [
@@ -15469,7 +15468,7 @@
       },
       {
         "score": 5,
-        "timestamp": "2025-08-20T17:49:12.044Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Adequate volume for HTF consideration",
@@ -15481,7 +15480,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.044Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "syrupusdc": {
     "scores": [
@@ -15575,7 +15574,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -15587,7 +15586,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "pax-gold": {
     "scores": [
@@ -15665,7 +15664,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment"
@@ -15673,7 +15672,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.255Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "conflux-token": {
     "scores": [
@@ -15751,7 +15750,7 @@
       },
       {
         "score": 5,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Adequate volume for HTF consideration",
@@ -15760,7 +15759,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "fartcoin": {
     "scores": [
@@ -15870,7 +15869,7 @@
       },
       {
         "score": 5,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Adequate volume for HTF consideration",
@@ -15882,7 +15881,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "pancakeswap-token": {
     "scores": [
@@ -15992,7 +15991,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -16004,7 +16003,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "raydium": {
     "scores": [
@@ -16114,7 +16113,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -16126,7 +16125,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "pendle": {
     "scores": [
@@ -16251,7 +16250,7 @@
       },
       {
         "score": 11,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "📊 Moderate monthly growth with stable weekly trend",
           "🔹 Large mid cap with institutional interest",
@@ -16266,7 +16265,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "clbtc": {
     "scores": [
@@ -16344,7 +16343,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.501Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📈 Healthy RSI for HTF entry (54.32)"
@@ -16352,7 +16351,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.501Z"
   },
   "dogwifcoin": {
     "scores": [
@@ -16462,7 +16461,7 @@
       },
       {
         "score": 5,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Adequate volume for HTF consideration",
@@ -16474,7 +16473,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "kaia": {
     "scores": [
@@ -16584,7 +16583,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -16596,7 +16595,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "tezos": {
     "scores": [
@@ -16706,7 +16705,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -16718,7 +16717,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "msol": {
     "scores": [
@@ -16828,7 +16827,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -16840,7 +16839,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "virtual-protocol": {
     "scores": [
@@ -16950,7 +16949,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -16962,7 +16961,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "l2-standard-bridged-weth-base": {
     "scores": [
@@ -17079,7 +17078,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Adequate volume for HTF consideration",
@@ -17092,7 +17091,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "cgeth-hashkey-cloud": {
     "scores": [
@@ -17170,7 +17169,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📈 Healthy RSI for HTF entry (50.01)"
@@ -17178,7 +17177,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "ethereum-name-service": {
     "scores": [
@@ -17288,7 +17287,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -17300,7 +17299,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "vaulta": {
     "scores": [
@@ -17410,7 +17409,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -17421,7 +17420,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "iota": {
     "scores": [
@@ -17531,7 +17530,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -17543,7 +17542,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "theta-token": {
     "scores": [
@@ -17653,7 +17652,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -17665,7 +17664,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "gala": {
     "scores": [
@@ -17775,7 +17774,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -17787,7 +17786,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "jasmycoin": {
     "scores": [
@@ -17897,7 +17896,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -17909,7 +17908,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "memecore": {
     "scores": [
@@ -18040,7 +18039,7 @@
       },
       {
         "score": 11,
-        "timestamp": "2025-08-20T17:49:12.045Z",
+        "timestamp": "2025-08-20T17:52:47.502Z",
         "signals": [
           "📊 Moderate monthly growth with stable weekly trend",
           "🔹 Large mid cap with institutional interest",
@@ -18055,7 +18054,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.045Z"
+    "lastUpdated": "2025-08-20T17:52:47.502Z"
   },
   "ether-fi-staked-eth": {
     "scores": [
@@ -18140,7 +18139,7 @@
       },
       {
         "score": 1,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📈 Healthy RSI for HTF entry (56.45)",
@@ -18149,7 +18148,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "morpho": {
     "scores": [
@@ -18280,7 +18279,7 @@
       },
       {
         "score": 11,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "📊 Moderate monthly growth with stable weekly trend",
           "🔹 Large mid cap with institutional interest",
@@ -18295,7 +18294,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "newton-project": {
     "scores": [
@@ -18426,7 +18425,7 @@
       },
       {
         "score": 11,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "📊 Moderate monthly growth with stable weekly trend",
           "🔹 Large mid cap with institutional interest",
@@ -18441,7 +18440,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "ousg": {
     "scores": [
@@ -18510,14 +18509,14 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest"
         ]
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.256Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "the-sandbox": {
     "scores": [
@@ -18627,7 +18626,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -18639,7 +18638,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "pyth-network": {
     "scores": [
@@ -18749,7 +18748,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -18761,7 +18760,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "usdx-money-usdx": {
     "scores": [
@@ -18839,7 +18838,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📈 Healthy RSI for HTF entry (63.37)"
@@ -18847,7 +18846,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "ondo-us-dollar-yield": {
     "scores": [
@@ -18916,14 +18915,14 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest"
         ]
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "tbtc": {
     "scores": [
@@ -19033,7 +19032,7 @@
       },
       {
         "score": 5,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Adequate volume for HTF consideration",
@@ -19045,7 +19044,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "ripple-usd": {
     "scores": [
@@ -19141,7 +19140,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Adequate volume for HTF consideration",
@@ -19151,7 +19150,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "stader-ethx": {
     "scores": [
@@ -19245,7 +19244,7 @@
       },
       {
         "score": 1,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📈 Healthy RSI for HTF entry (46.81)",
@@ -19255,7 +19254,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "arbitrum-bridged-weth-arbitrum-one": {
     "scores": [
@@ -19358,7 +19357,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Adequate volume for HTF consideration",
@@ -19369,7 +19368,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "bittorrent": {
     "scores": [
@@ -19465,7 +19464,7 @@
       },
       {
         "score": 2,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -19474,7 +19473,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "mantle-restaked-eth": {
     "scores": [
@@ -19585,7 +19584,7 @@
       },
       {
         "score": 5,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -19598,7 +19597,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "jito-governance-token": {
     "scores": [
@@ -19689,7 +19688,7 @@
       },
       {
         "score": 2,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -19698,7 +19697,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "zcash": {
     "scores": [
@@ -19794,7 +19793,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -19804,7 +19803,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "coinbase-wrapped-staked-eth": {
     "scores": [
@@ -19919,7 +19918,7 @@
       },
       {
         "score": 5,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -19932,7 +19931,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "walrus-2": {
     "scores": [
@@ -20039,7 +20038,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -20049,7 +20048,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "flow": {
     "scores": [
@@ -20145,7 +20144,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -20155,7 +20154,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "vision-3": {
     "scores": [
@@ -20266,7 +20265,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Adequate volume for HTF consideration",
@@ -20279,7 +20278,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "build-on": {
     "scores": [
@@ -20388,7 +20387,7 @@
       },
       {
         "score": 5,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.503Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -20401,7 +20400,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.503Z"
   },
   "usual-usd": {
     "scores": [
@@ -20497,7 +20496,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Adequate volume for HTF consideration",
@@ -20507,7 +20506,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "sweth": {
     "scores": [
@@ -20603,7 +20602,7 @@
       },
       {
         "score": 1,
-        "timestamp": "2025-08-20T17:49:12.046Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "📊 Moderate monthly growth with stable weekly trend",
           "🔹 Large mid cap with institutional interest",
@@ -20614,7 +20613,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.046Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "binance-peg-dogecoin": {
     "scores": [
@@ -20710,7 +20709,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -20720,7 +20719,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "bitcoin-avalanche-bridged-btc-b": {
     "scores": [
@@ -20816,7 +20815,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -20826,7 +20825,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "global-dollar": {
     "scores": [
@@ -20936,7 +20935,7 @@
       },
       {
         "score": 6,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -20950,7 +20949,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "decentraland": {
     "scores": [
@@ -21046,7 +21045,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -21056,7 +21055,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "starknet": {
     "scores": [
@@ -21152,7 +21151,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -21162,7 +21161,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "bitcoin-cash-sv": {
     "scores": [
@@ -21258,7 +21257,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -21268,7 +21267,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "ether-fi": {
     "scores": [
@@ -21364,7 +21363,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -21374,7 +21373,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "based-brett": {
     "scores": [
@@ -21470,7 +21469,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -21480,7 +21479,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "beldex": {
     "scores": [
@@ -21576,7 +21575,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Adequate volume for HTF consideration",
@@ -21586,7 +21585,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "dydx-chain": {
     "scores": [
@@ -21682,7 +21681,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -21692,7 +21691,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "reserve-rights-token": {
     "scores": [
@@ -21787,7 +21786,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -21797,7 +21796,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "helium": {
     "scores": [
@@ -21893,7 +21892,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔹 Large mid cap with institutional interest",
           "📊 Consistent volume for HTF investment",
@@ -21903,7 +21902,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.257Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "solv-protocol-solvbtc-bbn": {
     "scores": [
@@ -21989,7 +21988,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "⚠️ Lower ranked coin - moderate risk for HTF"
@@ -21997,7 +21996,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.258Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "frax-ether": {
     "scores": [
@@ -22100,7 +22099,7 @@
       },
       {
         "score": 1,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Adequate volume for HTF consideration",
@@ -22111,7 +22110,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.258Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "true-usd": {
     "scores": [
@@ -22207,7 +22206,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -22217,7 +22216,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.258Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "coredaoorg": {
     "scores": [
@@ -22312,7 +22311,7 @@
       },
       {
         "score": 1,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -22321,7 +22320,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.258Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "apecoin": {
     "scores": [
@@ -22417,7 +22416,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -22427,7 +22426,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "polygon-pos-bridged-weth-polygon-pos": {
     "scores": [
@@ -22530,7 +22529,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -22541,7 +22540,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "keeta": {
     "scores": [
@@ -22644,7 +22643,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -22655,7 +22654,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "usdd": {
     "scores": [
@@ -22751,7 +22750,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.504Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -22761,7 +22760,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.504Z"
   },
   "syrup": {
     "scores": [
@@ -22857,7 +22856,7 @@
       },
       {
         "score": 4,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -22867,7 +22866,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "telcoin": {
     "scores": [
@@ -22954,7 +22953,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📈 Healthy RSI for HTF entry (54.69)",
@@ -22963,7 +22962,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "zksync": {
     "scores": [
@@ -23059,7 +23058,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -23069,7 +23068,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "instadapp": {
     "scores": [
@@ -23172,7 +23171,7 @@
       },
       {
         "score": 1,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Adequate volume for HTF consideration",
@@ -23183,7 +23182,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "thorchain": {
     "scores": [
@@ -23277,7 +23276,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Adequate volume for HTF consideration",
@@ -23286,7 +23285,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "apenft": {
     "scores": [
@@ -23382,7 +23381,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -23392,7 +23391,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "arweave": {
     "scores": [
@@ -23488,7 +23487,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -23498,7 +23497,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "sun-token": {
     "scores": [
@@ -23621,7 +23620,7 @@
       },
       {
         "score": 8,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "📊 Moderate monthly growth with stable weekly trend",
           "🔸 Mid cap with growth potential",
@@ -23637,7 +23636,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "neo": {
     "scores": [
@@ -23724,7 +23723,7 @@
       },
       {
         "score": 2,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Adequate volume for HTF consideration",
@@ -23734,7 +23733,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "compound-governance-token": {
     "scores": [
@@ -23830,7 +23829,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.048Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -23840,7 +23839,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.048Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "eigenlayer": {
     "scores": [
@@ -23936,7 +23935,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.048Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -23946,7 +23945,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.048Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "chain-2": {
     "scores": [
@@ -24042,7 +24041,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.047Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -24052,7 +24051,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.047Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "aioz-network": {
     "scores": [
@@ -24139,7 +24138,7 @@
       },
       {
         "score": 1,
-        "timestamp": "2025-08-20T17:49:12.048Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -24148,7 +24147,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.048Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "savings-dai": {
     "scores": [
@@ -24229,7 +24228,7 @@
       },
       {
         "score": 0,
-        "timestamp": "2025-08-20T17:49:12.048Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "⚠️ Lower ranked coin - moderate risk for HTF"
@@ -24237,7 +24236,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.048Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "polygon-pos-bridged-dai-polygon-pos": {
     "scores": [
@@ -24333,7 +24332,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.048Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -24343,7 +24342,7 @@
       }
     ],
     "firstSeen": "2025-08-20T17:16:15.259Z",
-    "lastUpdated": "2025-08-20T17:49:12.048Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   },
   "mantle-bridged-usdt-mantle": {
     "scores": [
@@ -24455,7 +24454,7 @@
       },
       {
         "score": 3,
-        "timestamp": "2025-08-20T17:49:12.048Z",
+        "timestamp": "2025-08-20T17:52:47.505Z",
         "signals": [
           "🔸 Mid cap with growth potential",
           "📊 Consistent volume for HTF investment",
@@ -24465,6 +24464,6 @@
       }
     ],
     "firstSeen": "2025-08-20T17:21:15.273Z",
-    "lastUpdated": "2025-08-20T17:49:12.048Z"
+    "lastUpdated": "2025-08-20T17:52:47.505Z"
   }
 }
