@@ -267,6 +267,53 @@
             font-weight: bold;
         }
 
+        /* Single row layout for price and market data */
+        .price-market-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+
+        .price-section {
+            flex-shrink: 0;
+        }
+
+        .changes-section {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+        }
+
+        .market-section {
+            display: flex;
+            gap: 8px;
+            margin-left: auto;
+            flex-shrink: 0;
+        }
+
+        .market-item-compact {
+            background: #f8f9fa;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            color: #666;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 768px) {
+            .price-market-row {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+            
+            .market-section {
+                margin-left: 0;
+            }
+        }
+
         .signals {
             margin-top: 10px;
         }
@@ -2924,9 +2971,11 @@
                         <div class="score-badge htf-score">HTF Score: ${alert.score}</div>
                     </div>
                     
-                    <div class="price-info">
-                        <div class="current-price">${formatPrice(alert.price)}</div>
-                        <div class="price-changes">
+                    <div class="price-market-row">
+                        <div class="price-section">
+                            <div class="current-price">${formatPrice(alert.price)}</div>
+                        </div>
+                        <div class="changes-section">
                             <div class="price-change-item">
                                 <span class="timeframe">1h:</span> ${formatChange(alert.change1h)}
                             </div>
@@ -2940,16 +2989,9 @@
                                 <span class="timeframe">30d:</span> ${formatChange(alert.change30d || 0)}
                             </div>
                         </div>
-                    </div>
-
-                    <div class="market-info">
-                        <div class="market-info-item">
-                            <span class="label">Market Cap:</span>
-                            <span class="value">$${formatLargeNumber(alert.marketCap)}</span>
-                        </div>
-                        <div class="market-info-item">
-                            <span class="label">Volume 24h:</span>
-                            <span class="value">$${formatLargeNumber(alert.volume)}</span>
+                        <div class="market-section">
+                            <div class="market-item-compact">Cap: $${formatLargeNumber(alert.marketCap)}</div>
+                            <div class="market-item-compact">Vol: $${formatLargeNumber(alert.volume)}</div>
                         </div>
                     </div>
 
@@ -3071,13 +3113,20 @@
                         <div class="crypto-score">Score: ${alert.score}</div>
                     </div>
                     
-                    <div class="crypto-price">$${alert.price.toFixed(6)}</div>
-                    
-                    <div class="price-changes">
-                        <div>1h: ${formatChange(alert.change1h)}</div>
-                        <div>24h: ${formatChange(alert.change24h)}</div>
-                        <div>7d: ${formatChange(alert.change7d)}</div>
-                    </div>
+                                         <div class="price-market-row">
+                         <div class="price-section">
+                             <div class="current-price">$${alert.price.toFixed(6)}</div>
+                         </div>
+                         <div class="changes-section">
+                             <div class="price-change-item">1h: ${formatChange(alert.change1h)}</div>
+                             <div class="price-change-item">24h: ${formatChange(alert.change24h)}</div>
+                             <div class="price-change-item">7d: ${formatChange(alert.change7d)}</div>
+                         </div>
+                         <div class="market-section">
+                             <div class="market-item-compact">Cap: $${alert.marketCap ? formatLargeNumber(alert.marketCap) : 'N/A'}</div>
+                             <div class="market-item-compact">Vol: $${alert.volume24h ? formatLargeNumber(alert.volume24h) : 'N/A'}</div>
+                         </div>
+                     </div>
                     
                     <div class="signals">
                         <h4>🔍 Detected Signals</h4>

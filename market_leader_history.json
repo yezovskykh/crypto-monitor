@@ -130,5 +130,38 @@
       "total3": 1.6603702070177657
     },
     "margin": 0.9882595430137702
+  },
+  {
+    "timestamp": "2025-08-20T18:20:29.134Z",
+    "leader": "Large Cap Altcoins",
+    "strength": "Driving market performance",
+    "changes": {
+      "total": 0.797529634324893,
+      "total2": 1.5683478398558648,
+      "total3": 1.1332478954216993
+    },
+    "margin": 0.7708182055309718
+  },
+  {
+    "timestamp": "2025-08-20T18:25:29.156Z",
+    "leader": "Large Cap Altcoins",
+    "strength": "Driving market performance",
+    "changes": {
+      "total": 0.7030140977864686,
+      "total2": 1.445093363346324,
+      "total3": 1.0667227881351662
+    },
+    "margin": 0.7420792655598555
+  },
+  {
+    "timestamp": "2025-08-20T18:30:28.996Z",
+    "leader": "Large Cap Altcoins",
+    "strength": "Driving market performance",
+    "changes": {
+      "total": 0.5965952838265011,
+      "total2": 1.3760464285285712,
+      "total3": 0.9880834894592246
+    },
+    "margin": 0.7794511447020701
   }
 ]

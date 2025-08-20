@@ -1,35 +1,5 @@
 [
   {
-    "timestamp": "2025-08-20T17:28:45.807Z",
-    "phase": "Late Cycle",
-    "description": "Advanced cycle stage - be cautious",
-    "action": "Monitor Closely",
-    "risk": 8,
-    "opportunity": -2.3,
-    "cycleBias": "Bearish",
-    "cycleStrength": 10.3
-  },
-  {
-    "timestamp": "2025-08-20T17:37:15.963Z",
-    "phase": "Late Cycle",
-    "description": "Advanced cycle stage - be cautious",
-    "action": "Monitor Closely",
-    "risk": 8,
-    "opportunity": -2.3,
-    "cycleBias": "Bearish",
-    "cycleStrength": 10.3
-  },
-  {
-    "timestamp": "2025-08-20T17:42:15.008Z",
-    "phase": "Late Cycle",
-    "description": "Advanced cycle stage - be cautious",
-    "action": "Monitor Closely",
-    "risk": 8,
-    "opportunity": -2.3,
-    "cycleBias": "Bearish",
-    "cycleStrength": 10.3
-  },
-  {
     "timestamp": "2025-08-20T17:45:32.009Z",
     "phase": "Late Cycle",
     "description": "Advanced cycle stage - be cautious",
@@ -118,5 +88,35 @@
     "opportunity": -2.3,
     "cycleBias": "Bearish",
     "cycleStrength": 10.3
+  },
+  {
+    "timestamp": "2025-08-20T18:20:29.135Z",
+    "phase": "Late Cycle",
+    "description": "Advanced cycle stage - be cautious",
+    "action": "Monitor Closely",
+    "risk": 8,
+    "opportunity": -2.2,
+    "cycleBias": "Bearish",
+    "cycleStrength": 10.2
+  },
+  {
+    "timestamp": "2025-08-20T18:25:29.156Z",
+    "phase": "Late Cycle",
+    "description": "Advanced cycle stage - be cautious",
+    "action": "Monitor Closely",
+    "risk": 8,
+    "opportunity": -2.2,
+    "cycleBias": "Bearish",
+    "cycleStrength": 10.2
+  },
+  {
+    "timestamp": "2025-08-20T18:30:28.996Z",
+    "phase": "Late Cycle",
+    "description": "Advanced cycle stage - be cautious",
+    "action": "Monitor Closely",
+    "risk": 8,
+    "opportunity": -2.2,
+    "cycleBias": "Bearish",
+    "cycleStrength": 10.2
   }
 ]
