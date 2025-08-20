@@ -15,27 +15,80 @@ async function buildStatic() {
     console.log('📊 Fetching crypto data for static build...');
     
     try {
-        // Get top cryptocurrencies
-        const coinsData = await monitor.getTopCryptos(200);
+        // Get top cryptocurrencies with retry logic
+        let coinsData, marketCapAnalysis, btcAnalysis, cycleAnalysis;
+        let marketTrend = {
+            trend: 'Neutral',
+            emoji: '⚖️',
+            description: 'Market data unavailable during build',
+            details: {
+                totalCoinsAnalyzed: 0,
+                bullishCoins: 0,
+                bearishCoins: 0,
+                neutralCoins: 0,
+                avgChange24h: 0,
+                avgChange7d: 0
+            }
+        };
         
-        // Analyze market trend
-        const marketTrend = monitor.analyzeMarketTrend(coinsData);
-        
-        // Analyze BTC
-        const btcData = coinsData.find(coin => coin.symbol.toLowerCase() === 'btc');
-        const btcAnalysis = btcData ? await monitor.analyzeBTC(btcData) : null;
-        
-        // Analyze market cap indices
-        const marketCapAnalysis = await monitor.analyzeMarketCapIndices();
-        
-        // Analyze cycles
-        const cycleAnalysis = await monitor.analyzeCycles(coinsData, btcAnalysis, marketCapAnalysis);
+        try {
+            console.log('🔄 Attempting to fetch crypto data...');
+            
+            // Set timeout for API calls in CI environment
+            const timeoutPromise = new Promise((_, reject) => {
+                setTimeout(() => reject(new Error('API timeout after 30 seconds')), 30000);
+            });
+            
+            coinsData = await Promise.race([
+                monitor.getTopCryptos(200),
+                timeoutPromise
+            ]);
+            console.log(`✅ Successfully fetched ${coinsData.length} cryptocurrencies`);
+            
+            // Analyze market trend
+            marketTrend = monitor.analyzeMarketTrend(coinsData);
+            
+            // Analyze BTC
+            const btcData = coinsData.find(coin => coin.symbol.toLowerCase() === 'btc');
+            btcAnalysis = btcData ? await monitor.analyzeBTC(btcData) : null;
+            
+            // Analyze market cap indices
+            marketCapAnalysis = await monitor.analyzeMarketCapIndices();
+            
+            // Analyze cycles
+            cycleAnalysis = await monitor.analyzeCycles(coinsData, btcAnalysis, marketCapAnalysis);
+            
+        } catch (apiError) {
+            console.warn('⚠️  API fetch failed, using fallback data:', apiError.message);
+            
+            // Create minimal fallback data
+            coinsData = [];
+            btcAnalysis = {
+                name: 'Bitcoin',
+                symbol: 'BTC',
+                currentPrice: 0,
+                error: 'Data unavailable during build'
+            };
+            marketCapAnalysis = {
+                total: { error: 'Data unavailable during build' },
+                total2: { error: 'Data unavailable during build' },
+                total3: { error: 'Data unavailable during build' }
+            };
+            cycleAnalysis = {
+                overall: {
+                    phase: 'Unknown',
+                    description: 'Cycle analysis unavailable during build'
+                }
+            };
+        }
         
         // Separate bullish and bearish opportunities
         const bullishAlerts = [];
         const bearishAlerts = [];
         
-        for (const coin of coinsData) {
+        // Only analyze coins if we have data
+        if (coinsData && coinsData.length > 0) {
+            for (const coin of coinsData) {
             const analysis = monitor.analyzeCoin(coin);
             const bearishAnalysis = monitor.analyzeBearishCoin(coin);
             
@@ -74,6 +127,7 @@ async function buildStatic() {
                 };
                 bearishAlerts.push(alertData);
             }
+            }
         }
         
         // Sort alerts by score
@@ -101,7 +155,11 @@ async function buildStatic() {
             JSON.stringify(analysisData, null, 2)
         );
         
-        console.log(`✅ Generated analysis data: ${bullishAlerts.length} bullish, ${bearishAlerts.length} bearish opportunities`);
+        if (coinsData && coinsData.length > 0) {
+            console.log(`✅ Generated analysis data: ${bullishAlerts.length} bullish, ${bearishAlerts.length} bearish opportunities`);
+        } else {
+            console.log('⚠️  Generated fallback data (API was unavailable during build)');
+        }
         
         // Read and modify the HTML file for static deployment
         const htmlContent = await fs.readFile(path.join(__dirname, 'public', 'index.html'), 'utf8');
