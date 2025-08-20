@@ -98,6 +98,9 @@ class CryptoDashboard {
                     // Calculate technical analysis
                     const technicalAnalysis = this.cryptoMonitor.calculateTechnicalAnalysis(coin);
                     
+                    // Generate AI prediction
+                    const aiPrediction = this.cryptoMonitor.generateAIPrediction(coin, technicalAnalysis);
+                    
                     const bullishData = {
                         name: coin.name || 'Unknown',
                         symbol: coin.symbol || 'unknown',
@@ -112,6 +115,7 @@ class CryptoDashboard {
                         signals: bullishAnalysis.signals,
                         type: 'bullish',
                         technicalAnalysis: technicalAnalysis,
+                        aiPrediction: aiPrediction,
                         lastUpdated: new Date().toISOString()
                     };
                     bullishAlerts.push(bullishData);
@@ -122,6 +126,9 @@ class CryptoDashboard {
                 if (bearishAnalysis.score >= 6) {
                     // Calculate technical analysis
                     const technicalAnalysis = this.cryptoMonitor.calculateTechnicalAnalysis(coin);
+                    
+                    // Generate AI prediction for bearish
+                    const aiPrediction = this.cryptoMonitor.generateAIPrediction(coin, technicalAnalysis);
                     
                     const bearishData = {
                         name: coin.name || 'Unknown',
@@ -137,6 +144,7 @@ class CryptoDashboard {
                         signals: bearishAnalysis.signals,
                         type: 'bearish',
                         technicalAnalysis: technicalAnalysis,
+                        aiPrediction: aiPrediction,
                         lastUpdated: new Date().toISOString()
                     };
                     bearishAlerts.push(bearishData);
@@ -147,6 +155,9 @@ class CryptoDashboard {
                 if (htfAnalysis.score >= 5) { // Lower threshold for HTF as it's more selective
                     // Calculate technical analysis
                     const technicalAnalysis = this.cryptoMonitor.calculateTechnicalAnalysis(coin);
+                    
+                    // Generate AI prediction for HTF
+                    const aiPrediction = this.cryptoMonitor.generateAIPrediction(coin, technicalAnalysis);
                     
                     const htfData = {
                         name: coin.name || 'Unknown',
@@ -163,6 +174,7 @@ class CryptoDashboard {
                         signals: htfAnalysis.signals,
                         type: 'htf',
                         technicalAnalysis: technicalAnalysis,
+                        aiPrediction: aiPrediction,
                         stability: htfAnalysis.stability, // Include stability metrics
                         lastUpdated: new Date().toISOString()
                     };
@@ -198,6 +210,7 @@ class CryptoDashboard {
             await this.cryptoMonitor.saveCycleHistory();
             await this.cryptoMonitor.saveMarketLeaderHistory();
             await this.cryptoMonitor.saveApiCache();
+            await this.cryptoMonitor.saveAIPredictions();
             
             console.log(`✅ Analysis complete: ${bullishAlerts.length} bullish, ${bearishAlerts.length} bearish, ${htfAlerts.length} HTF opportunities found`);
 

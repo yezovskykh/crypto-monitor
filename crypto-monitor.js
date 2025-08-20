@@ -11,10 +11,12 @@ class CryptoMonitor {
         this.cycleHistoryFile = 'cycle_history.json';
         this.marketLeaderHistoryFile = 'market_leader_history.json';
         this.cacheFile = 'api_cache.json';
+        this.predictionsFile = 'ai_predictions.json';
         this.htfHistory = {}; // Store HTF scores over time for stability
         this.cycleHistory = []; // Store cycle analysis history for stability
         this.marketLeaderHistory = []; // Store market leader history for stability
         this.apiCache = {}; // Cache for API responses
+        this.aiPredictions = {}; // Store AI predictions and accuracy tracking
         this.lastSuccessfulFetch = null;
         this.rateLimitInfo = {
             isLimited: false,
@@ -30,6 +32,7 @@ class CryptoMonitor {
         this.loadCycleHistory();
         this.loadMarketLeaderHistory();
         this.loadApiCache();
+        this.loadAIPredictions();
     }
 
     async loadPriceHistory() {
@@ -119,11 +122,30 @@ class CryptoMonitor {
         }
     }
 
+    async loadAIPredictions() {
+        try {
+            const data = await fs.readFile(this.predictionsFile, 'utf8');
+            this.aiPredictions = JSON.parse(data);
+            console.log('AI predictions loaded successfully');
+        } catch (error) {
+            console.log('No existing AI predictions found, starting fresh');
+            this.aiPredictions = {};
+        }
+    }
+
     async saveApiCache() {
         try {
             await fs.writeFile(this.cacheFile, JSON.stringify(this.apiCache, null, 2));
         } catch (error) {
             console.error('Error saving API cache:', error);
+        }
+    }
+
+    async saveAIPredictions() {
+        try {
+            await fs.writeFile(this.predictionsFile, JSON.stringify(this.aiPredictions, null, 2));
+        } catch (error) {
+            console.error('Error saving AI predictions:', error);
         }
     }
 
@@ -563,6 +585,389 @@ class CryptoMonitor {
             },
             technicalSignals: signals,
             priceDataPoints: prices.length
+        };
+    }
+
+    // ===== AI PRICE PREDICTION ALGORITHMS =====
+
+    // Linear regression for trend prediction
+    calculateLinearRegression(prices, periods = 10) {
+        if (prices.length < periods) return null;
+        
+        const recentPrices = prices.slice(-periods);
+        const n = recentPrices.length;
+        
+        // Calculate linear regression y = ax + b
+        let sumX = 0, sumY = 0, sumXY = 0, sumXX = 0;
+        
+        for (let i = 0; i < n; i++) {
+            sumX += i;
+            sumY += recentPrices[i];
+            sumXY += i * recentPrices[i];
+            sumXX += i * i;
+        }
+        
+        const slope = (n * sumXY - sumX * sumY) / (n * sumXX - sumX * sumX);
+        const intercept = (sumY - slope * sumX) / n;
+        
+        return { slope, intercept, r2: this.calculateR2(recentPrices, slope, intercept) };
+    }
+
+    // Calculate R-squared for regression quality
+    calculateR2(prices, slope, intercept) {
+        const n = prices.length;
+        const yMean = prices.reduce((sum, price) => sum + price, 0) / n;
+        
+        let ssRes = 0, ssTot = 0;
+        for (let i = 0; i < n; i++) {
+            const predicted = slope * i + intercept;
+            ssRes += Math.pow(prices[i] - predicted, 2);
+            ssTot += Math.pow(prices[i] - yMean, 2);
+        }
+        
+        return 1 - (ssRes / ssTot);
+    }
+
+    // Momentum-based prediction
+    calculateMomentumPrediction(coinData, prices) {
+        const change1h = coinData.price_change_percentage_1h_in_currency || 0;
+        const change24h = coinData.price_change_percentage_24h_in_currency || 0;
+        const change7d = coinData.price_change_percentage_7d_in_currency || 0;
+        const currentPrice = coinData.current_price || 0;
+        
+        // Weighted momentum score
+        const momentumScore = (change1h * 0.1) + (change24h * 0.3) + (change7d * 0.6);
+        
+        // Predict based on momentum continuation with decay
+        const hourlyPrediction = currentPrice * (1 + (momentumScore * 0.01));
+        const dailyPrediction = currentPrice * (1 + (momentumScore * 0.02));
+        const weeklyPrediction = currentPrice * (1 + (momentumScore * 0.03));
+        
+        return {
+            momentumScore: momentumScore,
+            predictions: {
+                '1h': hourlyPrediction,
+                '24h': dailyPrediction,
+                '7d': weeklyPrediction
+            },
+            confidence: Math.min(90, Math.max(10, 50 + Math.abs(momentumScore) * 2))
+        };
+    }
+
+    // Technical indicator-based prediction
+    calculateTechnicalPrediction(coinData, technicalAnalysis) {
+        if (!technicalAnalysis || !technicalAnalysis.available) {
+            return null;
+        }
+        
+        const currentPrice = coinData.current_price || 0;
+        let predictionSignal = 0;
+        let confidence = 0;
+        const signals = [];
+        
+        // RSI-based prediction
+        if (technicalAnalysis.rsi !== null) {
+            if (technicalAnalysis.rsi < 30) {
+                predictionSignal += 2; // Strong buy signal
+                confidence += 20;
+                signals.push('RSI oversold - bullish reversal expected');
+            } else if (technicalAnalysis.rsi > 70) {
+                predictionSignal -= 2; // Strong sell signal
+                confidence += 20;
+                signals.push('RSI overbought - bearish reversal expected');
+            } else if (technicalAnalysis.rsi < 45) {
+                predictionSignal += 1;
+                confidence += 10;
+                signals.push('RSI below neutral - mild bullish bias');
+            } else if (technicalAnalysis.rsi > 55) {
+                predictionSignal -= 1;
+                confidence += 10;
+                signals.push('RSI above neutral - mild bearish bias');
+            }
+        }
+        
+        // MACD-based prediction
+        if (technicalAnalysis.macd) {
+            if (technicalAnalysis.macd.histogram > 0 && technicalAnalysis.macd.macd > technicalAnalysis.macd.signal) {
+                predictionSignal += 1.5;
+                confidence += 15;
+                signals.push('MACD bullish crossover - upward momentum');
+            } else if (technicalAnalysis.macd.histogram < 0 && technicalAnalysis.macd.macd < technicalAnalysis.macd.signal) {
+                predictionSignal -= 1.5;
+                confidence += 15;
+                signals.push('MACD bearish crossover - downward momentum');
+            }
+        }
+        
+        // Bollinger Bands prediction
+        if (technicalAnalysis.bollingerBands) {
+            const bb = technicalAnalysis.bollingerBands;
+            const pricePosition = (currentPrice - bb.lower) / (bb.upper - bb.lower);
+            
+            if (pricePosition < 0.2) {
+                predictionSignal += 1.5;
+                confidence += 15;
+                signals.push('Price near lower Bollinger Band - bounce expected');
+            } else if (pricePosition > 0.8) {
+                predictionSignal -= 1.5;
+                confidence += 15;
+                signals.push('Price near upper Bollinger Band - pullback expected');
+            }
+        }
+        
+        // Support/Resistance prediction
+        if (technicalAnalysis.supportResistance) {
+            const sr = technicalAnalysis.supportResistance;
+            if (sr.distanceToSupport < 3 && sr.distanceToSupport > 0) {
+                predictionSignal += 1;
+                confidence += 10;
+                signals.push(`Near ${sr.strength} support - bounce likely`);
+            } else if (sr.distanceToResistance < 3 && sr.distanceToResistance > 0) {
+                predictionSignal -= 1;
+                confidence += 10;
+                signals.push(`Near ${sr.strength} resistance - rejection likely`);
+            }
+        }
+        
+        // Convert signal to price predictions
+        const signalMultiplier = Math.max(-0.1, Math.min(0.1, predictionSignal * 0.02));
+        
+        return {
+            signal: predictionSignal,
+            predictions: {
+                '1h': currentPrice * (1 + signalMultiplier * 0.2),
+                '24h': currentPrice * (1 + signalMultiplier * 0.5),
+                '7d': currentPrice * (1 + signalMultiplier * 1.0)
+            },
+            confidence: Math.min(85, Math.max(15, confidence)),
+            signals: signals
+        };
+    }
+
+    // Pattern recognition prediction
+    calculatePatternPrediction(coinData, prices) {
+        if (prices.length < 20) return null;
+        
+        const currentPrice = coinData.current_price || 0;
+        const recentPrices = prices.slice(-20);
+        const signals = [];
+        let predictionBias = 0;
+        let confidence = 0;
+        
+        // Detect ascending/descending triangle
+        const highs = [];
+        const lows = [];
+        
+        for (let i = 1; i < recentPrices.length - 1; i++) {
+            if (recentPrices[i] > recentPrices[i-1] && recentPrices[i] > recentPrices[i+1]) {
+                highs.push({ price: recentPrices[i], index: i });
+            }
+            if (recentPrices[i] < recentPrices[i-1] && recentPrices[i] < recentPrices[i+1]) {
+                lows.push({ price: recentPrices[i], index: i });
+            }
+        }
+        
+        if (highs.length >= 2 && lows.length >= 2) {
+            const recentHighs = highs.slice(-2);
+            const recentLows = lows.slice(-2);
+            
+            // Ascending triangle (higher lows, similar highs)
+            if (recentLows[1].price > recentLows[0].price && 
+                Math.abs(recentHighs[1].price - recentHighs[0].price) / recentHighs[0].price < 0.02) {
+                predictionBias += 1.5;
+                confidence += 25;
+                signals.push('Ascending triangle pattern - bullish breakout expected');
+            }
+            
+            // Descending triangle (lower highs, similar lows)
+            if (recentHighs[1].price < recentHighs[0].price && 
+                Math.abs(recentLows[1].price - recentLows[0].price) / recentLows[0].price < 0.02) {
+                predictionBias -= 1.5;
+                confidence += 25;
+                signals.push('Descending triangle pattern - bearish breakdown expected');
+            }
+        }
+        
+        // Double top/bottom detection
+        if (highs.length >= 2) {
+            const lastTwoHighs = highs.slice(-2);
+            if (Math.abs(lastTwoHighs[1].price - lastTwoHighs[0].price) / lastTwoHighs[0].price < 0.03) {
+                predictionBias -= 1;
+                confidence += 20;
+                signals.push('Double top pattern detected - bearish reversal likely');
+            }
+        }
+        
+        if (lows.length >= 2) {
+            const lastTwoLows = lows.slice(-2);
+            if (Math.abs(lastTwoLows[1].price - lastTwoLows[0].price) / lastTwoLows[0].price < 0.03) {
+                predictionBias += 1;
+                confidence += 20;
+                signals.push('Double bottom pattern detected - bullish reversal likely');
+            }
+        }
+        
+        // Convert bias to predictions
+        const biasMultiplier = Math.max(-0.08, Math.min(0.08, predictionBias * 0.015));
+        
+        return {
+            bias: predictionBias,
+            predictions: {
+                '1h': currentPrice * (1 + biasMultiplier * 0.3),
+                '24h': currentPrice * (1 + biasMultiplier * 0.6),
+                '7d': currentPrice * (1 + biasMultiplier * 1.0)
+            },
+            confidence: Math.min(80, Math.max(10, confidence)),
+            signals: signals
+        };
+    }
+
+    // Ensemble AI prediction combining all models
+    generateAIPrediction(coinData, technicalAnalysis) {
+        const coinId = coinData.id;
+        const currentPrice = coinData.current_price || 0;
+        
+        if (currentPrice === 0) return null;
+        
+        // Get price history
+        let prices = this.priceHistory[coinId] || [];
+        
+        // Use sparkline as fallback
+        if (prices.length < 10 && coinData.sparkline_in_7d && coinData.sparkline_in_7d.price) {
+            const sparklinePrices = coinData.sparkline_in_7d.price.filter(price => price !== null && price !== undefined);
+            if (sparklinePrices.length >= 10) {
+                prices = sparklinePrices;
+            }
+        }
+        
+        if (prices.length < 10) {
+            return {
+                available: false,
+                reason: 'Insufficient price history for AI prediction'
+            };
+        }
+        
+        // Generate predictions from different models
+        const momentumPred = this.calculateMomentumPrediction(coinData, prices);
+        const technicalPred = this.calculateTechnicalPrediction(coinData, technicalAnalysis);
+        const patternPred = this.calculatePatternPrediction(coinData, prices);
+        const linearReg = this.calculateLinearRegression(prices);
+        
+        // Ensemble predictions with weighted averaging
+        const predictions = { '1h': [], '24h': [], '7d': [] };
+        const confidences = [];
+        const allSignals = [];
+        
+        // Add momentum predictions
+        if (momentumPred) {
+            predictions['1h'].push({ value: momentumPred.predictions['1h'], weight: 0.3 });
+            predictions['24h'].push({ value: momentumPred.predictions['24h'], weight: 0.3 });
+            predictions['7d'].push({ value: momentumPred.predictions['7d'], weight: 0.3 });
+            confidences.push(momentumPred.confidence * 0.3);
+            allSignals.push('🔄 Momentum analysis included');
+        }
+        
+        // Add technical predictions
+        if (technicalPred) {
+            predictions['1h'].push({ value: technicalPred.predictions['1h'], weight: 0.4 });
+            predictions['24h'].push({ value: technicalPred.predictions['24h'], weight: 0.4 });
+            predictions['7d'].push({ value: technicalPred.predictions['7d'], weight: 0.4 });
+            confidences.push(technicalPred.confidence * 0.4);
+            allSignals.push(...technicalPred.signals);
+        }
+        
+        // Add pattern predictions
+        if (patternPred) {
+            predictions['1h'].push({ value: patternPred.predictions['1h'], weight: 0.2 });
+            predictions['24h'].push({ value: patternPred.predictions['24h'], weight: 0.2 });
+            predictions['7d'].push({ value: patternPred.predictions['7d'], weight: 0.2 });
+            confidences.push(patternPred.confidence * 0.2);
+            allSignals.push(...patternPred.signals);
+        }
+        
+        // Add linear regression trend
+        if (linearReg && linearReg.r2 > 0.3) {
+            const trendPredictions = {
+                '1h': currentPrice + (linearReg.slope * 0.5),
+                '24h': currentPrice + (linearReg.slope * 2),
+                '7d': currentPrice + (linearReg.slope * 7)
+            };
+            
+            predictions['1h'].push({ value: trendPredictions['1h'], weight: 0.1 });
+            predictions['24h'].push({ value: trendPredictions['24h'], weight: 0.1 });
+            predictions['7d'].push({ value: trendPredictions['7d'], weight: 0.1 });
+            confidences.push(linearReg.r2 * 30);
+            allSignals.push(`📈 Linear trend (R²: ${linearReg.r2.toFixed(2)})`);
+        }
+        
+        // Calculate weighted ensemble predictions
+        const ensemblePredictions = {};
+        for (const timeframe of ['1h', '24h', '7d']) {
+            const preds = predictions[timeframe];
+            if (preds.length > 0) {
+                const totalWeight = preds.reduce((sum, pred) => sum + pred.weight, 0);
+                const weightedSum = preds.reduce((sum, pred) => sum + (pred.value * pred.weight), 0);
+                ensemblePredictions[timeframe] = weightedSum / totalWeight;
+            } else {
+                ensemblePredictions[timeframe] = currentPrice;
+            }
+        }
+        
+        // Calculate overall confidence
+        const overallConfidence = confidences.length > 0 ? 
+            confidences.reduce((sum, conf) => sum + conf, 0) : 20;
+        
+        // Calculate percentage changes
+        const percentageChanges = {};
+        for (const timeframe of ['1h', '24h', '7d']) {
+            const predicted = ensemblePredictions[timeframe];
+            percentageChanges[timeframe] = ((predicted - currentPrice) / currentPrice) * 100;
+        }
+        
+        // Determine overall direction
+        const avgChange = (percentageChanges['1h'] + percentageChanges['24h'] + percentageChanges['7d']) / 3;
+        const direction = avgChange > 1 ? 'Bullish' : avgChange < -1 ? 'Bearish' : 'Neutral';
+        
+        // Store prediction for accuracy tracking
+        const prediction = {
+            timestamp: new Date().toISOString(),
+            currentPrice: currentPrice,
+            predictions: ensemblePredictions,
+            percentageChanges: percentageChanges,
+            confidence: Math.round(Math.min(95, Math.max(15, overallConfidence))),
+            direction: direction,
+            signals: allSignals,
+            modelsUsed: [
+                momentumPred ? 'Momentum' : null,
+                technicalPred ? 'Technical' : null,
+                patternPred ? 'Pattern' : null,
+                linearReg ? 'Trend' : null
+            ].filter(Boolean)
+        };
+        
+        // Initialize prediction history if needed
+        if (!this.aiPredictions[coinId]) {
+            this.aiPredictions[coinId] = {
+                predictions: [],
+                accuracy: {
+                    correct: 0,
+                    total: 0,
+                    avgError: 0
+                }
+            };
+        }
+        
+        // Add to prediction history
+        this.aiPredictions[coinId].predictions.push(prediction);
+        
+        // Keep only last 50 predictions
+        if (this.aiPredictions[coinId].predictions.length > 50) {
+            this.aiPredictions[coinId].predictions.shift();
+        }
+        
+        return {
+            available: true,
+            ...prediction
         };
     }
 

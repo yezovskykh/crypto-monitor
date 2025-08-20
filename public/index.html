@@ -2698,6 +2698,65 @@
                         </ul>
                     </div>
 
+                    ${alert.aiPrediction && alert.aiPrediction.available ? `
+                        <div class="ai-prediction-section" style="margin-top: 15px; padding: 15px; background: linear-gradient(135deg, #e8f5e8 0%, #f0fff0 100%); border-radius: 10px; border: 2px solid #4caf50;">
+                            <div class="ai-prediction-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <h4 style="margin: 0; color: #2e7d32; display: flex; align-items: center; gap: 8px;">
+                                    🤖 AI HTF Price Predictions
+                                </h4>
+                                <div style="display: flex; gap: 8px;">
+                                    <span style="background: ${alert.aiPrediction.direction === 'Bullish' ? '#4caf50' : alert.aiPrediction.direction === 'Bearish' ? '#f44336' : '#ff9800'}; color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold;">
+                                        ${alert.aiPrediction.direction}
+                                    </span>
+                                    <span style="background: #2196f3; color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold;">
+                                        ${alert.aiPrediction.confidence}% Confidence
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="prediction-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 15px;">
+                                <div style="text-align: center; padding: 12px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid rgba(76, 175, 80, 0.3);">
+                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 6px; font-weight: 500;">1 Hour</div>
+                                    <div style="font-weight: bold; font-size: 0.95em; color: #333;">${formatPrice(alert.aiPrediction.predictions['1h'])}</div>
+                                    <div style="font-size: 0.8em; font-weight: 600; color: ${alert.aiPrediction.percentageChanges['1h'] >= 0 ? '#4caf50' : '#f44336'};">
+                                        ${alert.aiPrediction.percentageChanges['1h'] >= 0 ? '+' : ''}${alert.aiPrediction.percentageChanges['1h'].toFixed(2)}%
+                                    </div>
+                                </div>
+                                <div style="text-align: center; padding: 12px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid rgba(76, 175, 80, 0.3);">
+                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 6px; font-weight: 500;">24 Hours</div>
+                                    <div style="font-weight: bold; font-size: 0.95em; color: #333;">${formatPrice(alert.aiPrediction.predictions['24h'])}</div>
+                                    <div style="font-size: 0.8em; font-weight: 600; color: ${alert.aiPrediction.percentageChanges['24h'] >= 0 ? '#4caf50' : '#f44336'};">
+                                        ${alert.aiPrediction.percentageChanges['24h'] >= 0 ? '+' : ''}${alert.aiPrediction.percentageChanges['24h'].toFixed(2)}%
+                                    </div>
+                                </div>
+                                <div style="text-align: center; padding: 12px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid rgba(76, 175, 80, 0.3);">
+                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 6px; font-weight: 500;">7 Days</div>
+                                    <div style="font-weight: bold; font-size: 0.95em; color: #333;">${formatPrice(alert.aiPrediction.predictions['7d'])}</div>
+                                    <div style="font-size: 0.8em; font-weight: 600; color: ${alert.aiPrediction.percentageChanges['7d'] >= 0 ? '#4caf50' : '#f44336'};">
+                                        ${alert.aiPrediction.percentageChanges['7d'] >= 0 ? '+' : ''}${alert.aiPrediction.percentageChanges['7d'].toFixed(2)}%
+                                    </div>
+                                </div>
+                            </div>
+
+                            ${alert.aiPrediction.signals && alert.aiPrediction.signals.length > 0 ? `
+                                <div style="margin-bottom: 12px;">
+                                    <h5 style="margin: 0 0 8px 0; color: #2e7d32; font-size: 0.9em;">🎯 AI Analysis Signals:</h5>
+                                    <ul style="margin: 0; padding-left: 16px; font-size: 0.85em; color: #333;">
+                                        ${alert.aiPrediction.signals.map(signal => `<li style="margin-bottom: 4px;">${signal}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            ` : ''}
+
+                            <div style="padding: 10px; background: rgba(33, 150, 243, 0.1); border-radius: 6px; font-size: 0.8em; color: #1565c0; border: 1px solid rgba(33, 150, 243, 0.2);">
+                                <strong>🧠 Models Used:</strong> ${alert.aiPrediction.modelsUsed.join(', ')}
+                            </div>
+                        </div>
+                    ` : alert.aiPrediction && !alert.aiPrediction.available ? `
+                        <div class="ai-prediction-unavailable" style="margin-top: 15px; padding: 12px; background: #fff3e0; border-radius: 8px; border: 1px solid #ffb74d; font-size: 0.85em; color: #f57c00;">
+                            🤖 <strong>AI Prediction:</strong> ${alert.aiPrediction.reason}
+                        </div>
+                    ` : ''}
+
                     ${alert.stability ? `
                         <div class="stability-metrics" style="margin-top: 15px; padding: 12px; background: linear-gradient(135deg, #f0f8ff 0%, #e6f3ff 100%); border-radius: 8px; border: 1px solid #b3d9ff;">
                             <div style="font-weight: bold; margin-bottom: 8px; color: #4a90e2;">📊 Stability Metrics:</div>
@@ -2764,6 +2823,65 @@
                             ${alert.signals.map(signal => `<li>${signal}</li>`).join('')}
                         </ul>
                     </div>
+
+                    ${alert.aiPrediction && alert.aiPrediction.available ? `
+                        <div class="ai-prediction-section" style="margin-top: 15px; padding: 15px; background: linear-gradient(135deg, #e8f5e8 0%, #f0fff0 100%); border-radius: 10px; border: 2px solid #4caf50;">
+                            <div class="ai-prediction-header" style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+                                <h4 style="margin: 0; color: #2e7d32; display: flex; align-items: center; gap: 8px;">
+                                    🤖 AI Price Predictions
+                                </h4>
+                                <div style="display: flex; gap: 8px;">
+                                    <span style="background: ${alert.aiPrediction.direction === 'Bullish' ? '#4caf50' : alert.aiPrediction.direction === 'Bearish' ? '#f44336' : '#ff9800'}; color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold;">
+                                        ${alert.aiPrediction.direction}
+                                    </span>
+                                    <span style="background: #2196f3; color: white; padding: 4px 10px; border-radius: 12px; font-size: 0.8em; font-weight: bold;">
+                                        ${alert.aiPrediction.confidence}% Confidence
+                                    </span>
+                                </div>
+                            </div>
+                            
+                            <div class="prediction-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 15px;">
+                                <div style="text-align: center; padding: 12px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid rgba(76, 175, 80, 0.3);">
+                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 6px; font-weight: 500;">1 Hour</div>
+                                    <div style="font-weight: bold; font-size: 0.95em; color: #333;">$${alert.aiPrediction.predictions['1h'].toFixed(6)}</div>
+                                    <div style="font-size: 0.8em; font-weight: 600; color: ${alert.aiPrediction.percentageChanges['1h'] >= 0 ? '#4caf50' : '#f44336'};">
+                                        ${alert.aiPrediction.percentageChanges['1h'] >= 0 ? '+' : ''}${alert.aiPrediction.percentageChanges['1h'].toFixed(2)}%
+                                    </div>
+                                </div>
+                                <div style="text-align: center; padding: 12px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid rgba(76, 175, 80, 0.3);">
+                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 6px; font-weight: 500;">24 Hours</div>
+                                    <div style="font-weight: bold; font-size: 0.95em; color: #333;">$${alert.aiPrediction.predictions['24h'].toFixed(6)}</div>
+                                    <div style="font-size: 0.8em; font-weight: 600; color: ${alert.aiPrediction.percentageChanges['24h'] >= 0 ? '#4caf50' : '#f44336'};">
+                                        ${alert.aiPrediction.percentageChanges['24h'] >= 0 ? '+' : ''}${alert.aiPrediction.percentageChanges['24h'].toFixed(2)}%
+                                    </div>
+                                </div>
+                                <div style="text-align: center; padding: 12px; background: rgba(255,255,255,0.8); border-radius: 8px; border: 1px solid rgba(76, 175, 80, 0.3);">
+                                    <div style="font-size: 0.85em; color: #666; margin-bottom: 6px; font-weight: 500;">7 Days</div>
+                                    <div style="font-weight: bold; font-size: 0.95em; color: #333;">$${alert.aiPrediction.predictions['7d'].toFixed(6)}</div>
+                                    <div style="font-size: 0.8em; font-weight: 600; color: ${alert.aiPrediction.percentageChanges['7d'] >= 0 ? '#4caf50' : '#f44336'};">
+                                        ${alert.aiPrediction.percentageChanges['7d'] >= 0 ? '+' : ''}${alert.aiPrediction.percentageChanges['7d'].toFixed(2)}%
+                                    </div>
+                                </div>
+                            </div>
+
+                            ${alert.aiPrediction.signals && alert.aiPrediction.signals.length > 0 ? `
+                                <div style="margin-bottom: 12px;">
+                                    <h5 style="margin: 0 0 8px 0; color: #2e7d32; font-size: 0.9em;">🎯 AI Analysis Signals:</h5>
+                                    <ul style="margin: 0; padding-left: 16px; font-size: 0.85em; color: #333;">
+                                        ${alert.aiPrediction.signals.map(signal => `<li style="margin-bottom: 4px;">${signal}</li>`).join('')}
+                                    </ul>
+                                </div>
+                            ` : ''}
+
+                            <div style="padding: 10px; background: rgba(33, 150, 243, 0.1); border-radius: 6px; font-size: 0.8em; color: #1565c0; border: 1px solid rgba(33, 150, 243, 0.2);">
+                                <strong>🧠 Models Used:</strong> ${alert.aiPrediction.modelsUsed.join(', ')}
+                            </div>
+                        </div>
+                    ` : alert.aiPrediction && !alert.aiPrediction.available ? `
+                        <div class="ai-prediction-unavailable" style="margin-top: 15px; padding: 12px; background: #fff3e0; border-radius: 8px; border: 1px solid #ffb74d; font-size: 0.85em; color: #f57c00;">
+                            🤖 <strong>AI Prediction:</strong> ${alert.aiPrediction.reason}
+                        </div>
+                    ` : ''}
                     
                     ${createTechnicalAnalysisPanel(alert.technicalAnalysis, alert.symbol, 'ltf')}
                 </div>
