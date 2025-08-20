@@ -1386,10 +1386,11 @@
             padding: 15px;
             margin-top: 15px;
             display: none;
+            animation: fadeIn 0.3s ease-in-out;
         }
 
         .technical-panel.expanded {
-            display: block;
+            display: block !important;
         }
 
         .technical-toggle {
@@ -2212,7 +2213,6 @@
         function createTechnicalAnalysisPanel(technical, symbol) {
             // Sanitize symbol for use as HTML ID
             const sanitizedSymbol = symbol.replace(/[^a-zA-Z0-9-_]/g, '');
-            console.log('Creating technical panel for symbol:', symbol, '-> sanitized:', sanitizedSymbol);
             
             if (!technical || !technical.available) {
                 return `
@@ -2431,13 +2431,11 @@
         }
 
         function toggleTechnical(symbol) {
-            console.log('toggleTechnical called with symbol:', symbol);
             const panelId = `technical-${symbol}`;
             const panel = document.getElementById(panelId);
             
             if (panel) {
                 panel.classList.toggle('expanded');
-                console.log('Panel toggled:', panelId, 'expanded:', panel.classList.contains('expanded'));
                 
                 // Update button text to show expand/collapse state
                 const button = panel.previousElementSibling;
@@ -2451,16 +2449,10 @@
                     }
                 }
             } else {
-                console.error('Technical panel not found:', panelId);
-                console.log('Searching for symbol:', symbol);
-                
+                console.warn('Technical panel not found:', panelId);
                 // Try to find the panel with a more flexible search
                 const allPanels = document.querySelectorAll('.technical-panel');
                 console.log('Available technical panels:', Array.from(allPanels).map(p => p.id));
-                
-                // Also check for buttons that might have been clicked
-                const allButtons = document.querySelectorAll('.technical-toggle');
-                console.log('Available technical buttons:', Array.from(allButtons).map(b => b.onclick?.toString() || 'no onclick'));
             }
         }
 
