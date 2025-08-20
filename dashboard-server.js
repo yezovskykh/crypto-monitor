@@ -40,7 +40,32 @@ class CryptoDashboard {
             // Get crypto data (top 200)
             const coinsData = await this.cryptoMonitor.getTopCryptos(200);
             if (!coinsData || coinsData.length === 0) {
-                console.log('❌ No data retrieved');
+                console.log('❌ No data retrieved - keeping previous analysis if available');
+                // Don't overwrite existing analysis if API fails
+                if (!this.lastAnalysis) {
+                    // First time failure - create minimal fallback
+                    this.lastAnalysis = {
+                        error: 'API temporarily unavailable',
+                        bullishAlerts: [],
+                        bearishAlerts: [],
+                        htfAlerts: [],
+                        totalOpportunities: 0,
+                        timestamp: new Date().toISOString()
+                    };
+                    this.lastMarketTrend = {
+                        trend: 'Unknown',
+                        emoji: '⚠️',
+                        description: 'Market data temporarily unavailable due to API limits',
+                        details: {
+                            bullishCoins: 0,
+                            bearishCoins: 0,
+                            neutralCoins: 0,
+                            avgChange24h: 0,
+                            avgChange7d: 0,
+                            totalCoinsAnalyzed: 0
+                        }
+                    };
+                }
                 return;
             }
 
@@ -168,10 +193,11 @@ class CryptoDashboard {
             
             this.lastMarketTrend = marketTrend;
 
-            // Save all histories for persistence
+            // Save all histories and cache for persistence
             await this.cryptoMonitor.saveHTFHistory();
             await this.cryptoMonitor.saveCycleHistory();
             await this.cryptoMonitor.saveMarketLeaderHistory();
+            await this.cryptoMonitor.saveApiCache();
             
             console.log(`✅ Analysis complete: ${bullishAlerts.length} bullish, ${bearishAlerts.length} bearish, ${htfAlerts.length} HTF opportunities found`);
 
@@ -191,7 +217,14 @@ class CryptoDashboard {
             res.json({
                 success: true,
                 data: this.lastAnalysis,
-                marketTrend: this.lastMarketTrend
+                marketTrend: this.lastMarketTrend,
+                apiStatus: {
+                    isRateLimited: this.cryptoMonitor.rateLimitInfo.isLimited,
+                    lastSuccessfulFetch: this.cryptoMonitor.lastSuccessfulFetch,
+                    rateLimitResetTime: this.cryptoMonitor.rateLimitInfo.resetTime,
+                    requestCount: this.cryptoMonitor.rateLimitInfo.requestCount,
+                    cacheAvailable: Object.keys(this.cryptoMonitor.apiCache).length > 0
+                }
             });
         });
 
@@ -217,6 +250,33 @@ class CryptoDashboard {
                     error: error.message
                 });
             }
+        });
+
+        // API status endpoint
+        this.app.get('/api/status', (req, res) => {
+            const now = Date.now();
+            const rateLimitInfo = this.cryptoMonitor.rateLimitInfo;
+            
+            res.json({
+                success: true,
+                apiStatus: {
+                    isRateLimited: rateLimitInfo.isLimited,
+                    lastSuccessfulFetch: this.cryptoMonitor.lastSuccessfulFetch,
+                    lastSuccessfulFetchAge: this.cryptoMonitor.lastSuccessfulFetch ? 
+                        Math.round((now - this.cryptoMonitor.lastSuccessfulFetch) / 1000 / 60) : null,
+                    rateLimitResetTime: rateLimitInfo.resetTime,
+                    timeUntilReset: rateLimitInfo.resetTime ? 
+                        Math.max(0, Math.round((rateLimitInfo.resetTime - now) / 1000 / 60)) : null,
+                    requestCount: rateLimitInfo.requestCount,
+                    cacheAvailable: Object.keys(this.cryptoMonitor.apiCache).length > 0,
+                    cacheKeys: Object.keys(this.cryptoMonitor.apiCache)
+                },
+                serverStatus: {
+                    uptime: process.uptime(),
+                    memoryUsage: process.memoryUsage(),
+                    timestamp: new Date().toISOString()
+                }
+            });
         });
 
         // Health check endpoint

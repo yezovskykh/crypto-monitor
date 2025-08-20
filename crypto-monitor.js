@@ -10,15 +10,26 @@ class CryptoMonitor {
         this.htfHistoryFile = 'htf_history.json';
         this.cycleHistoryFile = 'cycle_history.json';
         this.marketLeaderHistoryFile = 'market_leader_history.json';
+        this.cacheFile = 'api_cache.json';
         this.htfHistory = {}; // Store HTF scores over time for stability
         this.cycleHistory = []; // Store cycle analysis history for stability
         this.marketLeaderHistory = []; // Store market leader history for stability
+        this.apiCache = {}; // Cache for API responses
+        this.lastSuccessfulFetch = null;
+        this.rateLimitInfo = {
+            isLimited: false,
+            resetTime: null,
+            retryAfter: null,
+            requestCount: 0,
+            lastRequest: null
+        };
         
         // Load existing histories
         this.loadPriceHistory();
         this.loadHTFHistory();
         this.loadCycleHistory();
         this.loadMarketLeaderHistory();
+        this.loadApiCache();
     }
 
     async loadPriceHistory() {
@@ -89,6 +100,17 @@ class CryptoMonitor {
         }
     }
 
+    async loadApiCache() {
+        try {
+            const data = await fs.readFile(this.cacheFile, 'utf8');
+            this.apiCache = JSON.parse(data);
+            console.log('API cache loaded successfully');
+        } catch (error) {
+            console.log('No existing API cache found, starting fresh');
+            this.apiCache = {};
+        }
+    }
+
     async saveMarketLeaderHistory() {
         try {
             await fs.writeFile(this.marketLeaderHistoryFile, JSON.stringify(this.marketLeaderHistory, null, 2));
@@ -97,7 +119,111 @@ class CryptoMonitor {
         }
     }
 
+    async saveApiCache() {
+        try {
+            await fs.writeFile(this.cacheFile, JSON.stringify(this.apiCache, null, 2));
+        } catch (error) {
+            console.error('Error saving API cache:', error);
+        }
+    }
+
+    // Sleep helper function
+    sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    // Check if we should use cached data
+    shouldUseCachedData() {
+        const now = Date.now();
+        const cacheAge = now - (this.lastSuccessfulFetch || 0);
+        const maxCacheAge = 10 * 60 * 1000; // 10 minutes
+        
+        // Use cache if we're rate limited or if cache is fresh
+        return this.rateLimitInfo.isLimited || (this.lastSuccessfulFetch && cacheAge < maxCacheAge);
+    }
+
+    // Update rate limit info from response headers
+    updateRateLimitInfo(response) {
+        const headers = response.headers;
+        this.rateLimitInfo.requestCount++;
+        this.rateLimitInfo.lastRequest = Date.now();
+        
+        // Check for rate limit headers (common patterns)
+        if (headers['x-ratelimit-remaining']) {
+            const remaining = parseInt(headers['x-ratelimit-remaining']);
+            if (remaining < 5) {
+                console.warn(`⚠️ API rate limit warning: ${remaining} requests remaining`);
+            }
+        }
+        
+        if (headers['retry-after']) {
+            this.rateLimitInfo.retryAfter = parseInt(headers['retry-after']) * 1000;
+            this.rateLimitInfo.resetTime = Date.now() + this.rateLimitInfo.retryAfter;
+        }
+    }
+
+    // Handle rate limit error
+    handleRateLimitError(error) {
+        this.rateLimitInfo.isLimited = true;
+        
+        if (error.response?.status === 429) {
+            const retryAfter = error.response.headers['retry-after'];
+            if (retryAfter) {
+                this.rateLimitInfo.retryAfter = parseInt(retryAfter) * 1000;
+                this.rateLimitInfo.resetTime = Date.now() + this.rateLimitInfo.retryAfter;
+                console.error(`🚫 Rate limited! Retry after ${retryAfter} seconds`);
+            } else {
+                // Default backoff if no retry-after header
+                this.rateLimitInfo.retryAfter = 5 * 60 * 1000; // 5 minutes
+                this.rateLimitInfo.resetTime = Date.now() + this.rateLimitInfo.retryAfter;
+                console.error('🚫 Rate limited! Using default 5-minute backoff');
+            }
+        } else {
+            // Other errors - shorter backoff
+            this.rateLimitInfo.retryAfter = 60 * 1000; // 1 minute
+            this.rateLimitInfo.resetTime = Date.now() + this.rateLimitInfo.retryAfter;
+            console.error(`🚫 API error: ${error.message}. Backing off for 1 minute`);
+        }
+    }
+
+    // Check if rate limit has expired
+    checkRateLimitExpiry() {
+        if (this.rateLimitInfo.isLimited && this.rateLimitInfo.resetTime) {
+            if (Date.now() > this.rateLimitInfo.resetTime) {
+                console.log('✅ Rate limit expired, resuming API calls');
+                this.rateLimitInfo.isLimited = false;
+                this.rateLimitInfo.retryAfter = null;
+                this.rateLimitInfo.resetTime = null;
+            }
+        }
+    }
+
     async getTopCryptos(limit = 200) {
+        const cacheKey = `top_cryptos_${limit}`;
+        
+        // Check if rate limit has expired
+        this.checkRateLimitExpiry();
+        
+        // Use cached data if available and appropriate
+        if (this.shouldUseCachedData() && this.apiCache[cacheKey]) {
+            const cacheAge = Date.now() - this.apiCache[cacheKey].timestamp;
+            console.log(`📦 Using cached crypto data (${Math.round(cacheAge / 1000 / 60)} minutes old)`);
+            return this.apiCache[cacheKey].data;
+        }
+
+        // If we're still rate limited, return cached data or empty array
+        if (this.rateLimitInfo.isLimited) {
+            const timeUntilReset = this.rateLimitInfo.resetTime - Date.now();
+            console.warn(`⏳ Still rate limited. Reset in ${Math.round(timeUntilReset / 1000 / 60)} minutes`);
+            
+            if (this.apiCache[cacheKey]) {
+                return this.apiCache[cacheKey].data;
+            } else {
+                console.error('❌ No cached data available and rate limited');
+                return [];
+            }
+        }
+
         const url = `${this.baseUrl}/coins/markets`;
         const params = {
             vs_currency: 'usd',
@@ -105,17 +231,94 @@ class CryptoMonitor {
             per_page: limit,
             page: 1,
             sparkline: 'true',
-            price_change_percentage: '1h,24h,7d'
+            price_change_percentage: '1h,24h,7d,30d'
         };
 
-        try {
-            console.log('Fetching crypto data...');
-            const response = await axios.get(url, { params });
-            return response.data;
-        } catch (error) {
-            console.error('Error fetching crypto data:', error.message);
-            return [];
+        const maxRetries = 3;
+        let lastError = null;
+
+        for (let attempt = 1; attempt <= maxRetries; attempt++) {
+            try {
+                console.log(`🔄 Fetching crypto data (attempt ${attempt}/${maxRetries})...`);
+                
+                const response = await axios.get(url, { 
+                    params,
+                    timeout: 30000, // 30 second timeout
+                    headers: {
+                        'Accept': 'application/json',
+                        'User-Agent': 'CryptoMonitor/1.0'
+                    }
+                });
+
+                // Update rate limit tracking
+                this.updateRateLimitInfo(response);
+
+                // Cache the successful response
+                this.apiCache[cacheKey] = {
+                    data: response.data,
+                    timestamp: Date.now()
+                };
+                this.lastSuccessfulFetch = Date.now();
+                
+                // Save cache to file
+                await this.saveApiCache();
+                
+                console.log(`✅ Successfully fetched ${response.data.length} cryptocurrencies`);
+                return response.data;
+
+            } catch (error) {
+                lastError = error;
+                
+                // Handle rate limiting
+                if (error.response?.status === 429) {
+                    this.handleRateLimitError(error);
+                    break; // Don't retry rate limit errors
+                }
+                
+                // Handle other HTTP errors
+                if (error.response) {
+                    console.error(`❌ HTTP ${error.response.status}: ${error.response.statusText}`);
+                    if (error.response.status >= 500) {
+                        // Server error - retry with backoff
+                        const backoffMs = Math.min(1000 * Math.pow(2, attempt - 1), 30000);
+                        console.log(`⏳ Server error, retrying in ${backoffMs/1000}s...`);
+                        await this.sleep(backoffMs);
+                        continue;
+                    } else {
+                        // Client error - don't retry
+                        break;
+                    }
+                } else if (error.code === 'ECONNABORTED') {
+                    console.error('❌ Request timeout');
+                    const backoffMs = Math.min(2000 * attempt, 10000);
+                    console.log(`⏳ Timeout, retrying in ${backoffMs/1000}s...`);
+                    await this.sleep(backoffMs);
+                    continue;
+                } else {
+                    // Network error - retry with backoff
+                    console.error(`❌ Network error: ${error.message}`);
+                    const backoffMs = Math.min(1000 * Math.pow(2, attempt - 1), 30000);
+                    console.log(`⏳ Network error, retrying in ${backoffMs/1000}s...`);
+                    await this.sleep(backoffMs);
+                    continue;
+                }
+            }
         }
+
+        // All retries failed - handle gracefully
+        console.error(`❌ Failed to fetch crypto data after ${maxRetries} attempts:`, lastError?.message);
+        this.handleRateLimitError(lastError);
+
+        // Return cached data if available
+        if (this.apiCache[cacheKey]) {
+            const cacheAge = Date.now() - this.apiCache[cacheKey].timestamp;
+            console.log(`📦 Falling back to cached data (${Math.round(cacheAge / 1000 / 60)} minutes old)`);
+            return this.apiCache[cacheKey].data;
+        }
+
+        // No cached data available
+        console.error('❌ No cached data available, returning empty array');
+        return [];
     }
 
     calculateRSI(prices, period = 14) {

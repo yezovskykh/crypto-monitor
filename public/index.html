@@ -1551,6 +1551,40 @@
             margin-top: 20px;
         }
 
+        .api-status-banner {
+            margin-top: 15px;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-size: 0.95em;
+            text-align: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .api-status-banner.rate-limited {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 2px solid #ffc107;
+            color: #856404;
+        }
+
+        .api-status-banner.error {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            border: 2px solid #dc3545;
+            color: #721c24;
+        }
+
+        .api-status-banner.cached {
+            background: linear-gradient(135deg, #d1ecf1 0%, #bee5eb 100%);
+            border: 2px solid #17a2b8;
+            color: #0c5460;
+        }
+
+        .api-status-banner.healthy {
+            background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
+            border: 2px solid #28a745;
+            color: #155724;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -1584,7 +1618,9 @@
             <div class="controls">
                 <button class="btn" onclick="refreshData()">🔄 Refresh Data</button>
                 <button class="btn" onclick="toggleAutoRefresh()">⏱️ Auto-refresh: <span id="auto-status">ON</span></button>
+                <button class="btn" onclick="checkApiStatus()">📊 API Status</button>
             </div>
+            <div id="api-status-banner" class="api-status-banner" style="display: none;"></div>
         </div>
 
         <div id="market-trend-section"></div>
@@ -1650,6 +1686,9 @@
                 const result = await response.json();
 
                 if (result.success) {
+                    // Update API status banner
+                    updateApiStatusBanner(result.apiStatus);
+                    
                     displayMarketTrend(result.marketTrend);
                     displayCycleAnalysis(result.data.cycleAnalysis);
                     displayMarketCapAnalysis(result.data.marketCapAnalysis);
@@ -1666,6 +1705,85 @@
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('error').style.display = 'block';
                 document.getElementById('error').textContent = 'Error loading data: ' + error.message;
+                
+                // Show error banner
+                showApiStatusBanner('⚠️ Connection error - please check your internet connection', 'error');
+            }
+        }
+
+        function updateApiStatusBanner(apiStatus) {
+            if (!apiStatus) return;
+            
+            const banner = document.getElementById('api-status-banner');
+            
+            if (apiStatus.isRateLimited) {
+                const resetTime = apiStatus.rateLimitResetTime;
+                const timeUntilReset = resetTime ? Math.max(0, Math.round((resetTime - Date.now()) / 1000 / 60)) : 'unknown';
+                showApiStatusBanner(`🚫 API Rate Limited - Reset in ${timeUntilReset} minutes. Using cached data.`, 'rate-limited');
+            } else if (apiStatus.lastSuccessfulFetch) {
+                const lastFetchAge = Math.round((Date.now() - apiStatus.lastSuccessfulFetch) / 1000 / 60);
+                if (lastFetchAge > 15) {
+                    showApiStatusBanner(`📦 Using cached data (${lastFetchAge} minutes old) - API may be experiencing issues`, 'cached');
+                } else if (lastFetchAge > 5) {
+                    showApiStatusBanner(`📦 Using recent cached data (${lastFetchAge} minutes old)`, 'cached');
+                } else {
+                    hideApiStatusBanner();
+                }
+            } else {
+                showApiStatusBanner('⚠️ No recent API data available - showing fallback information', 'error');
+            }
+        }
+
+        function showApiStatusBanner(message, type) {
+            const banner = document.getElementById('api-status-banner');
+            banner.textContent = message;
+            banner.className = `api-status-banner ${type}`;
+            banner.style.display = 'block';
+        }
+
+        function hideApiStatusBanner() {
+            const banner = document.getElementById('api-status-banner');
+            banner.style.display = 'none';
+        }
+
+        async function checkApiStatus() {
+            try {
+                const response = await fetch('/api/status');
+                const result = await response.json();
+                
+                if (result.success) {
+                    const apiStatus = result.apiStatus;
+                    const serverStatus = result.serverStatus;
+                    
+                    let statusMessage = '📊 API Status:\n\n';
+                    
+                    if (apiStatus.isRateLimited) {
+                        statusMessage += `🚫 Rate Limited: Yes\n`;
+                        statusMessage += `⏰ Reset in: ${apiStatus.timeUntilReset || 'unknown'} minutes\n`;
+                    } else {
+                        statusMessage += `✅ Rate Limited: No\n`;
+                    }
+                    
+                    if (apiStatus.lastSuccessfulFetch) {
+                        statusMessage += `📡 Last successful fetch: ${apiStatus.lastSuccessfulFetchAge} minutes ago\n`;
+                    } else {
+                        statusMessage += `📡 Last successful fetch: Never\n`;
+                    }
+                    
+                    statusMessage += `📦 Cache available: ${apiStatus.cacheAvailable ? 'Yes' : 'No'}\n`;
+                    statusMessage += `🔢 Total requests: ${apiStatus.requestCount}\n\n`;
+                    
+                    statusMessage += `🖥️ Server Status:\n`;
+                    statusMessage += `⏱️ Uptime: ${Math.round(serverStatus.uptime / 60)} minutes\n`;
+                    statusMessage += `💾 Memory: ${Math.round(serverStatus.memoryUsage.heapUsed / 1024 / 1024)}MB used`;
+                    
+                    alert(statusMessage);
+                } else {
+                    alert('Failed to fetch API status');
+                }
+            } catch (error) {
+                console.error('Error checking API status:', error);
+                alert('Error checking API status: ' + error.message);
             }
         }
 
