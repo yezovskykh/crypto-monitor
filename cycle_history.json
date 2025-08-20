@@ -8,5 +8,25 @@
     "opportunity": -2.3,
     "cycleBias": "Bearish",
     "cycleStrength": 10.3
+  },
+  {
+    "timestamp": "2025-08-20T17:37:15.963Z",
+    "phase": "Late Cycle",
+    "description": "Advanced cycle stage - be cautious",
+    "action": "Monitor Closely",
+    "risk": 8,
+    "opportunity": -2.3,
+    "cycleBias": "Bearish",
+    "cycleStrength": 10.3
+  },
+  {
+    "timestamp": "2025-08-20T17:42:15.008Z",
+    "phase": "Late Cycle",
+    "description": "Advanced cycle stage - be cautious",
+    "action": "Monitor Closely",
+    "risk": 8,
+    "opportunity": -2.3,
+    "cycleBias": "Bearish",
+    "cycleStrength": 10.3
   }
 ]

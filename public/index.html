@@ -1585,6 +1585,133 @@
             color: #155724;
         }
 
+        /* Dashboard Section Styles */
+        .dashboard-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .section-header h2 {
+            margin: 0 0 10px 0;
+            font-size: 1.4em;
+        }
+
+        /* AI Predictions Section Styles */
+        .ai-predictions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .ai-prediction-card {
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0fff0 100%);
+            border: 2px solid #4caf50;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .ai-prediction-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(76, 175, 80, 0.3);
+        }
+
+        .ai-prediction-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid rgba(76, 175, 80, 0.2);
+        }
+
+        .ai-prediction-coin {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .ai-prediction-coin-name {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #2e7d32;
+        }
+
+        .ai-prediction-coin-symbol {
+            font-size: 0.9em;
+            color: #666;
+            text-transform: uppercase;
+        }
+
+        .ai-prediction-badges {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .ai-prediction-badge {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: white;
+        }
+
+        .ai-prediction-badge.bullish { background: #4caf50; }
+        .ai-prediction-badge.bearish { background: #f44336; }
+        .ai-prediction-badge.neutral { background: #ff9800; }
+
+        .ai-prediction-timeframes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin: 15px 0;
+        }
+
+        .ai-prediction-timeframe {
+            text-align: center;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 8px;
+            border: 1px solid rgba(76, 175, 80, 0.3);
+        }
+
+        .ai-prediction-timeframe-label {
+            font-size: 0.8em;
+            color: #666;
+            margin-bottom: 6px;
+            font-weight: 500;
+        }
+
+        .ai-prediction-price {
+            font-weight: bold;
+            font-size: 0.95em;
+            color: #333;
+            margin-bottom: 4px;
+        }
+
+        .ai-prediction-change {
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+
+        .ai-prediction-change.positive { color: #4caf50; }
+        .ai-prediction-change.negative { color: #f44336; }
+
+        .ai-prediction-models {
+            margin-top: 12px;
+            padding: 10px;
+            background: rgba(33, 150, 243, 0.1);
+            border-radius: 6px;
+            border: 1px solid rgba(33, 150, 243, 0.2);
+            font-size: 0.8em;
+            color: #1565c0;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
@@ -1627,6 +1754,20 @@
         <div id="cycle-section"></div>
         <div id="market-cap-section"></div>
         <div id="btc-section"></div>
+        
+        <!-- AI Price Predictions Section -->
+        <div id="ai-predictions-section" class="dashboard-section">
+            <div class="section-header">
+                <h2 style="color: #2e7d32; display: flex; align-items: center; gap: 10px;">
+                    🤖 AI Price Predictions
+                    <span id="predictions-count" style="background: #4caf50; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8em;">0 tokens</span>
+                </h2>
+                <p style="color: #666; margin-top: 8px; font-size: 0.95em;">
+                    AI-powered price forecasts using ensemble machine learning models including technical analysis, momentum, and pattern recognition
+                </p>
+            </div>
+            <div id="ai-predictions-content"></div>
+        </div>
         
         <!-- Tabbed Analysis Interface -->
         <div class="analysis-tabs">
@@ -1693,6 +1834,7 @@
                     displayCycleAnalysis(result.data.cycleAnalysis);
                     displayMarketCapAnalysis(result.data.marketCapAnalysis);
                     displayBTCAnalysis(result.data.btcAnalysis);
+                    displayAIPredictions(result.data.htfAlerts, result.data.bullishAlerts, result.data.bearishAlerts);
                     displayHTFAlerts(result.data.htfAlerts, result.data.totalAnalyzed);
                     displayBullishAlerts(result.data.bullishAlerts, result.data.totalAnalyzed);
                     displayBearishAlerts(result.data.bearishAlerts, result.data.totalAnalyzed);
@@ -2945,6 +3087,154 @@
                             ${alertsHtml}
                         </div>
                     ` : '<p style="text-align: center; color: #666; font-style: italic;">No bearish opportunities found at the moment.</p>'}
+                </div>
+            `;
+        }
+
+        function displayAIPredictions(htfAlerts, bullishAlerts, bearishAlerts) {
+            // Collect all predictions from different alert types
+            const allPredictions = [];
+            
+            // Add HTF predictions
+            if (htfAlerts) {
+                htfAlerts.forEach(alert => {
+                    if (alert.aiPrediction && alert.aiPrediction.available) {
+                        allPredictions.push({
+                            ...alert,
+                            source: 'HTF Investment'
+                        });
+                    }
+                });
+            }
+            
+            // Add bullish predictions
+            if (bullishAlerts) {
+                bullishAlerts.forEach(alert => {
+                    if (alert.aiPrediction && alert.aiPrediction.available) {
+                        // Check if we already have this token from HTF
+                        const exists = allPredictions.find(p => p.symbol === alert.symbol);
+                        if (!exists) {
+                            allPredictions.push({
+                                ...alert,
+                                source: 'Bullish Signal'
+                            });
+                        }
+                    }
+                });
+            }
+            
+            // Add bearish predictions
+            if (bearishAlerts) {
+                bearishAlerts.forEach(alert => {
+                    if (alert.aiPrediction && alert.aiPrediction.available) {
+                        // Check if we already have this token
+                        const exists = allPredictions.find(p => p.symbol === alert.symbol);
+                        if (!exists) {
+                            allPredictions.push({
+                                ...alert,
+                                source: 'Bearish Signal'
+                            });
+                        }
+                    }
+                });
+            }
+
+            // Sort by confidence (highest first)
+            allPredictions.sort((a, b) => (b.aiPrediction.confidence || 0) - (a.aiPrediction.confidence || 0));
+
+            // Update count
+            document.getElementById('predictions-count').textContent = `${allPredictions.length} tokens`;
+
+            const formatPrice = (price) => {
+                if (price >= 1) {
+                    return new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                        minimumFractionDigits: 2,
+                        maximumFractionDigits: 6
+                    }).format(price);
+                } else {
+                    return new Intl.NumberFormat('en-US', {
+                        style: 'currency',
+                        currency: 'USD',
+                        minimumFractionDigits: 6,
+                        maximumFractionDigits: 10
+                    }).format(price);
+                }
+            };
+
+            const predictionsHtml = allPredictions.map(alert => {
+                const prediction = alert.aiPrediction;
+                return `
+                    <div class="ai-prediction-card">
+                        <div class="ai-prediction-header">
+                            <div class="ai-prediction-coin">
+                                <div class="ai-prediction-coin-name">${alert.name}</div>
+                                <div class="ai-prediction-coin-symbol">${alert.symbol.toUpperCase()}</div>
+                                <div style="font-size: 0.8em; color: #666; margin-top: 4px;">
+                                    Current: ${formatPrice(alert.price)} | Source: ${alert.source}
+                                </div>
+                            </div>
+                            <div class="ai-prediction-badges">
+                                <div class="ai-prediction-badge ${prediction.direction.toLowerCase()}">
+                                    ${prediction.direction}
+                                </div>
+                                <div class="ai-prediction-badge" style="background: #2196f3;">
+                                    ${prediction.confidence}% Confidence
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ai-prediction-timeframes">
+                            <div class="ai-prediction-timeframe">
+                                <div class="ai-prediction-timeframe-label">1 Hour</div>
+                                <div class="ai-prediction-price">${formatPrice(prediction.predictions['1h'])}</div>
+                                <div class="ai-prediction-change ${prediction.percentageChanges['1h'] >= 0 ? 'positive' : 'negative'}">
+                                    ${prediction.percentageChanges['1h'] >= 0 ? '+' : ''}${prediction.percentageChanges['1h'].toFixed(2)}%
+                                </div>
+                            </div>
+                            <div class="ai-prediction-timeframe">
+                                <div class="ai-prediction-timeframe-label">24 Hours</div>
+                                <div class="ai-prediction-price">${formatPrice(prediction.predictions['24h'])}</div>
+                                <div class="ai-prediction-change ${prediction.percentageChanges['24h'] >= 0 ? 'positive' : 'negative'}">
+                                    ${prediction.percentageChanges['24h'] >= 0 ? '+' : ''}${prediction.percentageChanges['24h'].toFixed(2)}%
+                                </div>
+                            </div>
+                            <div class="ai-prediction-timeframe">
+                                <div class="ai-prediction-timeframe-label">7 Days</div>
+                                <div class="ai-prediction-price">${formatPrice(prediction.predictions['7d'])}</div>
+                                <div class="ai-prediction-change ${prediction.percentageChanges['7d'] >= 0 ? 'positive' : 'negative'}">
+                                    ${prediction.percentageChanges['7d'] >= 0 ? '+' : ''}${prediction.percentageChanges['7d'].toFixed(2)}%
+                                </div>
+                            </div>
+                        </div>
+
+                        ${prediction.signals && prediction.signals.length > 0 ? `
+                            <div style="margin-bottom: 12px;">
+                                <div style="font-weight: bold; margin-bottom: 8px; color: #2e7d32; font-size: 0.9em;">🎯 Key Signals:</div>
+                                <ul style="margin: 0; padding-left: 16px; font-size: 0.85em; color: #333;">
+                                    ${prediction.signals.slice(0, 3).map(signal => `<li style="margin-bottom: 4px;">${signal}</li>`).join('')}
+                                    ${prediction.signals.length > 3 ? `<li style="color: #666; font-style: italic;">+${prediction.signals.length - 3} more signals...</li>` : ''}
+                                </ul>
+                            </div>
+                        ` : ''}
+
+                        <div class="ai-prediction-models">
+                            <strong>🧠 AI Models:</strong> ${prediction.modelsUsed.join(', ')}
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            document.getElementById('ai-predictions-content').innerHTML = allPredictions.length > 0 ? `
+                <div class="ai-predictions-grid">
+                    ${predictionsHtml}
+                </div>
+            ` : `
+                <div style="text-align: center; padding: 40px; color: #666; font-style: italic;">
+                    <div style="font-size: 3em; margin-bottom: 15px;">🤖</div>
+                    <div style="font-size: 1.1em; margin-bottom: 8px;">No AI predictions available</div>
+                    <div style="font-size: 0.9em;">Predictions require sufficient price history and will appear as tokens are analyzed</div>
                 </div>
             `;
         }
