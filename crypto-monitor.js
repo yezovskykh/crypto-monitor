@@ -591,7 +591,7 @@ class CryptoMonitor {
     // ===== AI PRICE PREDICTION ALGORITHMS =====
 
     // Linear regression for trend prediction
-    calculateLinearRegression(prices, periods = 10) {
+    calculateLinearRegression(prices, periods = 5) {
         if (prices.length < periods) return null;
         
         const recentPrices = prices.slice(-periods);
@@ -746,10 +746,10 @@ class CryptoMonitor {
 
     // Pattern recognition prediction
     calculatePatternPrediction(coinData, prices) {
-        if (prices.length < 20) return null;
+        if (prices.length < 10) return null;
         
         const currentPrice = coinData.current_price || 0;
-        const recentPrices = prices.slice(-20);
+        const recentPrices = prices.slice(-Math.min(20, prices.length));
         const signals = [];
         let predictionBias = 0;
         let confidence = 0;
@@ -833,14 +833,14 @@ class CryptoMonitor {
         let prices = this.priceHistory[coinId] || [];
         
         // Use sparkline as fallback
-        if (prices.length < 10 && coinData.sparkline_in_7d && coinData.sparkline_in_7d.price) {
+        if (prices.length < 5 && coinData.sparkline_in_7d && coinData.sparkline_in_7d.price) {
             const sparklinePrices = coinData.sparkline_in_7d.price.filter(price => price !== null && price !== undefined);
-            if (sparklinePrices.length >= 10) {
+            if (sparklinePrices.length >= 5) {
                 prices = sparklinePrices;
             }
         }
         
-        if (prices.length < 10) {
+        if (prices.length < 5) {
             return {
                 available: false,
                 reason: 'Insufficient price history for AI prediction'
