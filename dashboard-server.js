@@ -247,10 +247,38 @@ class CryptoDashboard {
 
         // API endpoint for crypto analysis data
         this.app.get('/api/analysis', (req, res) => {
-            res.json({
+            // Always ensure we return JSON, even if data is limited
+            const response = {
                 success: true,
-                data: this.lastAnalysis,
-                marketTrend: this.lastMarketTrend,
+                data: this.lastAnalysis || {
+                    bullishAlerts: [],
+                    bearishAlerts: [],
+                    htfAlerts: [],
+                    btcAnalysis: { error: 'No data available' },
+                    marketCapAnalysis: { error: 'No data available' },
+                    cycleAnalysis: { overall: { phase: 'Unknown', description: 'Data unavailable due to API limits' } },
+                    socialOverview: null,
+                    socialTrending: [],
+                    totalBullish: 0,
+                    totalBearish: 0,
+                    totalHTF: 0,
+                    totalOpportunities: 0,
+                    totalAnalyzed: 0,
+                    timestamp: new Date().toISOString()
+                },
+                marketTrend: this.lastMarketTrend || {
+                    trend: 'Unknown',
+                    emoji: '❓',
+                    description: 'Market data unavailable due to API rate limits',
+                    details: {
+                        totalCoinsAnalyzed: 0,
+                        bullishCoins: 0,
+                        bearishCoins: 0,
+                        neutralCoins: 0,
+                        avgChange24h: 0,
+                        avgChange7d: 0
+                    }
+                },
                 apiStatus: {
                     isRateLimited: this.cryptoMonitor.rateLimitInfo.isLimited,
                     lastSuccessfulFetch: this.cryptoMonitor.lastSuccessfulFetch,
@@ -258,7 +286,11 @@ class CryptoDashboard {
                     requestCount: this.cryptoMonitor.rateLimitInfo.requestCount,
                     cacheAvailable: Object.keys(this.cryptoMonitor.apiCache).length > 0
                 }
-            });
+            };
+            
+            // Set proper JSON headers
+            res.setHeader('Content-Type', 'application/json');
+            res.json(response);
         });
 
         // API endpoint for market trend only

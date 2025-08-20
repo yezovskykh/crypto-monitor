@@ -2234,6 +2234,13 @@
                 document.getElementById('error').style.display = 'none';
 
                 const response = await fetch('/api/analysis');
+                
+                // Check if response is HTML (README fallback) instead of JSON
+                const contentType = response.headers.get('content-type');
+                if (contentType && contentType.includes('text/html')) {
+                    throw new Error('API returned HTML instead of JSON - likely rate limited');
+                }
+                
                 const result = await response.json();
 
                 if (result.success) {
@@ -2251,16 +2258,44 @@
                     displayBearishAlerts(result.data.bearishAlerts, result.data.totalAnalyzed);
                     document.getElementById('loading').style.display = 'none';
                 } else {
-                    throw new Error('Failed to fetch data');
+                    throw new Error('API returned unsuccessful response');
                 }
             } catch (error) {
                 console.error('Error loading data:', error);
+                
+                // Try to load fallback static data
+                try {
+                    console.log('Attempting to load fallback static data...');
+                    const fallbackResponse = await fetch('./analysis.json');
+                    const fallbackResult = await fallbackResponse.json();
+                    
+                    if (fallbackResult.success) {
+                        console.log('Successfully loaded fallback data');
+                        displayMarketTrend(fallbackResult.marketTrend);
+                        displayCycleAnalysis(fallbackResult.data.cycleAnalysis);
+                        displayMarketCapAnalysis(fallbackResult.data.marketCapAnalysis);
+                        displayBTCAnalysis(fallbackResult.data.btcAnalysis);
+                        displaySocialAnalysis(fallbackResult.data);
+                        displayAIPredictions(fallbackResult.data.htfAlerts, fallbackResult.data.bullishAlerts, fallbackResult.data.bearishAlerts);
+                        displayHTFAlerts(fallbackResult.data.htfAlerts, fallbackResult.data.totalAnalyzed);
+                        displayBullishAlerts(fallbackResult.data.bullishAlerts, fallbackResult.data.totalAnalyzed);
+                        displayBearishAlerts(fallbackResult.data.bearishAlerts, fallbackResult.data.totalAnalyzed);
+                        
+                        document.getElementById('loading').style.display = 'none';
+                        showApiStatusBanner('📦 Using cached data due to API rate limits - data may be outdated', 'rate-limited');
+                        return;
+                    }
+                } catch (fallbackError) {
+                    console.error('Fallback data also failed:', fallbackError);
+                }
+                
+                // If all fails, show error
                 document.getElementById('loading').style.display = 'none';
                 document.getElementById('error').style.display = 'block';
-                document.getElementById('error').textContent = 'Error loading data: ' + error.message;
+                document.getElementById('error').textContent = 'Error loading data: ' + error.message + '. Please try refreshing in a few minutes.';
                 
                 // Show error banner
-                showApiStatusBanner('⚠️ Connection error - please check your internet connection', 'error');
+                showApiStatusBanner('🚫 API rate limited - please wait a few minutes before refreshing', 'error');
             }
         }
 

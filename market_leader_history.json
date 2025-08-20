@@ -1,38 +1,5 @@
 [
   {
-    "timestamp": "2025-08-20T18:02:47.634Z",
-    "leader": "Large Cap Altcoins",
-    "strength": "Driving market performance",
-    "changes": {
-      "total": 1.3783456853787859,
-      "total2": 2.3715993369644464,
-      "total3": 1.7574030383538823
-    },
-    "margin": 0.9932536515856605
-  },
-  {
-    "timestamp": "2025-08-20T18:07:47.709Z",
-    "leader": "Large Cap Altcoins",
-    "strength": "Driving market performance",
-    "changes": {
-      "total": 1.0162520225116705,
-      "total2": 1.850210817476061,
-      "total3": 1.4341315427825043
-    },
-    "margin": 0.8339587949643905
-  },
-  {
-    "timestamp": "2025-08-20T18:12:47.222Z",
-    "leader": "Large Cap Altcoins",
-    "strength": "Driving market performance",
-    "changes": {
-      "total": 0.9857838192917721,
-      "total2": 1.792430467626869,
-      "total3": 1.3132740947904857
-    },
-    "margin": 0.8066466483350969
-  },
-  {
     "timestamp": "2025-08-20T18:17:46.663Z",
     "leader": "Large Cap Altcoins",
     "strength": "Driving market performance",
@@ -163,5 +130,38 @@
       "total3": 1.973324292233514
     },
     "margin": 1.0912630505961496
+  },
+  {
+    "timestamp": "2025-08-20T19:04:12.234Z",
+    "leader": "Large Cap Altcoins",
+    "strength": "Driving market performance",
+    "changes": {
+      "total": 1.4756270582851474,
+      "total2": 2.575689493446641,
+      "total3": 2.038505830462961
+    },
+    "margin": 1.1000624351614936
+  },
+  {
+    "timestamp": "2025-08-20T19:09:12.257Z",
+    "leader": "Large Cap Altcoins",
+    "strength": "Driving market performance",
+    "changes": {
+      "total": 1.683104571965799,
+      "total2": 2.905423542593569,
+      "total3": 2.3381485851566346
+    },
+    "margin": 1.22231897062777
+  },
+  {
+    "timestamp": "2025-08-20T19:14:11.497Z",
+    "leader": "Large Cap Altcoins",
+    "strength": "Driving market performance",
+    "changes": {
+      "total": 1.8967576828120163,
+      "total2": 3.1636869171923254,
+      "total3": 2.5625497495871246
+    },
+    "margin": 1.2669292343803091
   }
 ]
