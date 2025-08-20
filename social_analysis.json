@@ -1,0 +1,1442 @@
+{
+  "latest": {
+    "bitcoin": {
+      "sentimentScore": 92,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 41784,
+        "change24h": -12,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 44,
+        "platforms": []
+      },
+      "influencerScore": 77,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "💬 High social engagement (10K+ mentions)",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Bitcoin",
+        "symbol": "btc",
+        "rank": 1
+      }
+    },
+    "ethereum": {
+      "sentimentScore": 18,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 37682,
+        "change24h": 27,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 28,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "💬 High social engagement (10K+ mentions)"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Ethereum",
+        "symbol": "eth",
+        "rank": 2
+      }
+    },
+    "ripple": {
+      "sentimentScore": 27,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 7380,
+        "change24h": -10,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 24,
+        "platforms": []
+      },
+      "influencerScore": 64,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "XRP",
+        "symbol": "xrp",
+        "rank": 3
+      }
+    },
+    "tether": {
+      "sentimentScore": 100,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 50000,
+        "change24h": 40,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 45,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "💬 High social engagement (10K+ mentions)",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Tether",
+        "symbol": "usdt",
+        "rank": 4
+      }
+    },
+    "binancecoin": {
+      "sentimentScore": 84,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 1691,
+        "change24h": -20,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 45,
+        "platforms": []
+      },
+      "influencerScore": 69,
+      "socialSignals": [
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "BNB",
+        "symbol": "bnb",
+        "rank": 5
+      }
+    },
+    "solana": {
+      "sentimentScore": 100,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 6252,
+        "change24h": -16,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 52,
+        "platforms": []
+      },
+      "influencerScore": 46,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Solana",
+        "symbol": "sol",
+        "rank": 6
+      }
+    },
+    "usd-coin": {
+      "sentimentScore": 34,
+      "sentiment": {
+        "label": "Bearish",
+        "emoji": "📉",
+        "color": "#FF5722"
+      },
+      "mentions": {
+        "count24h": 18912,
+        "change24h": 31,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 25,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "💬 High social engagement (10K+ mentions)"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "USDC",
+        "symbol": "usdc",
+        "rank": 7
+      }
+    },
+    "staked-ether": {
+      "sentimentScore": 92,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 46,
+        "change24h": 16,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 50,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Lido Staked Ether",
+        "symbol": "steth",
+        "rank": 8
+      }
+    },
+    "tron": {
+      "sentimentScore": 100,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 1247,
+        "change24h": 41,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 46,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "TRON",
+        "symbol": "trx",
+        "rank": 9
+      }
+    },
+    "dogecoin": {
+      "sentimentScore": 12,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 3293,
+        "change24h": 48,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 23,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "❄️ Extremely bearish social sentiment"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Dogecoin",
+        "symbol": "doge",
+        "rank": 10
+      }
+    },
+    "cardano": {
+      "sentimentScore": 40,
+      "sentiment": {
+        "label": "Bearish",
+        "emoji": "📉",
+        "color": "#FF5722"
+      },
+      "mentions": {
+        "count24h": 2675,
+        "change24h": 4,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 31,
+        "platforms": []
+      },
+      "influencerScore": 36,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Cardano",
+        "symbol": "ada",
+        "rank": 11
+      }
+    },
+    "chainlink": {
+      "sentimentScore": 49,
+      "sentiment": {
+        "label": "Neutral",
+        "emoji": "➖",
+        "color": "#FFC107"
+      },
+      "mentions": {
+        "count24h": 4134,
+        "change24h": 28,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 47,
+        "platforms": []
+      },
+      "influencerScore": 30,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Chainlink",
+        "symbol": "link",
+        "rank": 12
+      }
+    },
+    "wrapped-steth": {
+      "sentimentScore": 65,
+      "sentiment": {
+        "label": "Bullish",
+        "emoji": "📈",
+        "color": "#4CAF50"
+      },
+      "mentions": {
+        "count24h": 66,
+        "change24h": -20,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 42,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Wrapped stETH",
+        "symbol": "wsteth",
+        "rank": 13
+      }
+    },
+    "wrapped-bitcoin": {
+      "sentimentScore": 42,
+      "sentiment": {
+        "label": "Bearish",
+        "emoji": "📉",
+        "color": "#FF5722"
+      },
+      "mentions": {
+        "count24h": 265,
+        "change24h": 20,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 29,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Wrapped Bitcoin",
+        "symbol": "wbtc",
+        "rank": 14
+      }
+    },
+    "hyperliquid": {
+      "sentimentScore": 90,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 346,
+        "change24h": 22,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 47,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Hyperliquid",
+        "symbol": "hype",
+        "rank": 15
+      }
+    },
+    "wrapped-beacon-eth": {
+      "sentimentScore": 6,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 45,
+        "change24h": 49,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 23,
+        "platforms": []
+      },
+      "influencerScore": 73,
+      "socialSignals": [
+        "❄️ Extremely bearish social sentiment"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Wrapped Beacon ETH",
+        "symbol": "wbeth",
+        "rank": 16
+      }
+    },
+    "stellar": {
+      "sentimentScore": 43,
+      "sentiment": {
+        "label": "Bearish",
+        "emoji": "📉",
+        "color": "#FF5722"
+      },
+      "mentions": {
+        "count24h": 333,
+        "change24h": 15,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 31,
+        "platforms": []
+      },
+      "influencerScore": 53,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Stellar",
+        "symbol": "xlm",
+        "rank": 17
+      }
+    },
+    "sui": {
+      "sentimentScore": 32,
+      "sentiment": {
+        "label": "Bearish",
+        "emoji": "📉",
+        "color": "#FF5722"
+      },
+      "mentions": {
+        "count24h": 1358,
+        "change24h": -34,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 29,
+        "platforms": []
+      },
+      "influencerScore": 33,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Sui",
+        "symbol": "sui",
+        "rank": 18
+      }
+    },
+    "wrapped-eeth": {
+      "sentimentScore": 11,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 22,
+        "change24h": 28,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 26,
+        "platforms": []
+      },
+      "influencerScore": 59,
+      "socialSignals": [
+        "❄️ Extremely bearish social sentiment"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Wrapped eETH",
+        "symbol": "weeth",
+        "rank": 19
+      }
+    },
+    "ethena-usde": {
+      "sentimentScore": 8,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 324,
+        "change24h": -24,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 18,
+        "platforms": []
+      },
+      "influencerScore": 47,
+      "socialSignals": [
+        "❄️ Extremely bearish social sentiment"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Ethena USDe",
+        "symbol": "usde",
+        "rank": 20
+      }
+    },
+    "bitcoin-cash": {
+      "sentimentScore": 71,
+      "sentiment": {
+        "label": "Bullish",
+        "emoji": "📈",
+        "color": "#4CAF50"
+      },
+      "mentions": {
+        "count24h": 179,
+        "change24h": 4,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 38,
+        "platforms": []
+      },
+      "influencerScore": 25,
+      "socialSignals": [
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Bitcoin Cash",
+        "symbol": "bch",
+        "rank": 21
+      }
+    },
+    "hedera-hashgraph": {
+      "sentimentScore": 81,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 317,
+        "change24h": -45,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 43,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Hedera",
+        "symbol": "hbar",
+        "rank": 22
+      }
+    },
+    "avalanche-2": {
+      "sentimentScore": 99,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 511,
+        "change24h": 16,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 45,
+        "platforms": []
+      },
+      "influencerScore": 93,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Avalanche",
+        "symbol": "avax",
+        "rank": 23
+      }
+    },
+    "weth": {
+      "sentimentScore": 71,
+      "sentiment": {
+        "label": "Bullish",
+        "emoji": "📈",
+        "color": "#4CAF50"
+      },
+      "mentions": {
+        "count24h": 896,
+        "change24h": -24,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 39,
+        "platforms": []
+      },
+      "influencerScore": 59,
+      "socialSignals": [
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "WETH",
+        "symbol": "weth",
+        "rank": 24
+      }
+    },
+    "leo-token": {
+      "sentimentScore": 13,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 10,
+        "change24h": 1,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 16,
+        "platforms": []
+      },
+      "influencerScore": 68,
+      "socialSignals": [
+        "❄️ Extremely bearish social sentiment",
+        "📉 Bearish sentiment confirming price decline"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "LEO Token",
+        "symbol": "leo",
+        "rank": 25
+      }
+    },
+    "litecoin": {
+      "sentimentScore": 96,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 664,
+        "change24h": -15,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 43,
+        "platforms": []
+      },
+      "influencerScore": 74,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Litecoin",
+        "symbol": "ltc",
+        "rank": 26
+      }
+    },
+    "the-open-network": {
+      "sentimentScore": 15,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 164,
+        "change24h": -50,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 18,
+        "platforms": []
+      },
+      "influencerScore": 97,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Toncoin",
+        "symbol": "ton",
+        "rank": 27
+      }
+    },
+    "usds": {
+      "sentimentScore": 74,
+      "sentiment": {
+        "label": "Bullish",
+        "emoji": "📈",
+        "color": "#4CAF50"
+      },
+      "mentions": {
+        "count24h": 30,
+        "change24h": -24,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 32,
+        "platforms": []
+      },
+      "influencerScore": 62,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "USDS",
+        "symbol": "usds",
+        "rank": 28
+      }
+    },
+    "shiba-inu": {
+      "sentimentScore": 87,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 224,
+        "change24h": -39,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 40,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Shiba Inu",
+        "symbol": "shib",
+        "rank": 29
+      }
+    },
+    "binance-bridged-usdt-bnb-smart-chain": {
+      "sentimentScore": 40,
+      "sentiment": {
+        "label": "Bearish",
+        "emoji": "📉",
+        "color": "#FF5722"
+      },
+      "mentions": {
+        "count24h": 1842,
+        "change24h": -44,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 22,
+        "platforms": []
+      },
+      "influencerScore": 62,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Binance Bridged USDT (BNB Smart Chain)",
+        "symbol": "bsc-usd",
+        "rank": 30
+      }
+    },
+    "uniswap": {
+      "sentimentScore": 10,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 418,
+        "change24h": 21,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 22,
+        "platforms": []
+      },
+      "influencerScore": 96,
+      "socialSignals": [
+        "❄️ Extremely bearish social sentiment"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Uniswap",
+        "symbol": "uni",
+        "rank": 31
+      }
+    },
+    "whitebit": {
+      "sentimentScore": 15,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 55,
+        "change24h": -28,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 16,
+        "platforms": []
+      },
+      "influencerScore": 44,
+      "socialSignals": [
+        "❄️ Extremely bearish social sentiment"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "WhiteBIT Coin",
+        "symbol": "wbt",
+        "rank": 32
+      }
+    },
+    "polkadot": {
+      "sentimentScore": 89,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 297,
+        "change24h": 26,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 41,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Polkadot",
+        "symbol": "dot",
+        "rank": 33
+      }
+    },
+    "coinbase-wrapped-btc": {
+      "sentimentScore": 17,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 502,
+        "change24h": -14,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 16,
+        "platforms": []
+      },
+      "influencerScore": 64,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Coinbase Wrapped BTC",
+        "symbol": "cbbtc",
+        "rank": 34
+      }
+    },
+    "ethena-staked-usde": {
+      "sentimentScore": 13,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 39,
+        "change24h": 42,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 14,
+        "platforms": []
+      },
+      "influencerScore": 41,
+      "socialSignals": [
+        "❄️ Extremely bearish social sentiment"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Ethena Staked USDe",
+        "symbol": "susde",
+        "rank": 35
+      }
+    },
+    "bitget-token": {
+      "sentimentScore": 50,
+      "sentiment": {
+        "label": "Neutral",
+        "emoji": "➖",
+        "color": "#FFC107"
+      },
+      "mentions": {
+        "count24h": 175,
+        "change24h": -15,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 33,
+        "platforms": []
+      },
+      "influencerScore": 68,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Bitget Token",
+        "symbol": "bgb",
+        "rank": 36
+      }
+    },
+    "crypto-com-chain": {
+      "sentimentScore": 4,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 28,
+        "change24h": -43,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 17,
+        "platforms": []
+      },
+      "influencerScore": 48,
+      "socialSignals": [
+        "❄️ Extremely bearish social sentiment"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Cronos",
+        "symbol": "cro",
+        "rank": 37
+      }
+    },
+    "monero": {
+      "sentimentScore": 43,
+      "sentiment": {
+        "label": "Bearish",
+        "emoji": "📉",
+        "color": "#FF5722"
+      },
+      "mentions": {
+        "count24h": 104,
+        "change24h": -40,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 32,
+        "platforms": []
+      },
+      "influencerScore": 20,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Monero",
+        "symbol": "xmr",
+        "rank": 38
+      }
+    },
+    "mantle": {
+      "sentimentScore": 80,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 452,
+        "change24h": 32,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 35,
+        "platforms": []
+      },
+      "influencerScore": 26,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Mantle",
+        "symbol": "mnt",
+        "rank": 39
+      }
+    },
+    "aave": {
+      "sentimentScore": 54,
+      "sentiment": {
+        "label": "Neutral",
+        "emoji": "➖",
+        "color": "#FFC107"
+      },
+      "mentions": {
+        "count24h": 749,
+        "change24h": 1,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 37,
+        "platforms": []
+      },
+      "influencerScore": 94,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Aave",
+        "symbol": "aave",
+        "rank": 40
+      }
+    },
+    "pepe": {
+      "sentimentScore": 11,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 565,
+        "change24h": 12,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 17,
+        "platforms": []
+      },
+      "influencerScore": 32,
+      "socialSignals": [
+        "❄️ Extremely bearish social sentiment"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Pepe",
+        "symbol": "pepe",
+        "rank": 41
+      }
+    },
+    "dai": {
+      "sentimentScore": 100,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 143,
+        "change24h": -42,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 40,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Dai",
+        "symbol": "dai",
+        "rank": 42
+      }
+    },
+    "ethena": {
+      "sentimentScore": 34,
+      "sentiment": {
+        "label": "Bearish",
+        "emoji": "📉",
+        "color": "#FF5722"
+      },
+      "mentions": {
+        "count24h": 617,
+        "change24h": -13,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 24,
+        "platforms": []
+      },
+      "influencerScore": 32,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Ethena",
+        "symbol": "ena",
+        "rank": 43
+      }
+    },
+    "okb": {
+      "sentimentScore": 100,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 11949,
+        "change24h": 2,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": true,
+        "rank": 10,
+        "score": 133,
+        "platforms": [
+          "Twitter",
+          "Reddit"
+        ]
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "🔥 Trending #10 on Twitter, Reddit",
+        "💬 High social engagement (10K+ mentions)",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "OKB",
+        "symbol": "okb",
+        "rank": 44
+      }
+    },
+    "bittensor": {
+      "sentimentScore": 81,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 94,
+        "change24h": -13,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 36,
+        "platforms": []
+      },
+      "influencerScore": 79,
+      "socialSignals": [
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Bittensor",
+        "symbol": "tao",
+        "rank": 45
+      }
+    },
+    "ethereum-classic": {
+      "sentimentScore": 10,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 90,
+        "change24h": -27,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 19,
+        "platforms": []
+      },
+      "influencerScore": 97,
+      "socialSignals": [
+        "❄️ Extremely bearish social sentiment"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Ethereum Classic",
+        "symbol": "etc",
+        "rank": 46
+      }
+    },
+    "near": {
+      "sentimentScore": 93,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 184,
+        "change24h": -25,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 43,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "NEAR Protocol",
+        "symbol": "near",
+        "rank": 47
+      }
+    },
+    "aptos": {
+      "sentimentScore": 28,
+      "sentiment": {
+        "label": "Very Bearish",
+        "emoji": "🔻",
+        "color": "#F44336"
+      },
+      "mentions": {
+        "count24h": 426,
+        "change24h": -36,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 24,
+        "platforms": []
+      },
+      "influencerScore": 71,
+      "socialSignals": [],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Aptos",
+        "symbol": "apt",
+        "rank": 48
+      }
+    },
+    "ondo-finance": {
+      "sentimentScore": 100,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 153,
+        "change24h": -15,
+        "trend": "decreasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 44,
+        "platforms": []
+      },
+      "influencerScore": 100,
+      "socialSignals": [
+        "🔥 Extremely bullish social sentiment",
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Ondo",
+        "symbol": "ondo",
+        "rank": 49
+      }
+    },
+    "internet-computer": {
+      "sentimentScore": 81,
+      "sentiment": {
+        "label": "Very Bullish",
+        "emoji": "🚀",
+        "color": "#00C851"
+      },
+      "mentions": {
+        "count24h": 55,
+        "change24h": 9,
+        "trend": "increasing"
+      },
+      "trending": {
+        "isTrending": false,
+        "rank": null,
+        "score": 40,
+        "platforms": []
+      },
+      "influencerScore": 74,
+      "socialSignals": [
+        "🚀 Bullish sentiment aligned with price action"
+      ],
+      "timestamp": 1755716052674,
+      "coin": {
+        "name": "Internet Computer",
+        "symbol": "icp",
+        "rank": 50
+      }
+    }
+  },
+  "lastUpdated": 1755716052674
+}

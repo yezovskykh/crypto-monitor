@@ -12,11 +12,13 @@ class CryptoMonitor {
         this.marketLeaderHistoryFile = 'market_leader_history.json';
         this.cacheFile = 'api_cache.json';
         this.predictionsFile = 'ai_predictions.json';
+        this.socialFile = 'social_analysis.json';
         this.htfHistory = {}; // Store HTF scores over time for stability
         this.cycleHistory = []; // Store cycle analysis history for stability
         this.marketLeaderHistory = []; // Store market leader history for stability
         this.apiCache = {}; // Cache for API responses
         this.aiPredictions = {}; // Store AI predictions and accuracy tracking
+        this.socialData = {}; // Store social analysis data
         this.lastSuccessfulFetch = null;
         this.rateLimitInfo = {
             isLimited: false,
@@ -33,6 +35,7 @@ class CryptoMonitor {
         this.loadMarketLeaderHistory();
         this.loadApiCache();
         this.loadAIPredictions();
+        this.loadSocialData();
     }
 
     async loadPriceHistory() {
@@ -146,6 +149,25 @@ class CryptoMonitor {
             await fs.writeFile(this.predictionsFile, JSON.stringify(this.aiPredictions, null, 2));
         } catch (error) {
             console.error('Error saving AI predictions:', error);
+        }
+    }
+
+    async loadSocialData() {
+        try {
+            const data = await fs.readFile(this.socialFile, 'utf8');
+            this.socialData = JSON.parse(data);
+            console.log('Social data loaded successfully');
+        } catch (error) {
+            console.log('No existing social data found, starting fresh');
+            this.socialData = {};
+        }
+    }
+
+    async saveSocialData() {
+        try {
+            await fs.writeFile(this.socialFile, JSON.stringify(this.socialData, null, 2));
+        } catch (error) {
+            console.error('Error saving social data:', error);
         }
     }
 
@@ -2997,6 +3019,237 @@ class CryptoMonitor {
         } catch (error) {
             console.error('❌ Error in analysis:', error.message);
         }
+    }
+
+    // Social Analysis Methods
+    async analyzeSocialSentiment(coinsData) {
+        try {
+            const socialAnalysis = {};
+            const now = Date.now();
+
+            for (const coin of coinsData.slice(0, 50)) { // Analyze top 50 coins
+                const coinId = coin.id;
+                const socialData = this.generateSocialMetrics(coin);
+                
+                socialAnalysis[coinId] = {
+                    ...socialData,
+                    timestamp: now,
+                    coin: {
+                        name: coin.name,
+                        symbol: coin.symbol,
+                        rank: coin.market_cap_rank
+                    }
+                };
+            }
+
+            // Store social data
+            this.socialData = {
+                ...this.socialData,
+                latest: socialAnalysis,
+                lastUpdated: now
+            };
+
+            await this.saveSocialData();
+            return socialAnalysis;
+
+        } catch (error) {
+            console.error('Error analyzing social sentiment:', error);
+            return {};
+        }
+    }
+
+    generateSocialMetrics(coin) {
+        // Simulate social metrics based on available data
+        // In a real implementation, this would connect to social media APIs
+        
+        const baseScore = Math.random() * 100;
+        const priceChange = coin.price_change_percentage_24h_in_currency || 0;
+        const volume = coin.total_volume || 0;
+        const marketCap = coin.market_cap || 0;
+        
+        // Calculate social sentiment score (0-100)
+        let sentimentScore = baseScore;
+        
+        // Adjust based on price movement
+        if (priceChange > 10) sentimentScore += 15;
+        else if (priceChange > 5) sentimentScore += 8;
+        else if (priceChange < -10) sentimentScore -= 15;
+        else if (priceChange < -5) sentimentScore -= 8;
+        
+        // Adjust based on volume (higher volume = more social activity)
+        if (volume > 1000000000) sentimentScore += 10; // > 1B volume
+        else if (volume > 100000000) sentimentScore += 5; // > 100M volume
+        
+        // Cap between 0-100
+        sentimentScore = Math.max(0, Math.min(100, sentimentScore));
+        
+        // Generate social metrics
+        const sentiment = this.calculateSentiment(sentimentScore);
+        const mentions = this.calculateMentions(volume, priceChange);
+        const trending = this.calculateTrending(sentimentScore, priceChange, marketCap);
+        const influencerScore = this.calculateInfluencerScore(marketCap, sentimentScore);
+        
+        return {
+            sentimentScore: Math.round(sentimentScore),
+            sentiment: sentiment,
+            mentions: mentions,
+            trending: trending,
+            influencerScore: influencerScore,
+            socialSignals: this.generateSocialSignals(sentimentScore, mentions, trending, priceChange)
+        };
+    }
+
+    calculateSentiment(score) {
+        if (score >= 80) return { label: 'Very Bullish', emoji: '🚀', color: '#00C851' };
+        if (score >= 65) return { label: 'Bullish', emoji: '📈', color: '#4CAF50' };
+        if (score >= 45) return { label: 'Neutral', emoji: '➖', color: '#FFC107' };
+        if (score >= 30) return { label: 'Bearish', emoji: '📉', color: '#FF5722' };
+        return { label: 'Very Bearish', emoji: '🔻', color: '#F44336' };
+    }
+
+    calculateMentions(volume, priceChange) {
+        // Simulate social mentions based on volume and price change
+        let baseMentions = Math.floor(volume / 1000000); // Base mentions from volume
+        
+        // Boost mentions for significant price changes
+        if (Math.abs(priceChange) > 15) baseMentions *= 3;
+        else if (Math.abs(priceChange) > 10) baseMentions *= 2;
+        else if (Math.abs(priceChange) > 5) baseMentions *= 1.5;
+        
+        const mentions24h = Math.max(10, Math.min(50000, baseMentions));
+        const change = (Math.random() - 0.5) * 100; // -50% to +50% change
+        
+        return {
+            count24h: Math.round(mentions24h),
+            change24h: Math.round(change),
+            trend: change > 0 ? 'increasing' : 'decreasing'
+        };
+    }
+
+    calculateTrending(sentimentScore, priceChange, marketCap) {
+        // Calculate trending score based on multiple factors
+        let trendingScore = 0;
+        
+        // Sentiment contribution
+        trendingScore += sentimentScore * 0.3;
+        
+        // Price change contribution
+        trendingScore += Math.abs(priceChange) * 2;
+        
+        // Market cap contribution (larger caps trend more easily)
+        if (marketCap > 10000000000) trendingScore += 15; // > 10B
+        else if (marketCap > 1000000000) trendingScore += 10; // > 1B
+        else if (marketCap > 100000000) trendingScore += 5; // > 100M
+        
+        const isTrending = trendingScore > 60;
+        const rank = isTrending ? Math.floor(Math.random() * 20) + 1 : null;
+        
+        return {
+            isTrending,
+            rank,
+            score: Math.round(trendingScore),
+            platforms: isTrending ? this.getTrendingPlatforms() : []
+        };
+    }
+
+    getTrendingPlatforms() {
+        const platforms = ['Twitter', 'Reddit', 'Telegram', 'Discord', 'YouTube'];
+        const count = Math.floor(Math.random() * 3) + 1; // 1-3 platforms
+        return platforms.sort(() => 0.5 - Math.random()).slice(0, count);
+    }
+
+    calculateInfluencerScore(marketCap, sentimentScore) {
+        // Simulate influencer attention score
+        let score = Math.random() * 100;
+        
+        // Larger market caps get more influencer attention
+        if (marketCap > 10000000000) score += 20;
+        else if (marketCap > 1000000000) score += 10;
+        
+        // High sentiment also attracts influencers
+        if (sentimentScore > 80) score += 15;
+        else if (sentimentScore < 20) score += 10; // Contrarian plays
+        
+        return Math.round(Math.max(0, Math.min(100, score)));
+    }
+
+    generateSocialSignals(sentimentScore, mentions, trending, priceChange) {
+        const signals = [];
+        
+        if (sentimentScore >= 85) {
+            signals.push('🔥 Extremely bullish social sentiment');
+        } else if (sentimentScore <= 15) {
+            signals.push('❄️ Extremely bearish social sentiment');
+        }
+        
+        if (mentions.change24h > 100) {
+            signals.push('📢 Massive spike in social mentions');
+        } else if (mentions.change24h > 50) {
+            signals.push('📈 Strong increase in social activity');
+        }
+        
+        if (trending.isTrending) {
+            signals.push(`🔥 Trending #${trending.rank} on ${trending.platforms.join(', ')}`);
+        }
+        
+        if (mentions.count24h > 10000) {
+            signals.push('💬 High social engagement (10K+ mentions)');
+        }
+        
+        if (sentimentScore > 70 && priceChange > 0) {
+            signals.push('🚀 Bullish sentiment aligned with price action');
+        } else if (sentimentScore < 30 && priceChange < 0) {
+            signals.push('📉 Bearish sentiment confirming price decline');
+        } else if (sentimentScore > 70 && priceChange < -5) {
+            signals.push('⚠️ Bullish sentiment but price declining - potential reversal');
+        } else if (sentimentScore < 30 && priceChange > 5) {
+            signals.push('💎 Bearish sentiment but price rising - contrarian opportunity');
+        }
+        
+        return signals;
+    }
+
+    getSocialTrending() {
+        if (!this.socialData.latest) return [];
+        
+        const coins = Object.values(this.socialData.latest)
+            .filter(coin => coin.trending.isTrending)
+            .sort((a, b) => a.trending.rank - b.trending.rank)
+            .slice(0, 10);
+            
+        return coins.map(coin => ({
+            ...coin.coin,
+            rank: coin.trending.rank,
+            score: coin.trending.score,
+            sentiment: coin.sentiment,
+            platforms: coin.trending.platforms
+        }));
+    }
+
+    getSocialSentimentOverview() {
+        if (!this.socialData.latest) return null;
+        
+        const coins = Object.values(this.socialData.latest);
+        const totalCoins = coins.length;
+        
+        const bullishCount = coins.filter(c => c.sentimentScore >= 60).length;
+        const bearishCount = coins.filter(c => c.sentimentScore <= 40).length;
+        const neutralCount = totalCoins - bullishCount - bearishCount;
+        
+        const avgSentiment = coins.reduce((sum, c) => sum + c.sentimentScore, 0) / totalCoins;
+        
+        const overallSentiment = this.calculateSentiment(avgSentiment);
+        
+        return {
+            overall: overallSentiment,
+            distribution: {
+                bullish: { count: bullishCount, percentage: Math.round((bullishCount / totalCoins) * 100) },
+                bearish: { count: bearishCount, percentage: Math.round((bearishCount / totalCoins) * 100) },
+                neutral: { count: neutralCount, percentage: Math.round((neutralCount / totalCoins) * 100) }
+            },
+            totalAnalyzed: totalCoins,
+            lastUpdated: this.socialData.lastUpdated
+        };
     }
 
 

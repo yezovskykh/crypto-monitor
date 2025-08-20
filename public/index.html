@@ -314,6 +314,201 @@
             }
         }
 
+        /* Social Analysis Styles */
+        .social-overview {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+        }
+
+        .social-overview-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .social-overview-title {
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        .social-sentiment-badge {
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .social-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 15px;
+        }
+
+        .social-stat {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 8px;
+        }
+
+        .social-stat-value {
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .social-stat-label {
+            font-size: 0.85em;
+            opacity: 0.9;
+        }
+
+        .social-trending {
+            margin-bottom: 20px;
+        }
+
+        .social-trending-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .social-trending-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .trending-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 12px;
+        }
+
+        .trending-card {
+            background: #f8f9fa;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            padding: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .trending-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .trending-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+
+        .trending-rank {
+            background: #ff6b6b;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .trending-platforms {
+            display: flex;
+            gap: 4px;
+            margin-top: 8px;
+        }
+
+        .platform-tag {
+            background: #e9ecef;
+            color: #495057;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.7em;
+        }
+
+        .social-card {
+            background: #f8f9fa;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .social-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .social-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .social-sentiment-indicator {
+            padding: 4px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            color: white;
+        }
+
+        .social-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+            gap: 8px;
+            margin-bottom: 10px;
+        }
+
+        .social-metric {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.05);
+            padding: 8px 4px;
+            border-radius: 6px;
+        }
+
+        .social-metric-value {
+            font-weight: bold;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        .social-metric-label {
+            font-size: 0.7em;
+            color: #666;
+            margin-top: 2px;
+        }
+
+        .social-signals {
+            margin-top: 10px;
+        }
+
+        .social-signals-title {
+            font-size: 0.85em;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        .social-signal-tag {
+            display: inline-block;
+            background: #e3f2fd;
+            color: #1976d2;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            margin: 2px 4px 2px 0;
+        }
+
         .signals {
             margin-top: 10px;
         }
@@ -1942,6 +2137,9 @@
                 <button class="tab-button active" onclick="switchTab('ai-predictions')">
                     🤖 AI Predictions
                 </button>
+                <button class="tab-button" onclick="switchTab('social')">
+                    📱 Social Analysis
+                </button>
                 <button class="tab-button" onclick="switchTab('htf')">
                     📊 HTF Analysis
                 </button>
@@ -1967,6 +2165,19 @@
                     </div>
                     <div id="ai-predictions-content"></div>
                 </div>
+            </div>
+            
+            <div id="social-tab" class="tab-content">
+                <div class="tab-header">
+                    <div class="tab-title">📱 Social Sentiment Analysis</div>
+                    <div class="tab-description">
+                        Real-time social media sentiment analysis, trending coins, and community engagement metrics.
+                        Combines data from Twitter, Reddit, Telegram, and other social platforms.
+                    </div>
+                </div>
+                <div id="social-overview-section"></div>
+                <div id="social-trending-section"></div>
+                <div id="social-cards-section"></div>
             </div>
             
             <div id="htf-tab" class="tab-content">
@@ -2033,6 +2244,7 @@
                     displayCycleAnalysis(result.data.cycleAnalysis);
                     displayMarketCapAnalysis(result.data.marketCapAnalysis);
                     displayBTCAnalysis(result.data.btcAnalysis);
+                    displaySocialAnalysis(result.data);
                     displayAIPredictions(result.data.htfAlerts, result.data.bullishAlerts, result.data.bearishAlerts);
                     displayHTFAlerts(result.data.htfAlerts, result.data.totalAnalyzed);
                     displayBullishAlerts(result.data.bullishAlerts, result.data.totalAnalyzed);
@@ -3026,6 +3238,29 @@
 
 
 
+                    ${alert.socialData ? `
+                        <div class="social-section" style="margin-top: 10px; padding: 8px; background: #f8f9fa; border-radius: 6px; border-left: 3px solid ${alert.socialData.sentiment.color};">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                <span style="font-size: 0.8em; font-weight: bold; color: #333;">📱 Social</span>
+                                <span style="background: ${alert.socialData.sentiment.color}; color: white; padding: 2px 6px; border-radius: 8px; font-size: 0.7em;">
+                                    ${alert.socialData.sentiment.emoji} ${alert.socialData.sentiment.label}
+                                </span>
+                            </div>
+                            <div style="display: flex; gap: 8px; font-size: 0.7em; color: #666;">
+                                <span>Mentions: ${alert.socialData.mentions.count24h.toLocaleString()}</span>
+                                <span style="color: ${alert.socialData.mentions.change24h >= 0 ? '#4CAF50' : '#F44336'};">
+                                    ${alert.socialData.mentions.change24h >= 0 ? '+' : ''}${alert.socialData.mentions.change24h}%
+                                </span>
+                                ${alert.socialData.trending.isTrending ? `<span style="color: #ff6b6b; font-weight: bold;">🔥 Trending #${alert.socialData.trending.rank}</span>` : ''}
+                            </div>
+                            ${alert.socialData.socialSignals.length > 0 ? `
+                                <div style="margin-top: 6px;">
+                                    ${alert.socialData.socialSignals.slice(0, 2).map(signal => `<div class="social-signal-tag">${signal}</div>`).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    ` : ''}
+
                     ${createTechnicalAnalysisPanel(alert.technicalAnalysis, alert.symbol, 'htf')}
                 </div>
             `;
@@ -3132,6 +3367,29 @@
                     ` : alert.aiPrediction && !alert.aiPrediction.available ? `
                         <div class="ai-prediction-unavailable" style="margin-top: 15px; padding: 12px; background: #fff3e0; border-radius: 8px; border: 1px solid #ffb74d; font-size: 0.85em; color: #f57c00;">
                             🤖 <strong>AI Prediction:</strong> ${alert.aiPrediction.reason}
+                        </div>
+                    ` : ''}
+                    
+                    ${alert.socialData ? `
+                        <div class="social-section" style="margin-top: 10px; padding: 8px; background: #f8f9fa; border-radius: 6px; border-left: 3px solid ${alert.socialData.sentiment.color};">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                <span style="font-size: 0.8em; font-weight: bold; color: #333;">📱 Social</span>
+                                <span style="background: ${alert.socialData.sentiment.color}; color: white; padding: 2px 6px; border-radius: 8px; font-size: 0.7em;">
+                                    ${alert.socialData.sentiment.emoji} ${alert.socialData.sentiment.label}
+                                </span>
+                            </div>
+                            <div style="display: flex; gap: 8px; font-size: 0.7em; color: #666;">
+                                <span>Mentions: ${alert.socialData.mentions.count24h.toLocaleString()}</span>
+                                <span style="color: ${alert.socialData.mentions.change24h >= 0 ? '#4CAF50' : '#F44336'};">
+                                    ${alert.socialData.mentions.change24h >= 0 ? '+' : ''}${alert.socialData.mentions.change24h}%
+                                </span>
+                                ${alert.socialData.trending.isTrending ? `<span style="color: #ff6b6b; font-weight: bold;">🔥 Trending #${alert.socialData.trending.rank}</span>` : ''}
+                            </div>
+                            ${alert.socialData.socialSignals.length > 0 ? `
+                                <div style="margin-top: 6px;">
+                                    ${alert.socialData.socialSignals.slice(0, 2).map(signal => `<div class="social-signal-tag">${signal}</div>`).join('')}
+                                </div>
+                            ` : ''}
                         </div>
                     ` : ''}
                     
@@ -3380,6 +3638,131 @@
                 refreshBtn.disabled = false;
                 refreshBtn.textContent = '🔄 Refresh Data';
             }
+        }
+
+        function displaySocialAnalysis(data) {
+            if (!data || !data.socialOverview) {
+                document.getElementById('social-overview-section').innerHTML = '<p style="text-align: center; color: #666;">Social analysis data not available</p>';
+                document.getElementById('social-trending-section').innerHTML = '';
+                return;
+            }
+
+            displaySocialOverview(data.socialOverview);
+            displaySocialTrending(data.socialTrending);
+        }
+
+        function displaySocialOverview(overview) {
+            if (!overview) return;
+
+            const overallSentiment = overview.overall;
+            const distribution = overview.distribution;
+
+            document.getElementById('social-overview-section').innerHTML = `
+                <div class="social-overview">
+                    <div class="social-overview-header">
+                        <div class="social-overview-title">📊 Overall Market Sentiment</div>
+                        <div class="social-sentiment-badge" style="background-color: ${overallSentiment.color};">
+                            ${overallSentiment.emoji} ${overallSentiment.label}
+                        </div>
+                    </div>
+                    <div class="social-stats">
+                        <div class="social-stat">
+                            <div class="social-stat-value" style="color: #4CAF50;">${distribution.bullish.count}</div>
+                            <div class="social-stat-label">Bullish (${distribution.bullish.percentage}%)</div>
+                        </div>
+                        <div class="social-stat">
+                            <div class="social-stat-value" style="color: #FFC107;">${distribution.neutral.count}</div>
+                            <div class="social-stat-label">Neutral (${distribution.neutral.percentage}%)</div>
+                        </div>
+                        <div class="social-stat">
+                            <div class="social-stat-value" style="color: #F44336;">${distribution.bearish.count}</div>
+                            <div class="social-stat-label">Bearish (${distribution.bearish.percentage}%)</div>
+                        </div>
+                        <div class="social-stat">
+                            <div class="social-stat-value">${overview.totalAnalyzed}</div>
+                            <div class="social-stat-label">Coins Analyzed</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function displaySocialTrending(trending) {
+            if (!trending || trending.length === 0) {
+                document.getElementById('social-trending-section').innerHTML = `
+                    <div class="social-trending">
+                        <div class="social-trending-header">
+                            <div class="social-trending-title">🔥 Trending Coins</div>
+                        </div>
+                        <p style="text-align: center; color: #666; font-style: italic;">No trending coins detected at this time.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            const trendingCards = trending.map(coin => `
+                <div class="trending-card">
+                    <div class="trending-card-header">
+                        <div>
+                            <div style="font-weight: bold; color: #333;">${coin.name}</div>
+                            <div style="font-size: 0.8em; color: #666; text-transform: uppercase;">${coin.symbol}</div>
+                        </div>
+                        <div class="trending-rank">#${coin.rank}</div>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                        <div class="social-sentiment-indicator" style="background-color: ${coin.sentiment.color};">
+                            ${coin.sentiment.emoji} ${coin.sentiment.label}
+                        </div>
+                        <div style="font-size: 0.8em; color: #666;">Score: ${coin.score}</div>
+                    </div>
+                    <div class="trending-platforms">
+                        ${coin.platforms.map(platform => `<div class="platform-tag">${platform}</div>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+
+            document.getElementById('social-trending-section').innerHTML = `
+                <div class="social-trending">
+                    <div class="social-trending-header">
+                        <div class="social-trending-title">🔥 Trending Coins (${trending.length})</div>
+                    </div>
+                    <div class="trending-grid">
+                        ${trendingCards}
+                    </div>
+                </div>
+            `;
+        }
+
+        function addSocialDataToCards(alerts) {
+            // This function adds social data display to existing HTF/LTF cards
+            return alerts.map(alert => {
+                if (alert.socialData) {
+                    const social = alert.socialData;
+                    alert.socialDisplay = `
+                        <div class="social-section" style="margin-top: 10px; padding: 8px; background: #f8f9fa; border-radius: 6px; border-left: 3px solid ${social.sentiment.color};">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+                                <span style="font-size: 0.8em; font-weight: bold; color: #333;">📱 Social</span>
+                                <span style="background: ${social.sentiment.color}; color: white; padding: 2px 6px; border-radius: 8px; font-size: 0.7em;">
+                                    ${social.sentiment.emoji} ${social.sentiment.label}
+                                </span>
+                            </div>
+                            <div style="display: flex; gap: 8px; font-size: 0.7em; color: #666;">
+                                <span>Mentions: ${social.mentions.count24h.toLocaleString()}</span>
+                                <span style="color: ${social.mentions.change24h >= 0 ? '#4CAF50' : '#F44336'};">
+                                    ${social.mentions.change24h >= 0 ? '+' : ''}${social.mentions.change24h}%
+                                </span>
+                                ${social.trending.isTrending ? `<span style="color: #ff6b6b; font-weight: bold;">🔥 Trending #${social.trending.rank}</span>` : ''}
+                            </div>
+                            ${social.socialSignals.length > 0 ? `
+                                <div style="margin-top: 6px;">
+                                    ${social.socialSignals.slice(0, 2).map(signal => `<div class="social-signal-tag">${signal}</div>`).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
+                    `;
+                }
+                return alert;
+            });
         }
 
         function toggleAutoRefresh() {

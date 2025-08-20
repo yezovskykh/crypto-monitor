@@ -86,6 +86,11 @@ class CryptoDashboard {
             // Analyze Cycles (Top/Bottom Analysis)
             const cycleAnalysis = await this.cryptoMonitor.analyzeCycles(coinsData, btcAnalysis, marketCapAnalysis);
 
+            // Analyze Social Sentiment
+            const socialAnalysis = await this.cryptoMonitor.analyzeSocialSentiment(coinsData);
+            const socialOverview = this.cryptoMonitor.getSocialSentimentOverview();
+            const socialTrending = this.cryptoMonitor.getSocialTrending();
+
             // Analyze individual coins for bullish, bearish, and HTF opportunities
             const bullishAlerts = [];
             const bearishAlerts = [];
@@ -100,6 +105,9 @@ class CryptoDashboard {
                     
                     // Generate AI prediction
                     const aiPrediction = this.cryptoMonitor.generateAIPrediction(coin, technicalAnalysis);
+                    
+                    // Get social data for this coin
+                    const socialData = socialAnalysis[coin.id] || null;
                     
                     const bullishData = {
                         name: coin.name || 'Unknown',
@@ -116,6 +124,7 @@ class CryptoDashboard {
                         type: 'bullish',
                         technicalAnalysis: technicalAnalysis,
                         aiPrediction: aiPrediction,
+                        socialData: socialData,
                         lastUpdated: new Date().toISOString()
                     };
                     bullishAlerts.push(bullishData);
@@ -129,6 +138,9 @@ class CryptoDashboard {
                     
                     // Generate AI prediction for bearish
                     const aiPrediction = this.cryptoMonitor.generateAIPrediction(coin, technicalAnalysis);
+                    
+                    // Get social data for this coin
+                    const socialData = socialAnalysis[coin.id] || null;
                     
                     const bearishData = {
                         name: coin.name || 'Unknown',
@@ -145,6 +157,7 @@ class CryptoDashboard {
                         type: 'bearish',
                         technicalAnalysis: technicalAnalysis,
                         aiPrediction: aiPrediction,
+                        socialData: socialData,
                         lastUpdated: new Date().toISOString()
                     };
                     bearishAlerts.push(bearishData);
@@ -158,6 +171,9 @@ class CryptoDashboard {
                     
                     // Generate AI prediction for HTF
                     const aiPrediction = this.cryptoMonitor.generateAIPrediction(coin, technicalAnalysis);
+                    
+                    // Get social data for this coin
+                    const socialData = socialAnalysis[coin.id] || null;
                     
                     const htfData = {
                         name: coin.name || 'Unknown',
@@ -175,6 +191,7 @@ class CryptoDashboard {
                         type: 'htf',
                         technicalAnalysis: technicalAnalysis,
                         aiPrediction: aiPrediction,
+                        socialData: socialData,
                         stability: htfAnalysis.stability, // Include stability metrics
                         lastUpdated: new Date().toISOString()
                     };
@@ -192,6 +209,8 @@ class CryptoDashboard {
                 btcAnalysis,
                 marketCapAnalysis,
                 cycleAnalysis,
+                socialOverview,
+                socialTrending,
                 bullishAlerts,
                 bearishAlerts,
                 htfAlerts,
@@ -211,6 +230,7 @@ class CryptoDashboard {
             await this.cryptoMonitor.saveMarketLeaderHistory();
             await this.cryptoMonitor.saveApiCache();
             await this.cryptoMonitor.saveAIPredictions();
+            await this.cryptoMonitor.saveSocialData();
             
             console.log(`✅ Analysis complete: ${bullishAlerts.length} bullish, ${bearishAlerts.length} bearish, ${htfAlerts.length} HTF opportunities found`);
 
